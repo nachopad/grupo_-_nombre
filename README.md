@@ -1,4 +1,4 @@
-# Grupo # - LUMINA e-commerce
+# Grupo 12 - LUMINA
 
 ## 🚀 Descripción del Proyecto
 
