@@ -49,4 +49,4 @@ Buscamos inspiración y referencias en diversos sitios del mercado que comparten
 
 ## 🔗 Repositorio
 
-Puedes encontrar nuestro código fuente y colaborar con nosotros en el siguiente enlace: [grupo_#_nombre](https://github.com/nachopad/grupo_12_lumina)
+Puedes encontrar nuestro código fuente y colaborar con nosotros en el siguiente enlace: [grupo_12_lumina](https://github.com/nachopad/grupo_12_lumina)
