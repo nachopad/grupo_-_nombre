@@ -1,8 +1,8 @@
-# Grupo # - Nombre del Proyecto
+# Grupo # - LUMINA e-commerce
 
 ## 🚀 Descripción del Proyecto
 
-Bienvenido al repositorio de nuestro proyecto e-commerce [nombre], donde nos especializamos en la venta de indumentaria, ropa y accesorios, con un enfoque principal en ropa deportiva. Nuestra misión es proporcionar a nuestros clientes productos de alta calidad que se adapten a sus necesidades deportivas y de estilo de vida activo.
+Bienvenido al repositorio de nuestro proyecto e-commerce Lumina, donde nos especializamos en la venta de indumentaria, ropa y accesorios, con un enfoque principal en ropa deportiva. Nuestra misión es proporcionar a nuestros clientes productos de alta calidad que se adapten a sus necesidades deportivas y de estilo de vida activo.
 
 ## 🎯 Audiencia Objetivo
 
@@ -18,10 +18,9 @@ Ofrecemos una amplia gama de productos que abarcan desde ropa deportiva de alta 
 
 ## 👥 Integrantes del Equipo
 
-- **Nombre 1** 🚀: Rol en el equipo y breve descripción.
-- **Nombre 2** 🎨: Rol en el equipo y breve descripción.
-- **Nombre 3** 🧠: Rol en el equipo y breve descripción.
-- **Nombre 4** 💻: Rol en el equipo y breve descripción.
+- **Madrigal, Lucía Valentina** 🎨:
+- **Padilla, Ignacio Agustín** 🚀: Soy Ignacio, cerca de graduarme como Analista Programador Universitario y estudiante activo en un curso Web Full Stack en DigitalHouse.      Mi enfoque se centra en el desarrollo web Frontend y Backend. No tengo grandes hobbies como tal, pero me gusta leer y salir a correr para quitar el estrés. Amo la vida y amo programar (Aunque a veces se vuelva bastante frustrante).
+- **Sanchez, Carlos Rodolfo** 🧠: Rol en el equipo y breve descripción.
 
 ## 🌐 Referentes del Mercado
 
@@ -50,4 +49,4 @@ Buscamos inspiración y referencias en diversos sitios del mercado que comparten
 
 ## 🔗 Repositorio
 
-Puedes encontrar nuestro código fuente y colaborar con nosotros en el siguiente enlace: [grupo_#_nombre](https://github.com/nachopad/grupo_-_nombre)
+Puedes encontrar nuestro código fuente y colaborar con nosotros en el siguiente enlace: [grupo_#_nombre](https://github.com/nachopad/grupo_12_lumina)
