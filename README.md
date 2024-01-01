@@ -20,7 +20,7 @@ Ofrecemos una amplia gama de productos que abarcan desde ropa deportiva de alta 
 
 - **Madrigal, Lucía Valentina** 🎨:
 - **Padilla, Ignacio Agustín** 🚀: Soy Ignacio, cerca de graduarme como Analista Programador Universitario y estudiante activo en un curso Web Full Stack en DigitalHouse.      Mi enfoque se centra en el desarrollo web Frontend y Backend. No tengo grandes hobbies como tal, pero me gusta leer y salir a correr para quitar el estrés. Amo la vida y amo programar (Aunque a veces se vuelva bastante frustrante).
-- **Sanchez, Carlos Rodolfo** 🧠: Rol en el equipo y breve descripción.
+- **Sanchez, Carlos Rodolfo** 🧠: Soy estudiante, cerca de graduarme de Analista Programador Universitario. Soy parte del equipo de desarrollo(Backend, Frontend). No tengo ningun pasatiempo puntual.
 
 ## 🌐 Referentes del Mercado
 
