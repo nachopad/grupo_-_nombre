@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-notices {
+    display: flex;
+    background-color: black;
+    height: 40px;
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.main-header-top-bar {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-header-top-bar i {
+    font-size: 20px;
+}
+
+.title {
+    font-size: 27px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.shopping-cart {
+   display: flex;
+}
+
+.shopping-mount {
+    padding-top: 7px;
+    padding-right: 7px;
+    font-size: small;
+    font-weight: bold;
+}
+
+.prueba {
+    margin-top: 105px;
+}
