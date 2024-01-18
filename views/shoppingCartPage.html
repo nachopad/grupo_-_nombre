@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumina</title>
-    <link rel="icon" href="/images/logo-lumina.png" type="image/png">
+
+    <link rel="shortcut icon" href="/images/logo-lumina.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/productDetail.css">
+
+    <link rel="stylesheet" href="/css/shoppingCartStyle.css">
     <link rel="stylesheet" href="/css/normalize.css">
 </head>
+
 <body>
+
     <header class="main-header">
         <div class="header-notices">
             <p>ENVÍO GRATIS A PARTIR DE $90.000</p>
@@ -25,7 +30,7 @@
                     <i class="fas fa-search"></i>
                 </div>
             </div>
-            <h1 class="title"><a href="/">LUMINA</a></h1>
+            <h1 class="title"><a href="#">LUMINA</a></h1>
             <div class="shopping-cart">
                 <p class="shopping-mount">0</p>
                 <i class="fas fa-shopping-bag"></i>
@@ -50,140 +55,184 @@
         </nav>
     </header>
 
+
+    <!-- Main for shopping cart -->
     <main>
-        <section class="product-detail-container">
-            <div class="item-list-breadcrumb">
-                <i class="fa fa-angle-left"></i>
-                <span class="item-list-breadcrumb-title">
-                    <span class="first-letter">
-                        <a href="/">Home</a>
-                        <span class="divider"> | </span>
-                    </span>
-                    <span class="first-letter">
-                        <a href="#">Productos</a>
-                        <span class="divider"> | </span>
-                    </span>
-                    <span class="first-letter">
-                        <span class="active">Nombre Producto</span>
-                    </span>
-                </span>
-            </div>
-        </section>
-        <section class="product-detail">
-                <article class="image-carousel-mobile">
-                    <img src="/images/productDetail/grand-court-alpha-1.jpg" alt="Zapatilla Grand Court Alpha" />
-                    <img src="/images/productDetail/grand-court-alpha-2.jpg" alt="Zapatilla Grand Court Alpha" />
-                    <img src="/images/productDetail/grand-court-alpha-3.jpg" alt="Zapatilla Grand Court Alpha" />
-                    <img src="/images/productDetail/grand-court-alpha-4.jpg" alt="Zapatilla Grand Court Alpha" />
-                </article>
-                <article class="product-images-desktop">
-                    <div class="row">
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-1.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-2.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-3.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-4.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                    </div>
-                </article>
-                <article class="details-section">
-                    <h2 class="item-show-details-title">ZAPATILLAS GRAND COURT ALPHA</h2>
-                    <div class="price-container">
-                        <span class="price-old">$ 59.000 </span>
-                        <span class="offer"> -50% </span>
-                        <span class="price-active">$ 29.500 </span>
-                    </div>
-                    <div class="item-details-cuotas">
-                        3 cuotas sin interés de
-                        <b>$ 9.833.3</b>
-                    </div>
-                    <div class="item-colors-container">
-                        <h2 class="item-colors-title">Colores</h2>
-                        <div class="color-boxes">
-                            <label class="item-show-color-option">
-                                <span class="item-show-color-brown"></span>
-                            </label>
-                            <label class="item-show-color-option">
-                                <span class="item-show-color-black"></span>
-                            </label>
-                            <label class="item-show-color-option">
-                                <span class="item-show-color-white"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="item-sizes-container">
-                        <h2 class="item-size-title">Talles</h2>
-                        <div class="sizes-boxes">
-                            <button>26</button>
-                            <button>27</button>
-                            <button>28</button>
-                            <button>29</button>
-                            <button>30</button>
-                            <button>31</button>
-                            <button>32</button>
-                            <button>33</button>
-                            <button>34</button>
-                            <button>35</button>
-                            <button>36</button>
-                            <button>37</button>
-                            <button>38</button>
-                            <button>39</button>
-                            <button>40</button>
-                        </div>
-                    </div>
-                    <div class="size-guide-container">
-                        <div class="item-sizes-guide-container">
-                            <img src="images/productDetail/ruler-tool.svg" />
-                            <a class="item-sizes-guide">Tabla de talles</a>
-                        </div>
-                        <div class="fit-prenda-link-container">
-                            <img src="/images/productDetail/hanger-tool.svg" />
-                            <a class="item-sizes-guide">¿Cuál es tu talle?</a>
-                        </div>
-                    </div>
-                    <div class="buy-button">
-                        <button class="item-show-btn">añadir al carrito</button>
-                    </div>
-                    <div class="item-show-details-more-info">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h5 class="item-show-details-more-info-title">
-                                    Descripción y Cuidados
-                                </h5>
+        <section class="container-shopping-cart">
+
+            <!-- PRODUCT LIST -->
+            <section class="product-list">
+                <header>
+                    <h4>CARRITO</h4>
+                </header>
+                <section class="shopping-info">
+                    <article>
+                        <a href="#">
+                            <h4>ENVÍOS A TODO EL PAÍS</h4>
+                            <p>Recibi tu pedido de 3 a 5 días hábiles. Conocé más acá.</p>
+                        </a>
+
+                    </article>
+                    <article>
+                        <a href="#">
+                            <h4>CAMBIOS Y DEVOLUCIONES</h4>
+                            <p>Hasta 30 días después de haber realizado la compra. Conocé más acá.</p>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#s">
+                            <h4>MÉTODOS DE PAGO</h4>
+                            <p>3 cuotas sin interés y 6 cuotas sin interés a partir de $60.000.</p>
+                        </a>
+                    </article>
+                </section>
+
+                <div class="table-header">
+                    <h3 class="first-header-info">ART.</h3>
+                    <h3 class="talle-header-info">TALLE</h3>
+                    <h3 class="cantidad-header-info">Cant.</h3>
+                    <h3 class="precio-header-info">Precio</h3>
+                    <h3 class="borrar-header-info">Borrar</h3>
+                </div>
+
+                <article class="container-product">
+
+                    <img src="https://markova.com/uploads/picture/image/55215/A503FB_1.jpg">
+                    
+                    <div class="product-info">
+                        <h4 class="product-name">
+                            Pantalón Mindil
+                            <div class="color-table">
+                                Color: Frambuesa
                             </div>
-                            <div class="panel-body">
-                                <p>
-                                    Las 3 Tiras evocan el legado de Lumina. Y cuando se las combina con estas zapatillas 
-                                    adidas Grand Court Alpha, celebran generaciones de originalidad. La silueta minimalista 
-                                    crea ese look atemporal. El logo en relieve en la lengüeta y las elegantes costuras le 
-                                    dan un toque moderno. La amortiguación Cloudfoam le inyecta comodidad a cada uno de tus 
-                                    pasos.
-                                </p>
-                                <br />
-                                <p>
-                                    Cuidados: Lavar a máquina del revés, temperatura max. 30°
-                                </p>
-                                <br />
-                                <p>
-                                    Composición: 98% Algodón 2% Spandex
-                                </p>
-                            </div>
+                        </h4>
+                        <h4 class="talle"><span>Talle:</span> 40</h4>
+                        <h4 class="color">Color: Frambuesa</h4>
+                        <div class="content-price">
+                            <p class="price">$ 89,0000</p>
+                            <p class="discount">$ 45,000</p>
+                        </div>
+
+                        <div class="container-button-add-subtract">
+                            <button type="button" class="minus">-</button>
+                            <p>N</p>
+                            <button type="button" class="plus">+</button>
                         </div>
                     </div>
+                    <div class="delete-icon">
+                        <button type="button">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        
+                    </div>
                 </article>
+
+                <!-- Segundo producto -->
+                <article class="container-product">
+
+                    <img src="https://markova.com/uploads/picture/image/55224/A506PL_1.jpg">
+                    
+                    <div class="product-info">
+                        <h4 class="product-name">
+                            Top Necker
+                            <div class="color-table">
+                                Color: Plata
+                            </div>
+                        </h4>
+                        <h4 class="talle"><span>Talle:</span> 3</h4>
+                        <h4 class="color">Color: Plata</h4>
+                        <div class="content-price">
+                            <p class="price">$ 158,0000</p>
+                        </div>
+
+                        <div class="container-button-add-subtract">
+                            <button type="button" class="minus">-</button>
+                            <p>N</p>
+                            <button type="button" class="plus">+</button>
+                        </div>
+                    </div>
+                    <div class="delete-icon">
+                        <button type="button">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </section>
+
+
+
+            <section class="container-form">
+
+                <article class="help-me">
+                    <p><span>¿Necesitas ayuda?</span> Consulta nuestras <a href="#">preguntas frecuentes</a></p>
+                </article>
+
+                <form action="#" method="post" class="style-form">
+                    <div>
+                        <label for="add-discount">¿Tenés un código de descuento?</label>
+                        <input type="text" name="add-discount" id="add-discount" placeholder="Código de descuento">
+                        <button type="button" class="button-style">APLICAR</button>
+                    </div>
+                </form>
+
+                <form action="" method="post" class="style-form">
+                    <div>
+                        <label for="send-method">Selecioná un tipo de envío</label>
+                        <select name="send-method" id="send-method" class="shipping-option">
+                            <option value="#" selected disabled>Elegí un método de envío</option>
+                            <option value="domicilio">Envío a domicilio - $ N</option>
+                            <option value="sucursal">Retiro en Sucursal ? - $ N</option>
+                            <option value="local">Retiro en local Sin Cargo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="resumen-header">
+                            <p>Subtotal</p>
+                            <p>Envío</p>
+                            <h4 class="total">Total</h4>
+                        </div>
+
+                        <div class="resumen-content">
+                            <p>$ ##,#####</p>
+                            <p>No seleccionado</p>
+                            <h4 class="total">$ ##,#####</h4>
+                        </div>
+                    </div>
+
+
+                    <div class="container-button">
+                        <button type="submit" class="button-style">COMPLETAR COMPRA</button>
+                        <button type="button" class="button-continue">SEGUIR COMPRANDO</button>
+                    </div>
+
+                </form>
+
+            </section>
         </section>
         <a class="btn-whatsapp bt-wsp-right">
             <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />
         </a>
     </main>
 
+
     <footer>
+        <section class="footer-pick-up">
+            <article>
+                <img src="/images/index/main-footer-pick-up.jpg" alt="LOCALES & PICK UP" />
+                <div class="pick-up-content">
+                    <h3>
+                        <a href="#">LOCALES & PICK UP</a>
+                    </h3>
+                    <h5>
+                        <a href="#">Hacé click acá y conoce toda la info sobre nuestros locales y puntos de retiro.</a>
+                    </h5>
+                    <p>
+                        <a href="#">Ver más</a>
+                    </p>
+                </div>
+            </article>
+        </section>
         <section class="frequent-questions">
             <article>
                 <a href="#"> 
@@ -317,5 +366,8 @@
             </article>
         </section>
     </footer>
+
+
 </body>
+
 </html>
