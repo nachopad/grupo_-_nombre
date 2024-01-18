@@ -1,0 +1,820 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0px;
+    outline: 0;
+    font-size: 12px;
+    color: #222222;
+}
+
+
+/**
+ESTILOS PARA EL HEADER
+**/
+
+.header-notices {
+    display: flex;
+    background-color: black;
+    height: 30px;
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.main-header-top-bar {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-header-top-bar i {
+    font-size: 20px;
+}
+
+.main-header-top-left {
+    display: flex;
+}
+
+.search-bar {
+    padding-left: 22px;
+}
+
+.title {
+    font-size: 27px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.title a {
+    text-decoration: none;
+    color: black;
+}
+
+.shopping-cart {
+   display: flex;
+}
+
+.shopping-mount {
+    padding-top: 7px;
+    padding-right: 7px;
+    font-size: small;
+    font-weight: bold;
+}
+.nav-container{
+    display: none;
+}
+
+
+/*
+    STYLE FOR PRODUCT LIST
+*/
+main{
+    margin-top: 100px;
+    padding: 15px 70px;
+}
+
+.shopping-info,
+.table-header,
+.help-me {
+    display: none;
+}
+
+.container-shopping-cart {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-list {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-list header {
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 1px gray solid;
+    margin-bottom: 12px;
+}
+
+.container-product {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 12px;
+    border-bottom: 1px solid #D7D7D8;
+}
+
+.container-product img {
+    width: 30%;
+}
+
+.product-info {
+    width: 60%;
+    align-self: center;
+    padding-left: 15px;
+}
+
+.delete-icon {
+    width: 10%;
+    text-align: center;
+}
+.delete-icon button{
+    background-color: white;
+    border: none;
+}
+
+.delete-icon i {
+    font-size: 20px;
+}
+.delete-icon i:active{
+    color: red;
+}
+
+.product-name {
+    margin-bottom: 12px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+
+.color-table {
+    display: none;
+}
+
+.talle,
+.color,
+.color-table {
+    font-weight: 100;
+    color: #888888;
+    font-size: 0.80rem;
+}
+
+.content-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.content-price .price {
+    text-decoration: line-through;
+}
+
+.content-price .discount {
+    color: red;
+    font-weight: bold;
+}
+
+.container-button-add-subtract {
+    display: flex;
+    margin: 12px 0px;
+    border: 1px solid #bdb4b4;
+    width: 100%;
+    max-width: 110px;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 32px;
+}
+
+.container-button-add-subtract button {
+    width: 30%;
+    background-color: white;
+    outline: none;
+    height: 100%;
+}
+
+.minus {
+    padding: 2px;
+    border: none;
+    border-right: 1px solid #888888;
+}
+
+.plus {
+    padding: 2px;
+    border: none;
+    border-left: 1px solid #888888;
+}
+
+/* END OF PRODUCT LIST STYLE*/
+
+.container-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 12px;
+}
+
+/*FORMULARIO DE DESCUENTO*/
+.style-form {
+    background-color: #F6F6F6;
+    width: 100%;
+    padding: 30px 35px;
+    margin: 10px 0px;
+}
+
+.style-form div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.style-form label {
+    width: 100%;
+    padding-bottom: 15px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.style-form input {
+    width: 60%;
+    border: 1px solid #D7D7D8;
+    padding: 15px 15px;
+    height: 45px;
+    outline: none;
+}
+
+/*Estilo del boton*/
+.style-form .button-style {
+    width: 40%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 45px;
+}
+
+.shipping-option {
+    width: 100%;
+    height: 45px;
+    padding: 10px 8px;
+    outline: none;
+}
+
+.resumen-header,
+.resumen-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 18px;
+    width: 50%;
+    padding: 15px 0px;
+}
+
+.resumen-content {
+    text-align: end;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.container-button {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-button>.button-style {
+    width: 100%;
+}
+
+.button-style:active {
+    background-color: #F6F6F6;
+    color: black;
+    border: 1px solid black;
+}
+
+.container-button>.button-continue {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 45px;
+    border: 1px solid black;
+}
+
+.button-continue:active {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+
+/**
+    ESTILOS PARA EL FOOTER MOBILE
+**/
+
+.footer-pick-up {
+    position: relative;
+    text-align: center;
+}
+
+.footer-pick-up img {
+    max-width: 100%;
+    height: auto;
+}
+
+.pick-up-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    width: 90%; 
+}
+
+.pick-up-content h3 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pick-up-content h3 a, .pick-up-content h5 a {
+    text-decoration: none;
+} 
+
+.pick-up-content p {
+    margin-top: 30px;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.pick-up-content a {
+    color: inherit;
+}
+
+.frequent-questions {
+    padding: 42px 30px;
+    text-align: center;
+}
+
+.frequent-questions article {
+    display: block;
+    margin-bottom: 40px;
+    padding: 0 15px;
+}
+
+.frequent-questions article a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.fq-title {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.footer-content article {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    border: 0;
+    border-top: 1px solid #E5E5E5;
+    box-shadow: none;
+    background-color: #F6F6F6;
+    margin-top: 0;
+    padding: 15px 0;
+}
+
+.footer-content-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.fc-panel-body {
+    text-align: left;
+    padding: 10px;
+}
+
+.fc-panel-body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.main-newslatter {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    white-space: nowrap;
+    border-bottom: 1px solid #222222;
+    color: #222222;
+    padding: 5px 0;
+    font-weight: 500;
+    height: 33px;
+    font-size: 1.083rem;
+}
+
+.nl-confirm-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.083rem;
+    padding: 15px;
+    border: 1px solid #222;
+    background-color: #222;
+    color: white;
+}
+
+.nl-confirm-button button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 0;
+}
+
+/* Estilo básico para ocultar los checkboxes predeterminados */
+.newslatter-subscribed input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilo para los contenedores de los checkboxes (círculos) */
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+/* Estilo para el círculo exterior del checkbox */
+.checkbox::before {
+    content: "";
+    display: inline-block;
+    width: 20px; 
+    height: 20px; 
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Estilo para cambiar el fondo del círculo cuando el checkbox está marcado */
+.newslatter-subscribed input[type="checkbox"]:checked + .checkbox::before {
+    background-color: #000; /* Relleno negro cuando el checkbox está marcado */
+}
+
+.newslatter-subscribed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.social-networks p, .contact p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    padding: 24px 24px;
+    text-align: center;
+    color: black
+}
+@media (min-width: 768px) {
+
+    /**
+        ESTILOS PARA EL HEADER EN TABLETS
+    **/
+
+    .main-header-top-bar {
+        justify-content: space-between;
+    }
+    .main-header-top-left, .shopping-cart {
+        padding: 0 25px;
+     }
+}
+
+/* Style for desktop */
+@media (min-width: 1200px) {
+
+
+     /**
+        ESTILOS PARA EL HEADER DESKTOP
+    **/
+    .main-header-top-bar {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-header-top-left, .shopping-cart {
+        padding: 0;
+     }
+
+    .title {
+        margin-bottom: 5px;
+    }
+
+    .burger-menu, .search-bar, .shopping-cart {
+        display: none;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        padding-bottom: 10px;
+    }
+
+    .nav-items a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .nav-words, .nav-icons {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .nav-words {
+        flex-grow: 1;
+        justify-content: center; 
+        padding-left: 180px;
+    }
+
+    .nav-words li {
+        padding: 0 30px;
+    }
+
+    .nav-icons {
+        margin-right: 80px;
+    }
+
+    .nav-icons li {
+        margin-left: 20px;
+    }
+
+    .shopping-cart-pc {
+        display: flex;
+        align-items: center;
+    }
+
+    .shopping-mount-pc {
+        padding-top: 7px;
+        padding-right: 7px;
+        font-size: small;
+        font-weight: bold;
+    }
+
+
+    .container-shopping-cart {
+        justify-content: space-around;
+    }
+
+    .product-list {
+        display: block;
+        width: 68%;
+        margin: 0;
+        padding-left: 12px;
+        margin: 12px 0px;
+    }
+
+    .container-form {
+        width: 30%;
+    }
+
+    .shopping-info,
+    .table-header,
+    .help-me {
+        display: block;
+    }
+
+    /* header */
+    .product-list header {
+        font-size: 1.3rem;
+        text-align: start;
+        padding: 0px;
+        border-bottom: none;
+        margin: 5px 0px;
+    }
+
+    .shopping-info {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #F6F6F6;
+    }
+
+    .shopping-info a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #222222;
+    }
+
+    .shopping-info article {
+        max-width: 220px;
+        padding: 12px 0px;
+        font-size: 0.7rem;
+    }
+
+    .table-header {
+        display: flex;
+        width: 100%;
+        justify-content: end;
+        border-bottom: 1px solid #b9b6b6;
+        padding: 15px 0px;
+    }
+
+    .first-header-info {
+        width: 40%;
+    }
+
+    .talle-header-info,
+    .cantidad-header-info,
+    .precio-header-info,
+    .borrar-header-info {
+        width: 15%;
+        padding: 0px 12px;
+    }
+    .cantidad-header-info{
+        text-align: center;
+        padding-right: 20px;
+    }
+    .precio-header-info, .borrar-header-info{
+        text-align: end;
+    }
+
+    .container-product {
+        width: 100%;
+        max-height: 180px;
+        padding: 0px 0px 10px 0px;
+        margin: 20px 0px;
+    }
+
+    .container-product img {
+        max-width: 120px;
+        padding-left: 12px;
+    }
+
+    .product-info {
+        width: 75%;
+        display: grid;
+        grid-gap: 1px;
+        padding-left: 0px;
+        grid-template-columns: repeat(4, 1fr);
+        margin-left: 7px;
+        align-items: center;
+    }
+
+    .delete-icon {
+        width: 10%;
+        align-self: center;
+        text-align: center;
+    }
+
+    .color {
+        order: -1;
+    }
+
+    .product-name {
+        order: -1;
+        padding: 0;
+        margin: 0;
+    }
+
+    .content-price {
+        order: 1;
+        justify-content: center;
+    }
+
+    .talle span {
+        display: none;
+    }
+
+    .delete-icon i {
+        font-size: 20px;
+    }
+
+    .container-button-add-subtract {
+        margin: 0px 12px;
+        padding: 0;
+    }
+
+    .color {
+        display: none;
+    }
+    .talle{
+        text-align: center;
+    }
+    .color-table {
+        display: block;
+    }
+
+    /* FORMULARIO */
+    .container-form{
+        margin: 12px 0px;
+        display: block;
+    }
+    .help-me{
+        width: 100%;
+        font-size: 0.7rem;
+        padding-top: 12px;
+    }
+    .help-me span{
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+    .help-me a{
+        color: black;
+        text-decoration: underline;
+    }
+
+    /**
+        ESTILOS PARA EL FOOTER DESKTOP
+    **/
+
+    .pick-up-content h3 {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .pick-up-content h5 {
+        font-size: 13px;
+    }
+    
+    .pick-up-content p {
+        font-size: 14px;
+    }
+
+    .frequent-questions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 66px 76px 77px 76px;
+        text-align: left;
+    }
+
+    .fq-title {
+        margin-bottom: 18px;
+    }
+
+    .fq-description {
+        width: 75%;
+    }
+
+    .frequent-questions article {
+        margin: 0 15px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer-content article {
+        width: calc(25% - 30px);
+        margin-bottom: 30px;
+    }
+
+    .footer-content article:last-child {
+        display: none;
+    }
+
+    .footer-content-top {
+        justify-content: space-between;
+    }
+
+    .fc-panel-body {
+        text-align: left;
+    }
+
+    .social-networks p, .contact p {
+        margin-bottom: 15px;
+    }
+
+}
