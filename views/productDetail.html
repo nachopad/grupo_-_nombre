@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/productDetail.css">
     <link rel="stylesheet" href="/css/normalize.css">
 </head>
 <body>
@@ -51,112 +51,132 @@
     </header>
 
     <main>
-        <section class="sale-section">
-            <article>
-                <video class="sale-video-mobile" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" src="/videos/index/lumina-off-mobile-video.mp4"></video>
-            </article>
-            <article>
-                <video class="sale-video-desktop" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" src="/videos/index/lumina-off-desktop-video.mp4"></video>
-            </article>
-        </section>
-        <section class="featured-products">
-            <header class="carousel-title">
-                <h4>Productos Destacados</h4>
-                <div class="swipper-buttons">
-                    <div>
-                        <img src="images/index/swipper-button-left.svg" alt="swp left" />
-                    </div>
-                    <div>
-                        <img src="images/index/swipper-button-right.svg" alt="swp right"/>
-                    </div>
-                </div>
-            </header>
-            <div class="carousel-container">
-                <div class="carousel-item">
-                    <img src="/images/index/racer-sneaker.jpg" alt="Zapatillas Racer">
-                    <div class="item-description">
-                        <p class="item-name">ZAPATILLAS RACER</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$103.000</p>
-                            <p class="item-price">$114.999</p>
-                            <p class="item-discount">%10</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/bluewater-sweden.jpg" alt="Producto 3">
-                    <div class="item-description">
-                        <p class="item-name">BOTELLA AGUA LUMINA</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$35.000</p>
-                            <p class="item-price">$33,250</p>
-                            <p class="item-discount">%5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/hoodie.jpg" alt="Producto 4">
-                    <div class="item-description">
-                        <p class="item-name">SUDADERA NEGRA DEPORTIVA</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$103.000</p>
-                            <p class="item-price">$114.999</p>
-                            <p class="item-discount">%10</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/soccer-ball.jpg" alt="Producto 4">
-                    <div class="item-description">
-                        <p class="item-name">PELOTA FUTBOL</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$39.100</p>
-                            <p class="item-price">$46.000</p>
-                            <p class="item-discount">%10</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/women-sport-pants.jpg" alt="Producto 2">
-                    <div class="item-description">
-                        <p class="item-name">PANTALON DEPORTIVO MUJER</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$55.000</p>
-                            <p class="item-price">$41,250</p>
-                            <p class="item-discount">%25</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="product-detail-container">
+            <div class="item-list-breadcrumb">
+                <i class="fa fa-angle-left"></i>
+                <span class="item-list-breadcrumb-title">
+                    <span class="first-letter">
+                        <a href="/">Home</a>
+                        <span class="divider"> | </span>
+                    </span>
+                    <span class="first-letter">
+                        <a href="#">Productos</a>
+                        <span class="divider"> | </span>
+                    </span>
+                    <span class="first-letter">
+                        <span class="active">Nombre Producto</span>
+                    </span>
+                </span>
             </div>
         </section>
-        <section class="catalog">
-            <article>
-                <div class="catalog-item">
-                    <img src="/images/index/sneakers.jpg" />
-                    <div class="text-overlay">
-                        <p>CALZADO</p>
-                        <a>VER MÁS</a>
+        <section class="product-detail">
+                <article class="image-carousel-mobile">
+                    <img src="/images/productDetail/grand-court-alpha-1.jpg" alt="Zapatilla Grand Court Alpha" />
+                    <img src="/images/productDetail/grand-court-alpha-2.jpg" alt="Zapatilla Grand Court Alpha" />
+                    <img src="/images/productDetail/grand-court-alpha-3.jpg" alt="Zapatilla Grand Court Alpha" />
+                    <img src="/images/productDetail/grand-court-alpha-4.jpg" alt="Zapatilla Grand Court Alpha" />
+                </article>
+                <article class="product-images-desktop">
+                    <div class="row">
+                        <div class="image-container">
+                            <img src="/images/productDetail/grand-court-alpha-1.jpg" alt="Zapatilla Grand Court Alpha" />
+                        </div>
+                        <div class="image-container">
+                            <img src="/images/productDetail/grand-court-alpha-2.jpg" alt="Zapatilla Grand Court Alpha" />
+                        </div>
+                        <div class="image-container">
+                            <img src="/images/productDetail/grand-court-alpha-3.jpg" alt="Zapatilla Grand Court Alpha" />
+                        </div>
+                        <div class="image-container">
+                            <img src="/images/productDetail/grand-court-alpha-4.jpg" alt="Zapatilla Grand Court Alpha" />
+                        </div>
                     </div>
-                </div>
-            </article>
-            <article>
-                <div class="catalog-item">
-                    <img src="/images/index/sportswear.jpg" />
-                    <div class="text-overlay">
-                        <p>ROPA</p>
-                        <a>VER MÁS</a>
+                </article>
+                <article class="details-section">
+                    <h2 class="item-show-details-title">ZAPATILLAS GRAND COURT ALPHA</h2>
+                    <div class="price-container">
+                        <span class="price-old">$ 59.000 </span>
+                        <span class="offer"> -50% </span>
+                        <span class="price-active">$ 29.500 </span>
                     </div>
-                </div>
-            </article>
-            <article>
-                <div class="catalog-item">
-                    <img src="/images/index/accesories.jpg" />
-                    <div class="text-overlay">
-                        <p>ACCESORIOS</p>
-                        <a>VER MÁS</a>
+                    <div class="item-details-cuotas">
+                        3 cuotas sin interés de
+                        <b>$ 9.833.3</b>
                     </div>
-                </div>
-            </article>
+                    <div class="item-colors-container">
+                        <h2 class="item-colors-title">Colores</h2>
+                        <div class="color-boxes">
+                            <label class="item-show-color-option">
+                                <span class="item-show-color-brown"></span>
+                            </label>
+                            <label class="item-show-color-option">
+                                <span class="item-show-color-black"></span>
+                            </label>
+                            <label class="item-show-color-option">
+                                <span class="item-show-color-white"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="item-sizes-container">
+                        <h2 class="item-size-title">Talles</h2>
+                        <div class="sizes-boxes">
+                            <button>26</button>
+                            <button>27</button>
+                            <button>28</button>
+                            <button>29</button>
+                            <button>30</button>
+                            <button>31</button>
+                            <button>32</button>
+                            <button>33</button>
+                            <button>34</button>
+                            <button>35</button>
+                            <button>36</button>
+                            <button>37</button>
+                            <button>38</button>
+                            <button>39</button>
+                            <button>40</button>
+                        </div>
+                    </div>
+                    <div class="size-guide-container">
+                        <div class="item-sizes-guide-container">
+                            <img src="images/productDetail/ruler-tool.svg" />
+                            <a class="item-sizes-guide">Tabla de talles</a>
+                        </div>
+                        <div class="fit-prenda-link-container">
+                            <img src="/images/productDetail/hanger-tool.svg" />
+                            <a class="item-sizes-guide">¿Cuál es tu talle?</a>
+                        </div>
+                    </div>
+                    <div class="buy-button">
+                        <button class="item-show-btn">añadir al carrito</button>
+                    </div>
+                    <div class="item-show-details-more-info">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5 class="item-show-details-more-info-title">
+                                    Descripción y Cuidados
+                                </h5>
+                            </div>
+                            <div class="panel-body">
+                                <p>
+                                    Las 3 Tiras evocan el legado de Lumina. Y cuando se las combina con estas zapatillas 
+                                    adidas Grand Court Alpha, celebran generaciones de originalidad. La silueta minimalista 
+                                    crea ese look atemporal. El logo en relieve en la lengüeta y las elegantes costuras le 
+                                    dan un toque moderno. La amortiguación Cloudfoam le inyecta comodidad a cada uno de tus 
+                                    pasos.
+                                </p>
+                                <br />
+                                <p>
+                                    Cuidados: Lavar a máquina del revés, temperatura max. 30°
+                                </p>
+                                <br />
+                                <p>
+                                    Composición: 98% Algodón 2% Spandex
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
         </section>
         <a class="btn-whatsapp bt-wsp-right">
             <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />
@@ -164,22 +184,6 @@
     </main>
 
     <footer>
-        <section class="footer-pick-up">
-            <article>
-                <img src="/images/index/main-footer-pick-up.jpg" alt="LOCALES & PICK UP" />
-                <div class="pick-up-content">
-                    <h3>
-                        <a href="#">LOCALES & PICK UP</a>
-                    </h3>
-                    <h5>
-                        <a href="#">Hacé click acá y conoce toda la info sobre nuestros locales y puntos de retiro.</a>
-                    </h5>
-                    <p>
-                        <a href="#">Ver más</a>
-                    </p>
-                </div>
-            </article>
-        </section>
         <section class="frequent-questions">
             <article>
                 <a href="#"> 
@@ -243,7 +247,7 @@
             </article>
             <article>
                 <div class="footer-content-top">
-                    <p>Seguinos en nuestras redes</p>
+                    <p>Seguinos en nuestras redes.</p>
                     <i class="fas fa-angle-up"></i>
                 </div>
                 <div class="fc-panel-body">
