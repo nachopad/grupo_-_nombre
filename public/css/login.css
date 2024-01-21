@@ -105,9 +105,16 @@ body{
 .input-information input{
     border-radius: 5px;
     outline: 0;
-    border: 1px solid black;
-    padding: 2px 12px;
+    border: 2px solid white;
+    padding: 5px 0px;
+    width: 80%;
+    transition: border-color 1s;
 }
+
+.input-information input:focus {
+    border: 2px solid black;
+    outline: none;
+  }
 
 .help-me{
     display: flex;
@@ -158,6 +165,7 @@ body{
     border: 1px solid black;
     font-size: 13px;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .button-continue:hover {

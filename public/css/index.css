@@ -488,8 +488,7 @@ a.btn-whatsapp {
     }
 
     .nav-items a:hover {
-        color: white;
-        background-color: #222;
+        border-bottom: 1px solid black;
     }
 
     .nav-words, .nav-icons {
