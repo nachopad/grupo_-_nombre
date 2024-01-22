@@ -19,7 +19,7 @@ app.get('/detalle-producto', (req, res) => {
 });
 
 app.get('/carrito-de-compras', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/shoppingCartPage.html'));
+    res.sendFile(path.join(__dirname, '/views/shoppingCart.html'));
 });
 
 app.get('/login', (req, res)=>{
