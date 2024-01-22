@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0px;
+    outline: 0;
+    font-size: 12px;
+    color: #222222;
+}
+
+/**
+ESTILOS PARA EL HEADER
+**/
+
+.header-notices {
+    display: flex;
+    background-color: black;
+    height: 30px;
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.main-header-top-bar {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-header-top-bar i {
+    font-size: 20px;
+}
+
+.main-header-top-left {
+    display: flex;
+}
+
+.search-bar {
+    padding-left: 22px;
+}
+
+.title {
+    font-size: 27px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.title a {
+    text-decoration: none;
+    color: black;
+}
+
+.shopping-cart {
+   display: flex;
+}
+
+.shopping-mount {
+    padding-top: 7px;
+    padding-right: 7px;
+    font-size: small;
+    font-weight: bold;
+}
+
+/**
+    ESTILOS PARA EL MAIN MOBILE
+**/
+
+main {
+    margin-bottom: 1px;
+    margin-top: 70px;
+}
+
+.nav-container {
+    display: none;
+}
+
+.sale-video-desktop {
+    display: none;
+ }
+
+.sale-video-mobile {
+   width: 100vw;
+}
+
+.featured-products {
+    padding-left: 20px;
+    margin: 34px 0px 20px 0px;
+}
+
+.carousel-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    position: relative;
+}
+
+.swipper-buttons {
+    position: absolute;
+    right: 5%;
+    display: flex;
+    width: 30px;
+    justify-content: space-between;
+}
+
+.carousel-container {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Edge */
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 40%;
+    margin-right: 10px;
+    scroll-snap-align: start;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+.item-description {
+    margin-top: 6px;
+}
+
+.item-price-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-right: 15px;
+}
+
+.item-price-old {
+    color: #888888;
+    text-decoration: line-through;
+}
+
+.item-discount {
+    color: #FF1818;
+    font-weight: 700;
+}
+
+/* Ocultar la barra de desplazamiento en Chrome, Safari y nuevos Edge */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ .catalog article {
+    position: relative;
+ }
+
+.catalog article img{
+    width: 100%;
+}
+
+.catalog article .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 60%;
+    height: 50px;
+    
+}
+
+.catalog article .text-overlay p {
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 5px;
+}
+
+.catalog article .text-overlay a {
+    font-size: 13px;
+    color: inherit;
+    text-decoration: underline;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.btn-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1;
+}
+
+.btn-whatsapp img {
+    animation: fadeInOut 5s infinite;
+}
+
+a.btn-whatsapp {
+    cursor: pointer;
+}
+
+.bt-wsp-right {
+    right: 20px;
+    left: auto;
+}
+
+/**
+    ESTILOS PARA EL FOOTER MOBILE
+**/
+
+.footer-pick-up {
+    position: relative;
+    text-align: center;
+}
+
+.footer-pick-up img {
+    max-width: 100%;
+    height: auto;
+}
+
+.pick-up-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    width: 90%; 
+}
+
+.pick-up-content h3 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pick-up-content h3 a, .pick-up-content h5 a {
+    text-decoration: none;
+} 
+
+.pick-up-content p {
+    margin-top: 30px;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.pick-up-content a {
+    color: inherit;
+}
+
+.frequent-questions {
+    padding: 42px 30px;
+    text-align: center;
+}
+
+.frequent-questions article {
+    display: block;
+    margin-bottom: 40px;
+    padding: 0 15px;
+}
+
+.frequent-questions article a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.fq-title {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.footer-content article {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    border: 0;
+    border-top: 1px solid #E5E5E5;
+    box-shadow: none;
+    background-color: #F6F6F6;
+    margin-top: 0;
+    padding: 15px 0;
+}
+
+.footer-content-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.fc-panel-body {
+    text-align: left;
+    padding: 10px;
+}
+
+.fc-panel-body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.main-newslatter {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    white-space: nowrap;
+    border-bottom: 1px solid #222222;
+    color: #222222;
+    padding: 5px 0;
+    font-weight: 500;
+    height: 33px;
+    font-size: 1.083rem;
+}
+
+.nl-confirm-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.083rem;
+    height: 50px;
+    border: 1px solid #222;
+}
+
+.nl-confirm-button button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    transition: all 0.5s ease;
+}
+
+.nl-confirm-button button:hover {
+    background-color: #222;
+    color: white;
+}
+
+/* Estilo básico para ocultar los checkboxes predeterminados */
+.newslatter-subscribed input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilo para los contenedores de los checkboxes (círculos) */
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+/* Estilo para el círculo exterior del checkbox */
+.checkbox::before {
+    content: "";
+    display: inline-block;
+    width: 20px; 
+    height: 20px; 
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Estilo para cambiar el fondo del círculo cuando el checkbox está marcado */
+.newslatter-subscribed input[type="checkbox"]:checked + .checkbox::before {
+    background-color: #000; /* Relleno negro cuando el checkbox está marcado */
+}
+
+.newslatter-subscribed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.social-networks p, .contact p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    padding: 24px 24px;
+    text-align: center;
+    color: black
+}
+
+@media (min-width: 768px) {
+
+    /**
+        ESTILOS PARA EL HEADER EN TABLETS
+    **/
+
+    .main-header-top-bar {
+        justify-content: space-between;
+    }
+
+    .main-header-top-left, .shopping-cart {
+       padding: 0 25px;
+    }
+
+    /**
+        ESTILOS PARA EL MAIN TABLETS
+    **/
+
+    .catalog article {
+        width: 50%;
+        overflow: hidden;
+     }
+
+     .catalog article:nth-child(3) {
+        width: 100%;
+        height: 500px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    /**
+        ESTILOS PARA EL HEADER DESKTOP
+    **/
+    .main-header-top-bar {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-header-top-left, .shopping-cart {
+        padding: 0;
+     }
+
+    .title {
+        margin-bottom: 5px;
+    }
+
+    .burger-menu, .search-bar, .shopping-cart {
+        display: none;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+    .nav-items a {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        padding: 5px;
+    }
+
+    .nav-items a:hover {
+        border-bottom: 1px solid black;
+    }
+
+    .nav-words, .nav-icons {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .nav-words {
+        flex-grow: 1;
+        justify-content: center; 
+        padding-left: 180px;
+    }
+
+    .nav-words li {
+        padding: 0 30px;
+    }
+
+    .nav-icons {
+        margin-right: 80px;
+    }
+
+    .nav-icons li {
+        margin-left: 20px;
+    }
+
+    .shopping-cart-pc {
+        display: flex;
+        align-items: center;
+    }
+
+    .shopping-mount-pc {
+        padding-top: 7px;
+        padding-right: 7px;
+        font-size: small;
+        font-weight: bold;
+    }
+
+    /**
+        ESTILOS PARA EL MAIN DESKTOP
+    **/
+
+    .sale-video-mobile {
+        display: none;
+     }
+
+     .sale-video-desktop {
+        display: block;
+        max-width: 100%;
+        height: auto;
+     }
+
+     .carousel-title {
+        font-size: 23px;
+        margin-bottom: 30px;
+    }
+
+     .carousel-item {
+        width: 22%;
+        margin-right: 20px;
+    }
+
+    .carousel-item img {
+        width: 100%;
+    }
+
+    .featured-products {
+        padding-left: 80px;
+    }
+
+    /**
+        ESTILOS PARA EL FOOTER DESKTOP
+    **/
+
+    .pick-up-content h3 {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .pick-up-content h5 {
+        font-size: 13px;
+    }
+    
+    .pick-up-content p {
+        font-size: 14px;
+    }
+
+    .frequent-questions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 66px 76px 77px 76px;
+        text-align: left;
+    }
+
+    .fq-title {
+        margin-bottom: 18px;
+    }
+
+    .fq-description {
+        width: 75%;
+    }
+
+    .frequent-questions article {
+        margin: 0 15px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer-content article {
+        width: calc(25% - 30px);
+        margin-bottom: 30px;
+    }
+
+    .footer-content article:last-child {
+        display: none;
+    }
+
+    .footer-content-top {
+        justify-content: space-between;
+    }
+
+    .fc-panel-body {
+        text-align: left;
+    }
+
+    .social-networks p, .contact p {
+        margin-bottom: 15px;
+    }
+
+}

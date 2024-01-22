@@ -19,8 +19,11 @@ Ofrecemos una amplia gama de productos que abarcan desde ropa deportiva de alta 
 ## 👥 Integrantes del Equipo
 
 - **Madrigal, Lucía Valentina** 🎨:Soy Valentina, estoy estudiando la carrera Analista Programador Universitario. Mis hobbies son ir al gimnasio, escuchar musica y leer. Actualmente estoy en el curso de DigitalHouse para aprender un poco mas.
+- [GitHub: @valenmadrigal](https://github.com/valenmadrigal)
 - **Padilla, Ignacio Agustín** 🚀: Soy Ignacio, cerca de graduarme como Analista Programador Universitario y estudiante activo en un curso Web Full Stack en DigitalHouse.      Mi enfoque se centra en el desarrollo web Frontend y Backend. No tengo grandes hobbies como tal, pero me gusta leer y salir a correr para quitar el estrés. Amo la vida y amo programar (Aunque a veces se vuelva bastante frustrante).
+- [GitHub: @nachopad](https://github.com/nachopad)
 - **Sanchez, Carlos Rodolfo** 🧠: Soy estudiante, cerca de graduarme de Analista Programador Universitario. Soy parte del equipo de desarrollo(Backend, Frontend). No tengo ningun pasatiempo puntual.
+- [GitHub: @sanchezcarlosr](https://github.com/sanchezcarlosr)
 
 ## 🌐 Referentes del Mercado
 
@@ -50,3 +53,8 @@ Buscamos inspiración y referencias en diversos sitios del mercado que comparten
 ## 🔗 Repositorio
 
 Puedes encontrar nuestro código fuente y colaborar con nosotros en el siguiente enlace: [grupo_12_lumina](https://github.com/nachopad/grupo_12_lumina)
+
+## 📋 Tablero de Trabajo
+
+Puedes seguir nuestro progreso en nuestro tablero de trabajo: 
+[Enlace al tablero](https://trello.com/b/bXtJvR91/proyecto-lumina)
