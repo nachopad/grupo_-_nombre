@@ -15,44 +15,7 @@
 </head>
 
 <body>
-    <header class="main-header">
-        <div class="header-notices">
-            <p>ENVÍO GRATIS A PARTIR DE $90.000</p>
-        </div>
-        <div class="main-header-top-bar">
-            <div class="main-header-top-left">
-                <div class="burger-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                </div>
-            </div>
-            <h1 class="title"><a href="#">LUMINA</a></h1>
-            <div class="shopping-cart">
-                <p class="shopping-mount">0</p>
-                <i class="fas fa-shopping-bag"></i>
-            </div>
-        </div>
-        <nav class="nav-container">
-            <ul class="nav-items nav-words">
-                <li><a href="#">MUJER</a></li>
-                <li><a href="#">HOMBRE</a></li>
-                <li><a href="#">NIÑOS</a></li>
-                <li><a href="#">ACCESORIOS</a></li>
-                <li><a href="#">LOCALES</a></li>
-            </ul>
-            <ul class="nav-items nav-icons">
-                <li><a href="#"><i class="fas fa-search"></i></a></li>
-                <li><a href="#"><i class="fas fa-user"></i></a></li>
-                <li class="shopping-cart-pc">
-                    <p class="shopping-mount-pc">0</p>
-                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    <%- include('./partials/header.ejs') %>
     <main>
         <section class="container-shopping-cart">
             <section class="product-list">
@@ -87,7 +50,7 @@
                     <h3 class="borrar-header-info">Borrar</h3>
                 </div>
                 <article class="container-product">
-                    <img src="images/shoppingCart/Shorts_Tiro_23_Pro_Negro_HC1413_25_model.jpg">
+                    <img src="/images/shoppingCart/Shorts_Tiro_23_Pro_Negro_HC1413_25_model.jpg">
                     <div class="product-info">
                         <h4 class="product-name">
                             SHORTS TIRO 23 PRO
@@ -115,7 +78,7 @@
                     </div>
                 </article>
                 <article class="container-product">
-                    <img src="images/shoppingCart/Camiseta_Titular_Messi_10_Inter_Miami_CF_22-23_Rosa_JE9701_23_hover_model.jpg">
+                    <img src="/images/shoppingCart/Camiseta_Titular_Messi_10_Inter_Miami_CF_22-23_Rosa_JE9701_23_hover_model.jpg">
                     <div class="product-info">
                         <h4 class="product-name">
                             CAMISETA TITULAR MESSI 10
@@ -142,7 +105,7 @@
                     </div>
                 </article>
                 <article class="container-product">
-                    <img src="images/shoppingCart/Camiseta_Tercer_Uniforme_Real_Madrid_22-23_Negro_HI1656_21_model.jpg"> 
+                    <img src="/images/shoppingCart/Camiseta_Tercer_Uniforme_Real_Madrid_22-23_Negro_HI1656_21_model.jpg"> 
                     <div class="product-info">
                         <h4 class="product-name">
                             CAMISETA REAL MADRID 22/23
