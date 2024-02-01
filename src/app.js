@@ -1,18 +1,21 @@
 const express = require('express');
-const path = require('path');
+const path = require('node:path');
+const port = process.env.PORT || 3000;
 const app = express();
 
 const productRoutes = require('./routes/productRoutes');
 
 //Informar que queremos hacer uso de algunos archivos estáticos como recurso.
-const publicPath = path.join(__dirname, './public');
-app.use( express.static(publicPath) );
+app.use( express.static('public') );
+
+//Middleware necesario para indicar donde se encuentra la carpeta de vistas.
+app.set('views', path.join(__dirname, 'views'));
 
 //Middleware necesario para que express soporte los archivos de la vista como EJS.
 app.set('view engine', 'ejs');
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000');
+app.listen(port, () => {
+    console.log(`Servidor corriendo en el puerto ${port}.`);
 });
 
 app.get('/', (req, res) => {
