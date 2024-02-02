@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 const productRoutes = require('./routes/productRoutes');
+const shoppingCartRoutes = require('./routes/shoppingCartRoutes');
 
 //Informar que queremos hacer uso de algunos archivos estáticos como recurso.
 app.use( express.static('public') );
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/products', productRoutes);
+app.use('/cart', shoppingCartRoutes);
 
 app.get('/login', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/login.html'));

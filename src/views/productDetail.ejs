@@ -19,7 +19,7 @@
                 <i class="fa fa-angle-left"></i>
                 <span class="item-list-breadcrumb-title">
                     <span class="first-letter">
-                        <a href="/">Home</a>
+                        <a href="/">Inicio</a>
                         <span class="divider"> | </span>
                     </span>
                     <span class="first-letter">
@@ -27,77 +27,53 @@
                         <span class="divider"> | </span>
                     </span>
                     <span class="first-letter">
-                        <span class="active">Nombre Producto</span>
+                        <span class="active"><%= product.name.toUpperCase() %></span>
                     </span>
                 </span>
             </div>
         </section>
         <section class="product-detail">
                 <article class="image-carousel-mobile">
-                    <img src="/images/productDetail/grand-court-alpha-1.jpg" alt="Zapatilla Grand Court Alpha" />
-                    <img src="/images/productDetail/grand-court-alpha-2.jpg" alt="Zapatilla Grand Court Alpha" />
-                    <img src="/images/productDetail/grand-court-alpha-3.jpg" alt="Zapatilla Grand Court Alpha" />
-                    <img src="/images/productDetail/grand-court-alpha-4.jpg" alt="Zapatilla Grand Court Alpha" />
+                    <% for(let image of product.img) { %>
+                        <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
+                    <% } %>
                 </article>
                 <article class="product-images-desktop">
                     <div class="row">
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-1.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-2.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-3.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
-                        <div class="image-container">
-                            <img src="/images/productDetail/grand-court-alpha-4.jpg" alt="Zapatilla Grand Court Alpha" />
-                        </div>
+                        <% for(let image of product.img) { %>
+                            <div class="image-container">
+                                <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
+                            </div>
+                        <% } %>
                     </div>
                 </article>
                 <article class="details-section">
-                    <h2 class="item-show-details-title">ZAPATILLAS GRAND COURT ALPHA</h2>
+                    <h2 class="item-show-details-title"><%= product.name.toUpperCase() %></h2>
                     <div class="price-container">
-                        <span class="price-old">$ 59.000 </span>
-                        <span class="offer"> -50% </span>
-                        <span class="price-active">$ 29.500 </span>
+                        <span class="price-old">$ <%= product.price.toFixed(3) %> </span>
+                        <span class="offer"> -<%= product.offer %>% </span>
+                        <span class="price-active">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %> </span>
                     </div>
                     <div class="item-details-cuotas">
-                        3 cuotas sin interés de
-                        <b>$ 9.833.3</b>
+                        <%= product.installments.count %> cuotas sin interés de
+                        <b>$ <%= product.installments.amount %></b>
                     </div>
                     <div class="item-colors-container">
                         <h2 class="item-colors-title">Colores</h2>
                         <div class="color-boxes">
-                            <label class="item-show-color-option">
-                                <span class="item-show-color-brown"></span>
-                            </label>
-                            <label class="item-show-color-option">
-                                <span class="item-show-color-black"></span>
-                            </label>
-                            <label class="item-show-color-option">
-                                <span class="item-show-color-white"></span>
-                            </label>
+                            <% for (let color of product.colors) { %>
+                                <label class="item-show-color-option">
+                                    <span class="item-show-color-<%= color %>"></span>
+                                </label>
+                            <% } %>
                         </div>
                     </div>
                     <div class="item-sizes-container">
                         <h2 class="item-size-title">Talles</h2>
                         <div class="sizes-boxes">
-                            <button>26</button>
-                            <button>27</button>
-                            <button>28</button>
-                            <button>29</button>
-                            <button>30</button>
-                            <button>31</button>
-                            <button>32</button>
-                            <button>33</button>
-                            <button>34</button>
-                            <button>35</button>
-                            <button>36</button>
-                            <button>37</button>
-                            <button>38</button>
-                            <button>39</button>
-                            <button>40</button>
+                            <% for(let size of product.sizes) { %>
+                                <button><%= size %></button>
+                            <% } %>
                         </div>
                     </div>
                     <div class="size-guide-container">
@@ -111,7 +87,9 @@
                         </div>
                     </div>
                     <div class="buy-button">
-                        <button class="item-show-btn">añadir al carrito</button>
+                        <form action="/cart/add/<%= product.id %>" method="POST">
+                            <button class="item-show-btn">añadir al carrito</button>
+                        </form>
                     </div>
                     <div class="item-show-details-more-info">
                         <div class="panel">
@@ -121,21 +99,11 @@
                                 </h5>
                             </div>
                             <div class="panel-body">
-                                <p>
-                                    Las 3 Tiras evocan el legado de Lumina. Y cuando se las combina con estas zapatillas 
-                                    adidas Grand Court Alpha, celebran generaciones de originalidad. La silueta minimalista 
-                                    crea ese look atemporal. El logo en relieve en la lengüeta y las elegantes costuras le 
-                                    dan un toque moderno. La amortiguación Cloudfoam le inyecta comodidad a cada uno de tus 
-                                    pasos.
-                                </p>
+                                <p> <%= product.description.overview %> </p>
                                 <br />
-                                <p>
-                                    Cuidados: Lavar a máquina del revés, temperatura max. 30°
-                                </p>
+                                <p> Cuidados: <%= product.description.careInstructions %> </p>
                                 <br />
-                                <p>
-                                    Composición: 98% Algodón 2% Spandex
-                                </p>
+                                <p> Composición: <%= product.description.composition %> </p>
                             </div>
                         </div>
                     </div>

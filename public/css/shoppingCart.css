@@ -768,6 +768,7 @@ a.btn-whatsapp {
 
     .delete-icon i {
         font-size: 20px;
+        cursor: pointer;
     }
 
     .container-button-add-subtract {
