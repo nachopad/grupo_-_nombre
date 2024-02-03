@@ -5,12 +5,19 @@ const app = express();
 
 const productRoutes = require('./routes/productRoutes');
 const shoppingCartRoutes = require('./routes/shoppingCartRoutes');
+const userRouter = require('./routes/userRoutes');
 
 //Informar que queremos hacer uso de algunos archivos estáticos como recurso.
 app.use( express.static('public') );
 
-//Middleware necesario para indicar donde se encuentra la carpeta de vistas.
-app.set('views', path.join(__dirname, 'views'));
+//Codigo para generar una lista de las posibles ubicaciones de las vistas
+const viewsPath = ['views', 'views/users'];
+const generatePathViews = (dirs) =>{
+    return dirs.map( dir => path.join(__dirname, dir));
+}
+
+//Middleware necesario para indicar donde se encuentra la carpeta de vistas. Ejecuta el generador de las rutas para las views
+app.set('views', generatePathViews(viewsPath));
 
 //Middleware necesario para que express soporte los archivos de la vista como EJS.
 app.set('view engine', 'ejs');
@@ -26,10 +33,12 @@ app.get('/', (req, res) => {
 app.use('/products', productRoutes);
 app.use('/cart', shoppingCartRoutes);
 
-app.get('/login', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/login.html'));
-});
+app.use('/user', userRouter);
 
-app.get('/registro', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/register.html'));
-});
+// app.get('/login', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '/views/login.html'));
+// });
+
+// app.get('/registro', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '/views/register.html'));
+// });
