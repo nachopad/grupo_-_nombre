@@ -11,7 +11,7 @@ const userRouter = require('./routes/userRoutes');
 app.use( express.static('public') );
 
 //Codigo para generar una lista de las posibles ubicaciones de las vistas
-const viewsPath = ['views', 'views/users'];
+const viewsPath = ['views', 'views/users', 'views/products'];
 const generatePathViews = (dirs) =>{
     return dirs.map( dir => path.join(__dirname, dir));
 }
