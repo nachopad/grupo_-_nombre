@@ -43,7 +43,7 @@
             "img": ["tshirt-afa-worldchampion-1.jpg", "tshirt-afa-worldchampion-2.jpg"],
             "name": "Camiseta AFA 3 estrellas campeones del mundo",
             "price": 54.999,
-            "offer": 0,
+            "offer": 10,
             "installments": {
                 "count": 3,
                 "interestRate": 0,

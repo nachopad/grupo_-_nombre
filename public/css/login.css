@@ -166,6 +166,7 @@ body{
     font-size: 13px;
     transition: all 0.5s ease;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .button-continue:hover {

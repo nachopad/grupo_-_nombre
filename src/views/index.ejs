@@ -35,61 +35,21 @@
                 </div>
             </header>
             <div class="carousel-container">
-                <div class="carousel-item">
-                    <img src="/images/index/racer-sneaker.jpg" alt="Zapatillas Racer">
-                    <div class="item-description">
-                        <p class="item-name">ZAPATILLAS RACER</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$103.000</p>
-                            <p class="item-price">$114.999</p>
-                            <p class="item-discount">%10</p>
+                <% featuredProducts.map(product => { %>
+                    <form action="/products/detail/<%= product.id%>" method="get"  class="carousel-item">
+                        <button type="submit">
+                            <img src="/images/productDetail/<%= product.img[0] %>" alt="Zapatillas Racer">
+                        <div class="item-description">
+                            <p class="item-name"><%= product.name %></p>
+                            <div class="item-price-container">
+                                <p class="item-price-old">$<%= product.price %></p>
+                                <p class="item-price">$<%= (product.price*(product.offer/100)).toFixed(3) %></p>
+                                <p class="item-discount">%<%= product.offer %></p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/bluewater-sweden.jpg" alt="Producto 3">
-                    <div class="item-description">
-                        <p class="item-name">BOTELLA AGUA LUMINA</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$35.000</p>
-                            <p class="item-price">$33,250</p>
-                            <p class="item-discount">%5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/hoodie.jpg" alt="Producto 4">
-                    <div class="item-description">
-                        <p class="item-name">SUDADERA NEGRA DEPORTIVA</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$103.000</p>
-                            <p class="item-price">$114.999</p>
-                            <p class="item-discount">%10</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/soccer-ball.jpg" alt="Producto 4">
-                    <div class="item-description">
-                        <p class="item-name">PELOTA FUTBOL</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$39.100</p>
-                            <p class="item-price">$46.000</p>
-                            <p class="item-discount">%10</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/index/women-sport-pants.jpg" alt="Producto 2">
-                    <div class="item-description">
-                        <p class="item-name">PANTALON DEPORTIVO MUJER</p>
-                        <div class="item-price-container">
-                            <p class="item-price-old">$55.000</p>
-                            <p class="item-price">$41,250</p>
-                            <p class="item-discount">%25</p>
-                        </div>
-                    </div>
-                </div>
+                    </button>
+                    </form>
+                <%})%>
             </div>
         </section>
         <section class="catalog">

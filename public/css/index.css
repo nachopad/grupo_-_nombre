@@ -132,7 +132,12 @@ main {
     margin-right: 10px;
     scroll-snap-align: start;
 }
-
+/* Modificacion realizada por carlos sanchez, alias el burro XD */
+.carousel-item button{
+    cursor: pointer;
+    background: none;
+    border: none;
+}
 .carousel-item img {
     width: 100%;
     height: auto;

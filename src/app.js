@@ -6,6 +6,7 @@ const app = express();
 const productRoutes = require('./routes/productRoutes');
 const shoppingCartRoutes = require('./routes/shoppingCartRoutes');
 const userRouter = require('./routes/userRoutes');
+const homeRoutes = require('./routes/homeRoutes');
 
 //Informar que queremos hacer uso de algunos archivos estáticos como recurso.
 app.use( express.static('public') );
@@ -26,10 +27,7 @@ app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto ${port}.`);
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/index.html'));
-});
-
+app.use('/', homeRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', shoppingCartRoutes);
 app.use('/users', userRouter);
