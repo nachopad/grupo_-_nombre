@@ -50,42 +50,50 @@
                 <article class="details-section">
                     <h2 class="item-show-details-title"><%= product.name.toUpperCase() %></h2>
                     <div class="price-container">
-                        <span class="price-old">$ <%= product.price.toFixed(3) %> </span>
-                        <span class="offer"> -<%= product.offer %>% </span>
-                        <span class="price-active">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %> </span>
+                        <% if(product.offer == 0) { %>
+                            <span class="price-active">$ <%= product.price.toFixed(3) %> </span>
+                        <% }else { %>
+                            <span class="price-old">$ <%= product.price.toFixed(3) %> </span>
+                            <span class="offer"> -<%= product.offer %>% </span>
+                            <span class="price-active">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %> </span>
+                        <% } %>
                     </div>
                     <div class="item-details-cuotas">
                         <%= product.installments.count %> cuotas sin interés de
                         <b>$ <%= product.installments.amount %></b>
                     </div>
-                    <div class="item-colors-container">
-                        <h2 class="item-colors-title">Colores</h2>
-                        <div class="color-boxes">
-                            <% for (let color of product.colors) { %>
-                                <label class="item-show-color-option">
-                                    <span class="item-show-color-<%= color %>"></span>
-                                </label>
-                            <% } %>
+                    <% if(product.colors && product.colors.length > 0) { %>
+                        <div class="item-colors-container">
+                            <h2 class="item-colors-title">Colores</h2>
+                            <div class="color-boxes">
+                                <% for (let color of product.colors) { %>
+                                    <label class="item-show-color-option">
+                                        <span class="item-show-color-<%= color %>"></span>
+                                    </label>
+                                <% } %>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item-sizes-container">
-                        <h2 class="item-size-title">Talles</h2>
-                        <div class="sizes-boxes">
-                            <% for(let size of product.sizes) { %>
-                                <button><%= size %></button>
-                            <% } %>
+                    <% } %>
+                    <% if(product.sizes && product.sizes.length > 0) { %>
+                        <div class="item-sizes-container">
+                            <h2 class="item-size-title">Talles</h2>
+                            <div class="sizes-boxes">
+                                <% for(let size of product.sizes) { %>
+                                    <button><%= size %></button>
+                                <% } %>
+                            </div>
                         </div>
-                    </div>
-                    <div class="size-guide-container">
-                        <div class="item-sizes-guide-container">
-                            <img src="/images/productDetail/ruler-tool.svg" />
-                            <a class="item-sizes-guide">Tabla de talles</a>
+                        <div class="size-guide-container">
+                            <div class="item-sizes-guide-container">
+                                <img src="/images/productDetail/ruler-tool.svg" />
+                                <a class="item-sizes-guide">Tabla de talles</a>
+                            </div>
+                            <div class="fit-prenda-link-container">
+                                <img src="/images/productDetail/hanger-tool.svg" />
+                                <a class="item-sizes-guide">¿Cuál es tu talle?</a>
+                            </div>
                         </div>
-                        <div class="fit-prenda-link-container">
-                            <img src="/images/productDetail/hanger-tool.svg" />
-                            <a class="item-sizes-guide">¿Cuál es tu talle?</a>
-                        </div>
-                    </div>
+                    <% } %>
                     <div class="buy-button">
                         <form action="/cart/add/<%= product.id %>" method="POST">
                             <button class="item-show-btn">añadir al carrito</button>
@@ -113,7 +121,6 @@
             <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />
         </a>
     </main>
-
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>

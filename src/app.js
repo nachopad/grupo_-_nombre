@@ -32,5 +32,4 @@ app.get('/', (req, res) => {
 
 app.use('/products', productRoutes);
 app.use('/cart', shoppingCartRoutes);
-
-app.use('/user', userRouter);
+app.use('/users', userRouter);
