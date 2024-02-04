@@ -15,7 +15,6 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
-        
         <section class="container-form">
             <form action="" method="post" class="form">
                 <% if(product){ %>
@@ -23,7 +22,6 @@
                 <% }else{ %>
                     <h2>Registro de Producto</h2>
                 <%}%>
-
                 <div class="input-information">
                     <label for="name">Nombre del producto: </label>
                     <input type="text" name="name" id="name" required class="style-input" value="<%= product?product.name:"" %>">
@@ -32,50 +30,39 @@
                     <label for="price">Precio: </label>
                     <input type="number" name="price" id="price" class="style-input" value="<%= product?product.price:"" %>">
                 </div>
-
                 <div class="input-information">
                     <label for="color">Colores: </label>
                     <input type="text" name="colors[]" id="color" class="style-input" placeholder="Rojo, Verde, Negro" value="<%= product?product.colors.map(color => ' '+color):''%>">
                 </div>
-
                 <div class="input-information">
                     <label for="size">Ingrese los talles: </label>
                     <input type="text" name="sizes[]" id="size" class="style-input" placeholder="38, XML, 40" value="<%= product?product.sizes.map(size => ' '+size):''%>">
                 </div>
-                
                 <div class="input-information">
                     <label for="offer">Ingrese el descuento para la oferta: </label>
                     <input type="number" name="offer" id="offer" class="style-input" value="<%= product?(product.offer!=0?+product.offer:0):0 %>" placeholder="50" min="1">
                 </div>
-
                 <div class="input-information">
                     <label for="imgs">Ingrese imagenes del producto</label>
                     <input type="file" name="img" id="imgs" accept=".jpg" multiple class="style-input">
                 </div>
-
                 <div class="input-information">
                     <label for="description">Descripción general: </label>
-                    <textarea name="overview" id="description" cols="30" rows="10" class="style-input" required><%= product?product.description.overview:"" %></textarea>
+                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" required><%= product?product.description.overview:"" %></textarea>
                 </div>
-
                 <div class="input-information">
                     <label for="careInstructions">Instruccion de cuidado: </label>
-                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="10" class="style-input"><%= product?product.description.careInstructions:"" %></textarea>
+                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product?product.description.careInstructions:"" %></textarea>
                 </div>
-
                 <div class="input-information">
                     <label for="composition">Composición: </label>
-                    <textarea name="composition" id="composition" cols="30" rows="10" class="style-input"><%= product?product.description.composition:"" %></textarea>
+                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product?product.description.composition:"" %></textarea>
                 </div>
-
                 <div class="container-button">
                     <button type="submit" class="button-style"> <%= product?"ACTUALIZAR":"REGISTRAR" %> </button>
                 </div>
             </form>
         </section>
     </main>
-
-    
-    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

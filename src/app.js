@@ -32,13 +32,4 @@ app.get('/', (req, res) => {
 
 app.use('/products', productRoutes);
 app.use('/cart', shoppingCartRoutes);
-
-app.use('/user', userRouter);
-
-// app.get('/login', (req, res)=>{
-//     res.sendFile(path.join(__dirname, '/views/login.html'));
-// });
-
-// app.get('/registro', (req, res)=>{
-//     res.sendFile(path.join(__dirname, '/views/register.html'));
-// });
+app.use('/users', userRouter);
