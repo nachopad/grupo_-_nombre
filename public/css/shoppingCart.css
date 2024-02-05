@@ -267,7 +267,26 @@ main{
     cursor: pointer;
 }
 
+.empty-cart-container {
+    display: block;
+    margin: auto;
+    margin: 40px 0px;
+    font-size: 13px;
+}
 
+.empty-cart-title {
+    margin: 15px 0px;
+}
+
+.empty-cart-title, .empty-cart-description {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.empty-cart-description a {
+    color: inherit;
+}
 
 .shipping-option {
     width: 100%;
@@ -768,6 +787,7 @@ a.btn-whatsapp {
 
     .delete-icon i {
         font-size: 20px;
+        cursor: pointer;
     }
 
     .container-button-add-subtract {

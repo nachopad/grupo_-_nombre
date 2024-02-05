@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina</title>
+    <link rel="icon" href="/images/logo-lumina.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <section class="product-detail-container">
+            <div class="item-list-breadcrumb">
+                <i class="fa fa-angle-left"></i>
+                <span class="item-list-breadcrumb-title">
+                    <span class="first-letter">
+                        <a href="/">Inicio</a>
+                        <span class="divider"> | </span>
+                    </span>
+                    <span class="first-letter">
+                        <a href="#">Productos</a>
+                        <span class="divider"> | </span>
+                    </span>
+                    <span class="first-letter">
+                        <span class="active"><%= product.name.toUpperCase() %></span>
+                    </span>
+                </span>
+            </div>
+        </section>
+        <section class="product-detail">
+                <article class="image-carousel-mobile">
+                    <% for(let image of product.img) { %>
+                        <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
+                    <% } %>
+                </article>
+                <article class="product-images-desktop">
+                    <div class="row">
+                        <% for(let image of product.img) { %>
+                            <div class="image-container">
+                                <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
+                            </div>
+                        <% } %>
+                    </div>
+                </article>
+                <article class="details-section">
+                    <h2 class="item-show-details-title"><%= product.name.toUpperCase() %></h2>
+                    <div class="price-container">
+                        <% if(product.offer == 0) { %>
+                            <span class="price-active">$ <%= product.price.toFixed(3) %> </span>
+                        <% }else { %>
+                            <span class="price-old">$ <%= product.price.toFixed(3) %> </span>
+                            <span class="offer"> -<%= product.offer %>% </span>
+                            <span class="price-active">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %> </span>
+                        <% } %>
+                    </div>
+                    <div class="item-details-cuotas">
+                        <%= product.installments.count %> cuotas sin interés de
+                        <b>$ <%= product.installments.amount %></b>
+                    </div>
+                    <% if(product.colors && product.colors.length > 0) { %>
+                        <div class="item-colors-container">
+                            <h2 class="item-colors-title">Colores</h2>
+                            <div class="color-boxes">
+                                <% for (let color of product.colors) { %>
+                                    <label class="item-show-color-option">
+                                        <span class="item-show-color-<%= color %>"></span>
+                                    </label>
+                                <% } %>
+                            </div>
+                        </div>
+                    <% } %>
+                    <% if(product.sizes && product.sizes.length > 0) { %>
+                        <div class="item-sizes-container">
+                            <h2 class="item-size-title">Talles</h2>
+                            <div class="sizes-boxes">
+                                <% for(let size of product.sizes) { %>
+                                    <button><%= size %></button>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="size-guide-container">
+                            <div class="item-sizes-guide-container">
+                                <img src="/images/productDetail/ruler-tool.svg" />
+                                <a class="item-sizes-guide">Tabla de talles</a>
+                            </div>
+                            <div class="fit-prenda-link-container">
+                                <img src="/images/productDetail/hanger-tool.svg" />
+                                <a class="item-sizes-guide">¿Cuál es tu talle?</a>
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="buy-button">
+                        <form action="/cart/add/<%= product.id %>" method="POST">
+                            <button class="item-show-btn">añadir al carrito</button>
+                        </form>
+                    </div>
+                    <div class="item-show-details-more-info">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h5 class="item-show-details-more-info-title">
+                                    Descripción y Cuidados
+                                </h5>
+                            </div>
+                            <div class="panel-body">
+                                <p> <%= product.description.overview %> </p>
+                                <br />
+                                <p> Cuidados: <%= product.description.careInstructions %> </p>
+                                <br />
+                                <p> Composición: <%= product.description.composition %> </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+        </section>
+        <a class="btn-whatsapp bt-wsp-right">
+            <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />
+        </a>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
