@@ -4,12 +4,13 @@
             "id": 1,
             "img": ["grand-court-alpha-1.jpg", "grand-court-alpha-2.jpg", "grand-court-alpha-3.jpg" ,"grand-court-alpha-4.jpg"],
             "name": "Zapatillas Grand Court Alpha",
+            "category":"footwear",
+            "gender": ["male", "female"],
             "price": 59.500,
             "offer": 50,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["brown", "black", "white"],
             "sizes": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
@@ -23,12 +24,13 @@
             "id": 2,
             "img": ["response-super-1.jpg", "response-super-2.jpg", "response-super-3.jpg", "response-super-4.jpg"],
             "name": "Zapatillas Response Super 3.0",
+            "category":"footwear",
+            "gender": ["male", "female"],
             "price": 125.999,
             "offer": 30,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["black", "white", "red", "grey"],
             "sizes": [38, 38.5, 39, 40, 41, 41.5, 42, 43, 43.5, 44, 45, 45.5, 46, 47],
@@ -42,12 +44,13 @@
             "id": 3,
             "img": ["tshirt-afa-worldchampion-1.jpg", "tshirt-afa-worldchampion-2.jpg"],
             "name": "Camiseta AFA 3 estrellas campeones del mundo",
+            "category":"clothes",
+            "gender": ["male", "female"],
             "price": 54.999,
             "offer": 10,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["white"],
             "sizes": ["S", "M", "L", "XL"],
@@ -61,12 +64,13 @@
             "id": 4,
             "img": ["cap-running-adizero-1.jpg", "cap-running-adizero-2.jpg", "cap-running-adizero-3.jpg"],
             "name": "Gorra de Running Adizero HEAT.RDY",
+            "category":"accesory",
+            "gender": ["male", "female"],
             "price": 53.999,
             "offer": 30,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["black"],
             "sizes": [],
@@ -80,12 +84,13 @@
             "id": 5,
             "img": ["boot-bag-tiro-league-1.jpg", "boot-bag-tiro-league-2.jpg", "boot-bag-tiro-league-3.jpg", "boot-bag-tiro-league-4.jpg"],
             "name": "Bolso para botines Tiro League",
+            "category":"accesory",
+            "gender": ["male", "female"],
             "price": 35.999,
             "offer": 0,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["black", "navy-blue"],
             "sizes": [],
@@ -99,12 +104,13 @@
             "id": 6,
             "img": ["ball-argentum-22-league-1.jpg", "ball-argentum-22-league-2.jpg", "ball-argentum-22-league-3.jpg", "ball-argentum-22-league-4.jpg"],
             "name": "Pelota Argentum 22 league",
+            "category":"accesory",
+            "gender": ["male", "female"],
             "price": 69.999,
             "offer": 0,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": [],
             "sizes": [4, 5],
@@ -118,12 +124,13 @@
             "id": 7,
             "img": ["branded-layer-1.jpg", "branded-layer-2.jpg"],
             "name": "Branded Layer",
+            "category":"clothes",
+            "gender": ["female"],
             "price": 106.999,
             "offer": 0,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["black", "white"],
             "sizes": ["XS", "S", "M", "L", "XL", "2XL"],
@@ -137,12 +144,13 @@
             "id": 8,
             "img": ["yoga-trainning-tshirt-1.jpg", "yoga-trainning-tshirt-2.jpg", "yoga-trainning-tshirt-3.jpg", "yoga-trainning-tshirt-4.jpg"],
             "name": "Remera de entrenamiento Yoga",
+            "category":"clothes",
+            "gender": ["male", "female"],
             "price": 48.999,
             "offer": 30,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["black"],
             "sizes": ["XS", "S", "M", "L", "XL"],
@@ -156,12 +164,13 @@
             "id": 9,
             "img": ["booties-crazyfast-1.jpg", "booties-crazyfast-2.jpg", "booties-crazyfast-3.jpg", "booties-crazyfast-4.jpg"],
             "name": "Botines x Crazyfast+ FG",
+            "category":"footwear",
+            "gender": ["male", "female"],
             "price": 449.999,
             "offer": 0,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["cloud white", "core black"],
             "sizes": [36.5, 37.5, 38, 38.5, 39, 39.5, 40, 41, 41.5, 42, 43, 43.5, 44, 45, 45.5, 46, 47],
@@ -175,12 +184,13 @@
             "id": 10,
             "img": ["sneakers-cross-emup-1.jpg", "sneakers-cross-emup-2.jpg", "sneakers-cross-emup-3.jpg", "sneakers-cross-emup-4.jpg"],
             "name": "Zapatillas Cross EM UP 5",
+            "category":"footwear",
+            "gender": ["male", "female"],
             "price": 8.999,
             "offer": 0,
             "installments": {
                 "count": 3,
-                "interestRate": 0,
-                "amount": 9.833
+                "interestRate": 0
             },
             "colors": ["royal blue", "core black", "cloud white"],
             "sizes": [36.5, 37.5, 38, 38.5, 39, 39.5, 40, 41, 41.5, 42, 43, 43.5, 44, 45, 45.5, 46, 47],
