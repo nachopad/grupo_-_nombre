@@ -16,50 +16,69 @@
     <%- include('./partials/header.ejs') %>
     <main>
         <section class="container-form">
-            <form action="" method="post" class="form">
-                <% if(product){ %>
-                    <h2>Actualización del Producto</h2>
-                <% }else{ %>
-                    <h2>Registro de Producto</h2>
-                <%}%>
+            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.id + '?_method=PUT' %>" class="form">
+                <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
                 <div class="input-information">
-                    <label for="name">Nombre del producto: </label>
-                    <input type="text" name="name" id="name" required class="style-input" value="<%= product?product.name:"" %>">
+                    <label for="name">Nombre del producto</label>
+                    <input type="text" name="name" id="name" required class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.name : '' %>">
                 </div>                
                 <div class="input-information">
-                    <label for="price">Precio: </label>
-                    <input type="number" name="price" id="price" class="style-input" value="<%= product?product.price:"" %>">
+                    <label for="price">Precio</label>
+                    <input type="number" name="price" id="price" class="style-input" placeholder="Ingrese el precio del producto" value="<%= product ? product.price : 0 %>">
                 </div>
                 <div class="input-information">
-                    <label for="color">Colores: </label>
-                    <input type="text" name="colors[]" id="color" class="style-input" placeholder="Rojo, Verde, Negro" value="<%= product?product.colors.map(color => ' '+color):''%>">
+                    <label for="category">Categoría</label>
+                    <select name="category" id="category" class="style-input">
+                        <option value="clothes">Ropa</option>
+                        <option value="accesory">Accesorio</option>
+                        <option value="footwear">Calzado</option>
+                    </select>
                 </div>
                 <div class="input-information">
-                    <label for="size">Ingrese los talles: </label>
-                    <input type="text" name="sizes[]" id="size" class="style-input" placeholder="38, XML, 40" value="<%= product?product.sizes.map(size => ' '+size):''%>">
+                    <label for="gender">Género</label>
+                    <select name="gender" id="gender" class="style-input">
+                        <option value="male">Hombre</option>
+                        <option value="female">Mujer</option>
+                    </select>
                 </div>
                 <div class="input-information">
-                    <label for="offer">Ingrese el descuento para la oferta: </label>
-                    <input type="number" name="offer" id="offer" class="style-input" value="<%= product?(product.offer!=0?+product.offer:0):0 %>" placeholder="50" min="1">
+                    <label for="color">Colores</label>
+                    <input type="text" name="colors" id="colors" class="style-input" placeholder="Rojo, Verde, Negro" value="<%= product ? product.colors.map(color => ' '+color) : '' %>">
                 </div>
                 <div class="input-information">
-                    <label for="imgs">Ingrese imagenes del producto</label>
+                    <label for="size">Talles</label>
+                    <input type="text" name="sizes" id="sizes" class="style-input" placeholder="35, 36, 36.5 - S, M, L" value="<%= product ? product.sizes.map(size => ' '+size) : '' %>">
+                </div>
+                <div class="input-information">
+                    <label for="offer">Descuento del producto (opcional)</label>
+                    <input type="number" name="offer" id="offer" class="style-input" value="<%= product ? ( product.offer !=0 ? +product.offer : 0) : 0 %>" placeholder="50">
+                </div>
+                <div class="input-information">
+                    <label for="installmentsCount">Cantidad de cuotas (opcional)</label>
+                    <input type="number" name="installmentsCount" id="installmentsCount" class="style-input" value="<%= product ? ( product.installments.count !=0 ? product.installments.count : 0) : 0 %>" placeholder="50">
+                </div>
+                <div class="input-information">
+                    <label for="interestRate">Interés de cuotas (opcional)</label>
+                    <input type="number" name="interestRate" id="interestRate" class="style-input" value="<%= product ? ( product.installments.interestRate !=0 ? product.installments.interestRate : 0) : 0 %>" placeholder="50">
+                </div>
+                <div class="input-information">
+                    <label for="imgs">Imágenes del producto</label>
                     <input type="file" name="img" id="imgs" accept=".jpg" multiple class="style-input">
                 </div>
                 <div class="input-information">
-                    <label for="description">Descripción general: </label>
-                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" required><%= product?product.description.overview:"" %></textarea>
+                    <label for="description">Descripción general</label>
+                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" required><%= product ? product.description.overview : '' %></textarea>
                 </div>
                 <div class="input-information">
-                    <label for="careInstructions">Instruccion de cuidado: </label>
-                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product?product.description.careInstructions:"" %></textarea>
+                    <label for="careInstructions">Instrucciones de cuidado</label>
+                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.description.careInstructions : '' %></textarea>
                 </div>
                 <div class="input-information">
-                    <label for="composition">Composición: </label>
-                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product?product.description.composition:"" %></textarea>
+                    <label for="composition">Composición</label>
+                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.description.composition : '' %></textarea>
                 </div>
                 <div class="container-button">
-                    <button type="submit" class="button-style"> <%= product?"ACTUALIZAR":"REGISTRAR" %> </button>
+                    <button type="submit" class="button-style"> <%= product ? 'ACTUALIZAR' : 'REGISTRAR' %> </button>
                 </div>
             </form>
         </section>
