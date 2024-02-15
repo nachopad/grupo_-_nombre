@@ -74,6 +74,10 @@ const productController = {
         } else {
             res.status(404).send('Producto no encontrado');
         };
+    },
+    getProducts : (req, res)=>{
+        
+        res.render('productsList', {featuredProducts : productsData.result});
     }
 };
 
