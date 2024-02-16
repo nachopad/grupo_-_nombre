@@ -76,9 +76,17 @@ const productController = {
         };
     },
     getProducts : (req, res)=>{
-        
         res.render('productsList', {featuredProducts : productsData.result});
+    },
+    productManagement: (req, res)=>{
+        res.render('productManagement', {productList: productsData.result});
+    },
+    deleteProduct: (req, res)=>{
+        productsData.result = productsData.result.filter(product => product.id!=req.params.id);
+        fs.writeFileSync(productsFilePath, JSON.stringify(productsData, null, 2));
+        res.redirect('/products/productManagement');
     }
+
 };
 
 module.exports = productController;
