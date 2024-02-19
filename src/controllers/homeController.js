@@ -1,4 +1,4 @@
-const productsData = require('../models/productData.json');
+const productsData = require('../data/productData.json');
 const homeController = {
     getHome: (req, res)=>{
         let featuredProducts = productsData.result.filter(product => product.offer>0);

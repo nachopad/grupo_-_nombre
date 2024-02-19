@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('node:path');
 const crypto = require('crypto');
 
-const productsFilePath = path.join(__dirname, '../models/productData.json');
-const productsData = require('../models/productData.json');
+const productsFilePath = path.join(__dirname, '../data/productData.json');
+const productsData = require('../data/productData.json');
 
 const productController = {
     productDetail: (req, res) => {
@@ -48,32 +48,29 @@ const productController = {
     },
     update: (req, res) => {
        const { id } = req.params;
-       let updatedProductData = req.body;
+       const { name, price, category, gender, colors, sizes, offer, installmentsCount,
+               interestRate, overview, careInstructions, composition } = req.body;
 
-       const productIndex = productsData.result.findIndex(prod => prod.id == id);
-
-       if (productIndex !== -1) {
-        let updatedProduct = productsData.result[productIndex];
-        
-        updatedProduct.name = updatedProductData.name;
-        updatedProduct.price = +updatedProductData.price;
-        updatedProduct.category = updatedProductData.category;
-        updatedProduct.gender = updatedProductData.gender;
-        updatedProduct.colors = updatedProductData.colors.split(',').map(color => color.trim());
-        updatedProduct.sizes = updatedProductData.sizes.split(',').map(size => size.trim());
-        updatedProduct.offer = +updatedProductData.offer;
-        updatedProduct.installments.count = +updatedProductData.installmentsCount || 0;
-        updatedProduct.installments.interestRate = +updatedProductData.interestRate || 0;
-        updatedProduct.description.overview = updatedProductData.overview;
-        updatedProduct.description.careInstructions = updatedProductData.careInstructions;
-        updatedProduct.description.composition = updatedProductData.composition;
-
+        productsData.result.forEach(e => {
+            if(e.id == id) {
+                e.name = name;
+                e.price = +price;
+                e.category = category;
+                e.gender = gender;
+                e.colors = colors.split(',').map(color => color.trim());
+                e.sizes = sizes.split(',').map(size => size.trim());
+                e.offer = +offer;
+                e.installments.count = +installmentsCount || 0;
+                e.installments.interestRate = +interestRate || 0;
+                e.description.overview = overview;
+                e.description.careInstructions = careInstructions;
+                e.description.composition = composition;
+            }
+        });
+       
         fs.writeFileSync(productsFilePath, JSON.stringify(productsData, null, 2));
 
         res.redirect('/products/detail/' + id);
-        } else {
-            res.status(404).send('Producto no encontrado');
-        };
     },
     getProducts : (req, res)=>{
         res.render('productsList', {featuredProducts : productsData.result});
@@ -82,7 +79,7 @@ const productController = {
         res.render('productManagement', {productList: productsData.result});
     },
     deleteProduct: (req, res)=>{
-        productsData.result = productsData.result.filter(product => product.id!=req.params.id);
+        productsData.result = productsData.result.filter(product => product.id != req.params.id);
         fs.writeFileSync(productsFilePath, JSON.stringify(productsData, null, 2));
         res.redirect('/products/productManagement');
     }
