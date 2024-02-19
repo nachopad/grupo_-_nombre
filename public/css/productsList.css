@@ -1,0 +1,70 @@
+.main-list-product{
+    width: 100%;
+}
+
+.container-products {
+    padding: 0px 12px;
+    margin-top: 130px;
+}
+
+.product-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.item {
+    width: 100%;
+}
+/* Modificacion realizada por carlos sanchez, alias el burro XD */
+.item button{
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+.item-description {
+    margin-top: 6px;
+}
+
+.item-price-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-right: 15px;
+}
+
+.item-price-old {
+    color: #888888;
+    text-decoration: line-through;
+}
+
+.item-discount {
+    color: #FF1818;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .item {
+        width: 40%;
+    }
+}
+@media (min-width: 1200px){
+    .item {
+        width: 20%;
+    }
+}

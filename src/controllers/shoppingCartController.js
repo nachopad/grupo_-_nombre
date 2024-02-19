@@ -1,4 +1,4 @@
-const productsData = require('../models/productData.json');
+const productsData = require('../data/productData.json');
 const shoppingCart = [];
 
 const shoppingCartController = {

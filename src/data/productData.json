@@ -1,0 +1,398 @@
+{
+  "result": [
+    {
+      "id": 1,
+      "img": [
+        "grand-court-alpha-1.jpg",
+        "grand-court-alpha-2.jpg",
+        "grand-court-alpha-3.jpg",
+        "grand-court-alpha-4.jpg"
+      ],
+      "name": "Zapatillas Grand Court Alpha",
+      "category": "clothes",
+      "gender": "male",
+      "price": 59.5,
+      "offer": 50,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "brown",
+        "black",
+        "white"
+      ],
+      "sizes": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "description": {
+        "overview": "Las 3 Tiras evocan el legado de Lumina. Y cuando se las combina con estas zapatillas adidas Grand Court Alpha, celebran generaciones de originalidad. La silueta minimalista crea ese look atemporal. El logo en relieve en la lengüeta y las elegantes costuras le dan un toque moderno. La amortiguación Cloudfoam le inyecta comodidad a cada uno de tus pasos.",
+        "careInstructions": "Lavar a máquina del revés, temperatura max. 30°",
+        "composition": "98% Algodón 2% Spandex"
+      },
+      "colors[]": " brown, black, white",
+      "sizes[]": " 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40",
+      "installmentsCount": "3",
+      "interestRate": "0",
+      "overview": "Las 3 Tiras evocan el legado de Lumina. Y cuando se las combina con estas zapatillas adidas Grand Court Alpha, celebran generaciones de originalidad. La silueta minimalista crea ese look atemporal. El logo en relieve en la lengüeta y las elegantes costuras le dan un toque moderno. La amortiguación Cloudfoam le inyecta comodidad a cada uno de tus pasos.",
+      "careInstructions": "Lavar a máquina del revés, temperatura max. 30°",
+      "composition": "98% Algodón 2% Spandex"
+    },
+    {
+      "id": 2,
+      "img": [
+        "response-super-1.jpg",
+        "response-super-2.jpg",
+        "response-super-3.jpg",
+        "response-super-4.jpg"
+      ],
+      "name": "Zapatillas Response Super 3.0",
+      "category": "footwear",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 125.999,
+      "offer": 30,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "black",
+        "white",
+        "red",
+        "grey"
+      ],
+      "sizes": [
+        38,
+        38.5,
+        39,
+        40,
+        41,
+        41.5,
+        42,
+        43,
+        43.5,
+        44,
+        45,
+        45.5,
+        46,
+        47
+      ],
+      "description": {
+        "overview": "Corré contra el reloj con estas zapatillas de running adidas. Traen un exterior de malla transpirable y un cuello acolchado Geofit que sujeta tus tobillos. La amortiguación Bounce en el talón y Bounce+ bajo el pie te proporciona una sensación de velocidad y rebote. La suela de caucho ofrece un agarre insuperable para que puedas correr en cualquier terreno.",
+        "careInstructions": "Lavar a máquina del revés, temperatura max. 30°",
+        "composition": "98% Algodón 2% Spandex"
+      }
+    },
+    {
+      "id": 3,
+      "img": [
+        "tshirt-afa-worldchampion-1.jpg",
+        "tshirt-afa-worldchampion-2.jpg"
+      ],
+      "name": "Camiseta AFA 3 estrellas campeones del mundo",
+      "category": "clothes",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 54.999,
+      "offer": 10,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "white"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": {
+        "overview": "La tercera estrella sobre el escudo AFA y el detalle de Campeones del Mundo en la espalda celebran una victoria memorable. A lo largo de la historia del fútbol, la Albiceleste ha representado un juego y un compromiso incomparables. Diseñada para hinchas, ofrece comodidad en todo momento gracias a su tejido suave con tecnología de absorción AEROREADY. Realizada con una materiales reciclados y renovables.",
+        "careInstructions": "Cuidados: Lavar a máquina del revés, temperatura max. 30°",
+        "composition": "Composición: 98% Algodón 2% Spandex"
+      }
+    },
+    {
+      "id": 4,
+      "img": [
+        "cap-running-adizero-1.jpg",
+        "cap-running-adizero-2.jpg",
+        "cap-running-adizero-3.jpg"
+      ],
+      "name": "Gorra de Running Adizero HEAT.RDY",
+      "category": "accesory",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 53.999,
+      "offer": 30,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "black"
+      ],
+      "sizes": [],
+      "description": {
+        "overview": "La Gorra Negra Adizero es el accesorio perfecto para completar tu estilo. Con un diseño moderno y elegante, esta gorra te brinda comodidad y un toque de sofisticación al hacer ejercicio. Fabricada con materiales de alta calidad, es ideal para cualquier ocasión.",
+        "careInstructions": "Lavar a máquina del revés, temperatura max. 30°",
+        "composition": "98% Algodón 2% Spandex"
+      }
+    },
+    {
+      "id": 5,
+      "img": [
+        "boot-bag-tiro-league-1.jpg",
+        "boot-bag-tiro-league-2.jpg",
+        "boot-bag-tiro-league-3.jpg",
+        "boot-bag-tiro-league-4.jpg"
+      ],
+      "name": "Bolso para botines Tiro League",
+      "category": "accesory",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 35.999,
+      "offer": 0,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "black",
+        "navy-blue"
+      ],
+      "sizes": [],
+      "description": {
+        "overview": "Creado para el deporte rey. Este bolso para botines adidas forma parte de la colección Tiro League y mantiene tus botines sanos y salvos mientras no los tenés puestos. Su exterior tejido resistente lo hace perfecto para resistir los golpes y raspones del vestuario. El panel de ventilación de malla se encarga de que tus botines se empiecen a secar de manera natural mucho antes de llegar a casa. Este producto, hecho con una serie de materiales reciclados y al menos un 40 % de contenido reciclado, representa solo una de nuestras soluciones para acabar con los residuos plásticos.",
+        "careInstructions": "Limpiar únicamente con paño húmedo. No usar blanqueador, secadora ni lavar en seco.",
+        "composition": "98% Algodón 2% Spandex"
+      }
+    },
+    {
+      "id": 6,
+      "img": [
+        "ball-argentum-22-league-1.jpg",
+        "ball-argentum-22-league-2.jpg",
+        "ball-argentum-22-league-3.jpg",
+        "ball-argentum-22-league-4.jpg"
+      ],
+      "name": "Pelota Argentum 22 league",
+      "category": "accesory",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 69.999,
+      "offer": 0,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [],
+      "sizes": [
+        4,
+        5
+      ],
+      "description": {
+        "overview": "De 1978 al futuro. Los llamativos gráficos difuminados de esta pelota adidas Argentum 22 se inspiran en la icónica pelota Tango Rosario que protagonizó la coronación de Argentina como campeón del mundo en suelo local. Ideal para entrenar, su estructura TSBE sin costuras y el sello de calidad FIFA Quality garantizan su predictibilidad en la cancha, partido tras partido.",
+        "careInstructions": "Limpiar únicamente con paño húmedo. No usar blanqueador, secadora ni lavar en seco.",
+        "composition": "Exterior 100 % TPU, Cámara de caucho, Estructura sin costuras TSBE."
+      }
+    },
+    {
+      "id": 7,
+      "img": [
+        "branded-layer-1.jpg",
+        "branded-layer-2.jpg"
+      ],
+      "name": "Branded Layer",
+      "category": "clothes",
+      "gender": [
+        "female"
+      ],
+      "price": 106.999,
+      "offer": 0,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "black",
+        "white"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "description": {
+        "overview": "Branded Layer es un nuevo producto para Mujer de adidas. Te invitamos a ver las imágenes para apreciar más detalles desde diferentes ángulos. Si ya conocés Branded Layer podés dejar una reseña abajo; siempre nos encanta conocer tu opinión.",
+        "careInstructions": "Usar únicamente detergente suave. Lavar con cierres ajustados. No usar blanqueador, secadora ni lavar en seco. No planchar.",
+        "composition": "Exterior 100 % TPU, Cámara de caucho, Estructura sin costuras TSBE."
+      }
+    },
+    {
+      "id": 8,
+      "img": [
+        "yoga-trainning-tshirt-1.jpg",
+        "yoga-trainning-tshirt-2.jpg",
+        "yoga-trainning-tshirt-3.jpg",
+        "yoga-trainning-tshirt-4.jpg"
+      ],
+      "name": "Remera de entrenamiento Yoga",
+      "category": "clothes",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 48.999,
+      "offer": 30,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "black"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": {
+        "overview": "Ponete esta remera de yoga lumina, respirá profundo y dejá que el estrés del día se disipe. El tejido extrasuave hace que sea muy fácil encontrar tu ritmo. Incorpora tecnología de absorción AEROREADY que te permite concentrarte únicamente en el aquí y ahora. Este producto está hecho con materiales naturales y renovables como parte de nuestro compromiso para eliminar los recursos finitos de nuestros diseños y ayudar a ponerles fin a los residuos plásticos.",
+        "careInstructions": "Usar únicamente detergente suave. Lavar con cierres ajustados. No usar blanqueador, secadora ni lavar en seco. No planchar.",
+        "composition": "Tejido jersey 52 % algodón, 48 % poliéster reciclado"
+      }
+    },
+    {
+      "id": 9,
+      "img": [
+        "booties-crazyfast-1.jpg",
+        "booties-crazyfast-2.jpg",
+        "booties-crazyfast-3.jpg",
+        "booties-crazyfast-4.jpg"
+      ],
+      "name": "Botines x Crazyfast+ FG",
+      "category": "footwear",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 449.999,
+      "offer": 0,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "cloud white",
+        "core black"
+      ],
+      "sizes": [
+        36.5,
+        37.5,
+        38,
+        38.5,
+        39,
+        39.5,
+        40,
+        41,
+        41.5,
+        42,
+        43,
+        43.5,
+        44,
+        45,
+        45.5,
+        46,
+        47
+      ],
+      "description": {
+        "overview": "Cambiá el juego con los botines X Crazyfast+ FG para terreno firme. Estos botines livianos de fútbol lucen una parte superior semitranslúcida con tecnología Aeropacity Speedskin+ e incluyen refuerzos en zonas estratégicas. Presentan unos cordones livianos y una suela SPEEDFRAME con AEROPLATE para propulsión y movimientos dinámicos. Hemos reducido el impacto ecológico de este par de zapatillas en al menos un 10% en comparación con una versión anterior. Menos emisiones de gases de efecto invernadero, incluyendo CO2, para todo el ciclo de vida, desde su creación hasta el final.",
+        "careInstructions": "No usar blanqueador, secadora ni lavar en seco.",
+        "composition": "Exterior Aeropacity Speedskin+. Forro interno de soporte técnico Aerocage+"
+      }
+    },
+    {
+      "id": 10,
+      "img": [
+        "sneakers-cross-emup-1.jpg",
+        "sneakers-cross-emup-2.jpg",
+        "sneakers-cross-emup-3.jpg",
+        "sneakers-cross-emup-4.jpg"
+      ],
+      "name": "Zapatillas Cross EM UP 5",
+      "category": "footwear",
+      "gender": [
+        "male",
+        "female"
+      ],
+      "price": 8.999,
+      "offer": 0,
+      "installments": {
+        "count": 3,
+        "interestRate": 0
+      },
+      "colors": [
+        "royal blue",
+        "core black",
+        "cloud white"
+      ],
+      "sizes": [
+        36.5,
+        37.5,
+        38,
+        38.5,
+        39,
+        39.5,
+        40,
+        41,
+        41.5,
+        42,
+        43,
+        43.5,
+        44,
+        45,
+        45.5,
+        46,
+        47
+      ],
+      "description": {
+        "overview": "Permitíles jugar con total comodidad. Estas zapatillas de básquet adidas para niños tienen una mediasuela ultrasuave de Cloudfoam que es perfecta para correr sin parar por la cancha. La suela de caucho de gran agarre se encarga de brindar tracción en los momentos decisivos.",
+        "careInstructions": "No usar blanqueador, secadora ni lavar en seco.",
+        "composition": "Exterior sintético perforado con lengüeta de malla. Forro interno textil. Diseño transpirable."
+      }
+    }
+  ]
+}

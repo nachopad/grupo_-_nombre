@@ -60,7 +60,7 @@
                     </div>
                     <div class="item-details-cuotas">
                         <%= product.installments.count %> cuotas sin interés de
-                        <b>$ <%= product.installments.amount %></b>
+                        <b>$ <%= ((product.price - (product.price * (product.offer / 100))).toFixed(3) / product.installments.count).toFixed(3) %></b>
                     </div>
                     <% if(product.colors && product.colors.length > 0) { %>
                         <div class="item-colors-container">

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina</title>
+
+    <link rel="shortcut icon" href="/images/logo-lumina.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <link rel="stylesheet" href="/css/productsList.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main class="main-list-product">
+        <section class="container-products">
+            <header class="product-title">
+                <h4>Productos</h4>
+            </header>
+            <div class="product-list">
+                <% featuredProducts.map(product => { %>
+                    <form action="/products/detail/<%= product.id%>" method="get"  class="item">
+                        <button type="submit">
+                            <img src="/images/productDetail/<%= product.img[0] %>" alt="Zapatillas Racer">
+                        <div class="item-description">
+                            <p class="item-name"><%= product.name %></p>
+                            <div class="item-price-container">
+                                <p class="item-price-old">$<%= product.price %></p>
+                                <p class="item-price">$<%= (product.price*(product.offer/100)).toFixed(3) %></p>
+                                <p class="item-discount">%<%= product.offer %></p>
+                            </div>
+                        </div>
+                    </button>
+                    </form>
+                <%})%>
+            </div>
+        </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

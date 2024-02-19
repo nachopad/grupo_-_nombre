@@ -36,3 +36,24 @@ El Sprint N°1 fue exitoso en términos de colaboración y entrega de wireframes
 
 ## Conclusiones Generales
 El Sprint N°2 consolidó el éxito anterior, pero destacó la importancia de fortalecer la comunicación interna. La implementación de reuniones de sincronización, actualizaciones continuas en Trello y una definición más clara de roles serán clave para optimizar aún más nuestro proceso de desarrollo en el próximo sprint.
+
+
+# Sprint N°3 - Retrospectiva
+
+## Logros y Aspectos Positivos
+1. **Buena Comunicación Continuada:** Se mantuvo una comunicación efectiva durante todo el sprint, lo que contribuyó a un ambiente de trabajo armonioso y productivo.
+2. **Ejecución Correcta de Tareas:** Todas las tareas asignadas se completaron dentro de los plazos establecidos, lo que refleja un buen nivel de organización y compromiso por parte del equipo.
+3. **Ausencia de Complicaciones:** No se registraron problemas significativos durante el sprint, lo que permitió un flujo de trabajo continuo y sin contratiempos.
+
+## Áreas de Mejora
+1. **Exploración de Mejoras Continuas:** Aunque el sprint fue exitoso, siempre hay margen para la mejora. Deberíamos explorar constantemente formas de optimizar nuestro proceso de desarrollo y colaboración.
+2. **Feedback Constructivo:** Fomentar un ambiente donde se brinde y se reciba feedback de manera constructiva para identificar oportunidades de mejora y fortalezas individuales y colectivas.
+3. **Planificación a Largo Plazo:** Considerar la implementación de una planificación a largo plazo para tener una visión más clara de los objetivos futuros y las metas a alcanzar.
+
+## Acciones a Tomar
+1. **Implementación de Sesiones de Feedback:** Establecer sesiones regulares de feedback donde los miembros del equipo puedan expresar sus opiniones, sugerencias y preocupaciones de manera abierta y constructiva.
+2. **Revisión Periódica de Procesos:** Programar revisiones periódicas de nuestros procesos de trabajo para identificar áreas de mejora y hacer ajustes según sea necesario.
+3. **Planificación Estratégica:** Dedicar tiempo a una planificación estratégica a largo plazo para definir metas claras y establecer un camino hacia su consecución.
+
+## Conclusiones Generales
+El Sprint N°3 fue otro éxito en términos de comunicación, ejecución de tareas y ausencia de complicaciones. Sin embargo, reconocemos la importancia de no estancarnos en nuestros logros y buscar constantemente maneras de mejorar. Implementar sesiones de feedback, revisar nuestros procesos de trabajo y dedicar tiempo a una planificación estratégica nos ayudará a seguir evolucionando y alcanzar un nivel aún mayor de eficiencia y colaboración en futuros sprints.
