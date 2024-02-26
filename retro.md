@@ -57,3 +57,24 @@ El Sprint N°2 consolidó el éxito anterior, pero destacó la importancia de fo
 
 ## Conclusiones Generales
 El Sprint N°3 fue otro éxito en términos de comunicación, ejecución de tareas y ausencia de complicaciones. Sin embargo, reconocemos la importancia de no estancarnos en nuestros logros y buscar constantemente maneras de mejorar. Implementar sesiones de feedback, revisar nuestros procesos de trabajo y dedicar tiempo a una planificación estratégica nos ayudará a seguir evolucionando y alcanzar un nivel aún mayor de eficiencia y colaboración en futuros sprints.
+
+
+# Sprint N°4 - Retrospectiva
+
+## Logros y Aspectos Positivos
+1. **Continuación de una Comunicación Efectiva:** Se mantuvo la comunicación efectiva durante todo el sprint, lo que contribuyó al ambiente de trabajo productivo.
+2. **Ejecución Consistente de Tareas:** Las tareas asignadas se completaron dentro de los plazos establecidos, demostrando un buen nivel de organización y compromiso por parte del equipo.
+3. **Estabilidad en el Proceso de Trabajo:** No se registraron problemas significativos durante el sprint, lo que permitió un flujo de trabajo continuo y sin contratiempos.
+
+## Áreas de Mejora
+1. **Exploración Continua de Mejoras:** Aunque el sprint fue exitoso, debemos seguir buscando formas de optimizar nuestro proceso de desarrollo y colaboración.
+2. **Feedback Constructivo:** Continuar fomentando un ambiente donde se brinde y reciba feedback de manera constructiva para identificar oportunidades de mejora.
+3. **Consideración de la Planificación a Largo Plazo:** Evaluar la implementación de una planificación a largo plazo para tener una visión más clara de los objetivos futuros y las metas a alcanzar.
+
+## Acciones a Tomar
+1. **Mantener Sesiones de Feedback:** Seguir estableciendo sesiones regulares de feedback donde los miembros del equipo puedan expresar sus opiniones de manera abierta y constructiva.
+2. **Continuar Revisando Procesos:** Programar revisiones periódicas de nuestros procesos de trabajo para identificar áreas de mejora y hacer ajustes según sea necesario.
+3. **Explorar la Planificación Estratégica:** Dedicar tiempo a la exploración de una planificación estratégica a largo plazo para definir metas claras y establecer un camino hacia su consecución.
+
+## Conclusiones Generales
+El Sprint N°4 mantuvo la tendencia positiva en términos de comunicación, ejecución de tareas y estabilidad en el proceso de trabajo. Reconocemos la importancia de seguir evolucionando y buscando maneras de mejorar constantemente. Mantener sesiones de feedback, revisar nuestros procesos de trabajo y explorar la planificación estratégica serán aspectos clave para nuestro crecimiento continuo en futuros sprints.
