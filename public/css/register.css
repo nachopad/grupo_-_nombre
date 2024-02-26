@@ -186,6 +186,11 @@ legend {
   cursor: pointer;
 }
 
+.msg-error{
+  color: red;
+  margin: 12px 0px 0px 0px;
+  font-weight: bold;
+}
 @media (min-width:1200px){
   .login-form{
       margin: 20px 0px;
