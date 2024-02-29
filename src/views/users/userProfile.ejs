@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina</title>
+    <link rel="shortcut icon" href="/images/logo-lumina.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+</head>
+<body>
+    <h2>Perfil de usuario</h2>
+    <p>Nombre: <%= user.firstName  %></p>
+    <p>Apellido: <%= user.lastName  %> </p>
+    <p>Fecha de nacimiento: <%= user.birthdate  %> </p>
+    <p>email: <%= user.email  %> </p>
+    <p>telefono: <%= user.phone  %> </p>
+    <p>foto: <%= user.photo %> </p>
+</body>
+</html>

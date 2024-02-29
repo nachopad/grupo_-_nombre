@@ -1,10 +1,7 @@
-const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
-const path = require('path');
-const fs = require('fs');
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const userDB = require('../data/users.json');
-const { validationResult }=require('express-validator');
+const { validationResult } = require('express-validator');
+
+const User = require('../models/User');
 
 const userCtrl = {
     login: (req, res) => {
@@ -13,27 +10,39 @@ const userCtrl = {
     getFormRegister: (req, res) => {
         res.render('register');
     },
+    processLogin: (req, res) => {
+        const errors = validationResult(req);
+        let userToLogin = User.findByField('email', req.body.email);
+
+        return userToLogin && bcrypt.compareSync(req.body.password, userToLogin.password)
+        ? (delete userToLogin.password, req.session.userLogged = userToLogin, req.body.remember && res.cookie('userEmail', req.body.email, { maxAge: 60000 }), res.redirect('/'))
+        : res.render('login', { errors: errors.mapped(), oldData: req.body } );
+    },
     register: (req, res) => {
         const errors = validationResult(req);
+
         if(errors.isEmpty()){
             let newUser = {
-                id: crypto.randomUUID(),
-                first_name: req.body.firstName,
-                last_name: req.body.lastName,
-                email: req.body.email,
-                phone: req.body.phone,
-                birthdate: req.body.birthdate,
-                password: bcrypt.hashSync(req.body.password, 12),
-                category: "user",
-                imagen: req.file?req.file.filename:'',
-            }
+               ...req.body,
+               password: bcrypt.hashSync(req.body.password, 12),
+               photo: req.file ? req.file.filename : '',
+            }; 
 
-            userDB.result.push(newUser);
-            fs.writeFileSync(usersFilePath, JSON.stringify(userDB, null, 2));
-            res.send(newUser);   
+            delete newUser.confirmPassword;
+            User.create(newUser);
+
+            res.redirect('/users/login');
         }
         res.render('register',{errors: errors.mapped(), oldData: req.body});
+    },
+    profile: (req, res) => {
+        return res.render('userProfile', { user: req.session.userLogged });
+    },
+    logout: (req, res) => {
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect('/');
     }
-
 }
+
 module.exports = userCtrl;

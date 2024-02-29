@@ -20,9 +20,10 @@ const productController = {
         res.render('productForm', {product: product});
     },
     store: (req, res) => {
+        let file = req.file;
         let newProduct = {
             id: crypto.randomUUID(),
-            img: req.body.img,
+            img: `${file.filename}` ,
             name: req.body.name,
             category: req.body.category,
             gender: req.body.gender,
@@ -79,9 +80,16 @@ const productController = {
         res.render('productManagement', {productList: productsData.result});
     },
     deleteProduct: (req, res)=>{
+        let product = productsData.result.find(oneProduct => oneProduct.id === req.params.id);
+
+        let photoFilePath = path.join(__dirname, '/images/productDetail/'+product.img);
+        if(fs.existsSync(photoFilePath)) {
+            fs.unlinkSync(photoFilePath);
+        }
+        
         productsData.result = productsData.result.filter(product => product.id != req.params.id);
         fs.writeFileSync(productsFilePath, JSON.stringify(productsData, null, 2));
-        res.redirect('/products/productManagement');
+        res.redirect('/products/product-management');
     }
 
 };

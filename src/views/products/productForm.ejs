@@ -16,7 +16,7 @@
     <%- include('./partials/header.ejs') %>
     <main>
         <section class="container-form">
-            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.id + '?_method=PUT' %>" class="form">
+            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.id + '?_method=PUT' %>" class="form" enctype="multipart/form-data">
                 <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
                 <div class="input-information">
                     <label for="name">Nombre del producto</label>
