@@ -18,6 +18,7 @@ body{
   justify-content: center;
   align-items: center;
   padding: 10px 10px;
+  min-height: 100vh;
 }
 
 .login-header{
@@ -178,13 +179,38 @@ legend {
   font-weight: bold;
 }
 @media (min-width:1200px){
+
+  .container-form{
+    width: 100%;
+  }
   .login-form{
       margin: 20px 0px;
-      border: 1px  solid black;
-      padding: 20px 400px;
       border-radius: 5px;
+      padding: 0px 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
   }
-
+  .login-header{
+    width: 80%;
+    font-size: 1rem;
+  }
+  .login-header img{
+    width: 8%;
+    margin: auto;
+  }
+  fieldset{
+    width: 30%;
+  }
+  .help-me{
+    width: 100%;
+    justify-content: center;
+  }
+  .button-continue{
+    width: 100%;
+    padding: 0px 12px;
+  }
   .input-information input{
     width: 80%;
   }

@@ -31,9 +31,9 @@ const userCtrl = {
             delete newUser.confirmPassword;
             User.create(newUser);
 
-            res.redirect('/users/login');
+            return res.redirect('/users/login');
         }
-        res.render('register',{errors: errors.mapped(), oldData: req.body});
+        return res.render('register',{errors: errors.mapped(), oldData: req.body});
     },
     profile: (req, res) => {
         return res.render('userProfile', { user: req.session.userLogged });

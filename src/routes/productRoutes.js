@@ -8,8 +8,8 @@ router.get('/detail/:id', productController.productDetail);
 router.get('/product-form/:id?', productController.productForm);
 router.get('/products', productController.getProducts);
 router.get('/product-management', productController.productManagement);
-router.post('/create', multer.single('img'), productController.store);
-router.put('/edit/:id', productController.update);
+router.post('/create', multer.array('img'), productController.store);
+router.put('/edit/:id', multer.array('img'), productController.update);
 router.delete('/:id/delete', productController.deleteProduct);
 
 module.exports = router;
