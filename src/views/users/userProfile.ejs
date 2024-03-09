@@ -24,6 +24,9 @@
                     <div class="account-slidebar">
                         <div class="slidebar-information">
                             <p class="account-subtitle">Hola <%= user.firstName %>!</p>
+                            <div class="profile-image-container">
+                                <img src="/images/userProfile/<%= user.photo ? user.photo : 'default-profile.png' %>" alt="Profile Picture">
+                            </div>
                             <p class="slider-explain-text">
                                 Desde mi cuenta podés ver un resumen de tus actividades recientes 
                                 y actualizar tu información.
