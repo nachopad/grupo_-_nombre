@@ -8,15 +8,135 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/userProfile.css">
     <link rel="stylesheet" href="/css/normalize.css">
 </head>
 <body>
-    <h2>Perfil de usuario</h2>
-    <p>Nombre: <%= user.firstName  %></p>
-    <p>Apellido: <%= user.lastName  %> </p>
-    <p>Fecha de nacimiento: <%= user.birthdate  %> </p>
-    <p>email: <%= user.email  %> </p>
-    <p>telefono: <%= user.phone  %> </p>
-    <p>foto: <%= user.photo %> </p>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <section class="title-container">
+            <hr>
+            <h4 class="account-title">Mi cuenta</h4>
+            <hr>
+        </section>
+        <section class="account-container">
+                <article class="account-main-row">
+                    <div class="account-slidebar">
+                        <div class="slidebar-information">
+                            <p class="account-subtitle">Hola <%= user.firstName %>!</p>
+                            <p class="slider-explain-text">
+                                Desde mi cuenta podés ver un resumen de tus actividades recientes 
+                                y actualizar tu información.
+                            </p>
+                            <div class="slider-line">
+                                <hr>
+                            </div>
+                            <div class="account-options-container">
+                                <select>
+                                    <option value="">Panel de control</option>
+                                    <option value="">Datos personales</option>
+                                    <option value="">Mis direcciones</option>
+                                    <option value="">Mis tarjetas</option>
+                                </select>
+                            </div>
+                            <ul class="slider-list-group">
+                                <li>Panel de control</li>
+                                <li class="account-sidebar-icon">
+                                    <a><img src="/images/assets/control-panel-icon.svg"></a>
+                                </li>
+                                <li>Datos personales</li>
+                                <li class="account-sidebar-icon">
+                                    <a><img src="/images/assets/personal-information-icon.svg"></a>
+                                </li>
+                                <li>Mis pedidos</li>
+                                <li class="account-sidebar-icon">
+                                    <a><img src="/images/assets/order-icon.svg"></a>
+                                </li>
+                                <li>Mis direcciones</li>
+                                <li class="account-sidebar-icon">
+                                    <a><img src="/images/assets/addresses-icon.svg"></a>
+                                </li>
+                                <li>Mis tarjetas</li>
+                                <li class="account-sidebar-icon">
+                                    <a><img src="/images/assets/card-icon.svg"></a>
+                                </li>
+                                <li>Cambios y devoluciones</li>
+                                <li class="account-sidebar-icon">
+                                    <a><img src="/images/assets/refund-icon.svg"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="help-container">
+                        <p>
+                            <a>Preguntas frecuentes</a>
+                            <span>/</span>
+                            <a>Contáctanos</a>
+                        </p>
+                    </div>
+                </article>
+                <article class="account-main-row">
+                    <div class="edit-account-form-container">
+                        <p class="account-subtitle">Modificá tus datos personales</p>
+                        <form method="POST" action="">
+                            <div class="input-information">
+                                <label class="label-account" for="firstName">Nombre</label>
+                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= user.firstName %>" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="lastName">Apellido</label>
+                                <input class="input-style"  type="text" name="lastName" id="lastName" placeholder="Ingresá tu apellido" value="<%= user.lastName %>" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="email">Email</label>
+                                <input class="input-style"  type="email" name="email" id="email" placeholder="Ingresá tu e-mail" value="<%= user.email %>" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="birthDate">Fecha de nacimiento</label>
+                                <input class="input-style" type="date" name="birthDate" id="birthDate" value="<%= user.birthdate %>" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="phone">Teléfono</label>
+                                <input class="input-style"  type="text" name="phone" id="phone" placeholder="Ingresá tu número de teléfono" value="<%= user.phone %>" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="img">Imagen de perfil</label>
+                                <input class="input-style"  type="file" name="img" id="img" value="" >
+                            </div>
+                            <div class="container-button">
+                                <button class="edit-btn-style" type="submit">Guardar datos</button>
+                            </div>
+                        </form>
+                        <p class="account-subtitle">Modificá tu contraseña</p>
+                        <form method="POST" action="">
+                            <div class="input-information">
+                                <label class="label-account" for="currentPassword">Contraseña actual</label>
+                                <input class="input-style"  type="password" name="currentPassword" id="currentPassword" placeholder="Ingresá tu contraseña actual" value="" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="newPassword">Nueva contraseña</label>
+                                <input class="input-style"  type="password" name="newPassword" id="newPassword" placeholder="Ingresá tu nueva contraseña" value="" >
+                            </div>
+                            <div class="input-information">
+                                <label class="label-account" for="confirmNewPassword">Repetir nueva contraseña</label>
+                                <input class="input-style"  type="password" name="confirmNewPassword" id="confirmNewPassword" placeholder="Repetí tu nueva contraseña" value="" >
+                            </div>
+                            <div class="container-button">
+                                <button class="edit-btn-style" type="submit">Guardar contraseña</button>
+                            </div>
+                        </form>
+                        <article class="privacy-policy-container">
+                            <p class="privacy-policy">
+                                En Lumina© nos tomamos muy en serio tu privacidad y estamos comprometidos 
+                                con la protección de tus datos personales. Conocé más sobre como cuidamos 
+                                y usamos tus datos en nuestra 
+                            </p>
+                            <a href="#" class="f-bold">Política de privacidad</a>
+                        </article>
+                    </div>
+                </article>
+        </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>
