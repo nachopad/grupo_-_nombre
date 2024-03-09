@@ -7,7 +7,8 @@ const validations = [
         .notEmpty().withMessage('Debes ingresar un e-mail.').bail()
         .isEmail().withMessage('Debes ingresar un formato de e-mail válido.'),
     body('password')
-        .notEmpty().withMessage('Debes ingresar una contraseña.').bail(),
+        .notEmpty().withMessage('Debes ingresar una contraseña.').bail()
+        .isLength({ min: 8}).withMessage('La contraseña debe tener un mínimo de 8 caracteres.'),
     body().custom((value, { req }) => {
 
         const { email, password } = req.body;

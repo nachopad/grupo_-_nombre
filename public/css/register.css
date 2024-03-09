@@ -40,6 +40,8 @@ body{
 
 .login-header h2{
   width: 100%;
+  font-size: 20px;
+  font-weight: lighter;
   text-align: center;
 }
 .login-google{
@@ -174,10 +176,11 @@ legend {
 }
 
 .msg-error{
-  color: red;
-  margin: 12px 0px 0px 0px;
-  font-weight: bold;
+  color: #cd2222;
+  margin: 8px 0px 0px 0px;
+  text-align: center;
 }
+
 @media (min-width:1200px){
 
   .container-form{

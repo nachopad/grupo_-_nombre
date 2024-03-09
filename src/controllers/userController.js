@@ -1,3 +1,5 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
@@ -32,7 +34,8 @@ const userCtrl = {
             User.create(newUser);
 
             return res.redirect('/users/login');
-        }
+        };
+
         return res.render('register',{errors: errors.mapped(), oldData: req.body});
     },
     profile: (req, res) => {

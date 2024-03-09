@@ -1,6 +1,6 @@
 const fs = require('node:fs');
-const crypto = require('crypto');
 const path = require('node:path');
+const crypto = require('crypto');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const User = {

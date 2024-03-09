@@ -1,6 +1,6 @@
 const fs = require('node:fs');
-const crypto = require('crypto');
 const path = require('node:path');
+const crypto = require('crypto');
 const productsFilePath = path.join(__dirname, '../data/productData.json');
 
 const Product = {
@@ -45,24 +45,20 @@ const Product = {
         fs.writeFileSync(this.filename, JSON.stringify(allProducts, null, 2));
         return newProduct;
     },
-    /**
-     * 
-     * @param {*} id from product to remove
-     * @returns 
-     * Note!: Change the image path to delete
-     */
     delete: function (id) {
         let allProducts = this.getData();
         let removePoduct = allProducts.result.find(product => product.id === id);
+
         removePoduct.img.forEach(p => {
-            let photoFilePath = path.join(__dirname, '../../public/images/user-photo/' + p);
-            console.log(photoFilePath);
+            let photoFilePath = path.join(__dirname, '../../public/images/userProfile/' + p);
             if (fs.existsSync(photoFilePath)) {
                 fs.unlinkSync(photoFilePath);
             }
         });
+
         allProducts.result = allProducts.result.filter((product => product.id != id));
         fs.writeFileSync(this.filename, JSON.stringify(allProducts, null, 2));
+        
         return removePoduct;
     },
 

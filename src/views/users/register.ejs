@@ -17,52 +17,70 @@
         <form action="/users/register" method="post" class="login-form" enctype="multipart/form-data">
             <div class="login-header">
                 <img src="/images/logo-lumina.png" alt="logo de lumina">
-                <h2>REGISTRO</h2>
+                <h2>Registrarse en Lumina</h2>
             </div>
             <fieldset>
               <legend>Información personal</legend>
               <div class="input-information">
-                <label for="firstName">Nombre</label>
-                <input type="text" name="firstName" id="firstName" placeholder="Ingrese su nombre" value="<%= locals.errors?oldData.firstName:'' %>" required>
+                <label for="firstName">Nombre completo</label>
+                <input type="text" name="firstName" id="firstName" placeholder="Ingrese su nombre" value="<%= locals.errors ? oldData.firstName : '' %>" >
+                <% if(locals.errors && errors.firstName){ %>
+                  <span class="msg-error">* <%= errors.firstName.msg %></span>
+                <% } %>
               </div>
               <div class="input-information">
-                <label for="lastName">Apellido</label>
-                <input type="text" name="lastName" id="lastName" placeholder="Ingrese su apellido" required value="<%= locals.errors?oldData.lastName:'' %>">
+                <label for="lastName">Apellidos</label>
+                <input type="text" name="lastName" id="lastName" placeholder="Ingrese su apellido"  value="<%= locals.errors ? oldData.lastName : '' %>">
+                <% if(locals.errors && errors.lastName){ %>
+                  <span class="msg-error">* <%= errors.lastName.msg %></span>
+                <% } %>
               </div>
               <div class="input-information">
                 <label for="birthdate">Fecha de nacimiento</label>
-                <input type="date" name="birthdate" id="birthdate">
+                <input type="date" name="birthdate" id="birthdate" value="<%= locals.errors ? oldData.birthdate : '' %>">
+                <% if(locals.errors && errors.birthdate){ %>
+                  <span class="msg-error">* <%= errors.birthdate.msg %></span>
+                <% } %>
               </div>
             </fieldset>
             <fieldset>
               <legend>Datos de contacto</legend>
               <div class="input-information">
                 <label for="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" placeholder="Ingrese su e-mail" value="<%= locals.errors?oldData.email:'' %>" required>
+                <input type="email" name="email" id="email" placeholder="Ingrese su e-mail" value="<%= locals.errors ? oldData.email : '' %>" >
                 <% if(locals.errors && errors.email){ %>
-                  <span class="msg-error"><%= errors.email.msg %></span>
+                  <span class="msg-error">* <%= errors.email.msg %></span>
                 <% } %>
               </div>
               <div class="input-information">
                 <label for="phone">Número de teléfono</label>
-                <input type="tel" name="phone" id="phone" placeholder="Ingrese su numero de teléfono" value="<%= locals.errors?oldData.phone:'' %>">
+                <input type="tel" name="phone" id="phone" placeholder="Ingrese su numero de teléfono" value="<%= locals.errors ? oldData.phone : '' %>">
+                <% if(locals.errors && errors.phone){ %>
+                  <span class="msg-error">* <%= errors.phone.msg %></span>
+                <% } %>
               </div>
             </fieldset>
             <fieldset>
               <legend>Información de la cuenta</legend>
               <div class="input-information">
-                <label for="photo">Imagen de Perfil</label>
+                <label for="photo">Imagen de perfil</label>
                 <input type="file" name="photo" id="photo">
+                <% if(locals.errors && errors.photo){ %>
+                  <span class="msg-error">* <%= errors.photo.msg %></span>
+                <% } %>
               </div>
               <div class="input-information">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" placeholder="Ingrese su contraseña" required>
+                <input type="password" name="password" id="password" placeholder="Ingrese su contraseña" >
+                <% if(locals.errors && errors.password){ %>
+                  <span class="msg-error">* <%= errors.password.msg %></span>
+                <% } %>
               </div>
               <div class="input-information">
                 <label for="confirmPassword">Confirmar contraseña</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirme su contraseña" required>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirme su contraseña" >
                 <% if(locals.errors && errors.confirmPassword){ %>
-                  <span class="msg-error"><%= errors.confirmPassword.msg %></span>
+                  <span class="msg-error">* <%= errors.confirmPassword.msg %></span>
                 <% } %>
               </div>
             </fieldset>

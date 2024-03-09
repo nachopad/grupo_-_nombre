@@ -1,6 +1,7 @@
 const express = require('express');
-const multer = require('../middleware/route-middlewares/multer');
 const router = express.Router();
+const productMulter = require('../middleware/route-middlewares/productRegisterMulter');
+const productRegisterValidation = require('../middleware/route-middlewares/validationProductRegister');
 
 const productController = require('../controllers/productController');
 
@@ -8,8 +9,8 @@ router.get('/detail/:id', productController.productDetail);
 router.get('/product-form/:id?', productController.productForm);
 router.get('/products', productController.getProducts);
 router.get('/product-management', productController.productManagement);
-router.post('/create', multer.array('img'), productController.store);
-router.put('/edit/:id', multer.array('img'), productController.update);
+router.post('/create', productMulter.array('img'), productRegisterValidation, productController.store);
+router.put('/edit/:id', productMulter.array('img'), productRegisterValidation, productController.update);
 router.delete('/:id/delete', productController.deleteProduct);
 
 module.exports = router;

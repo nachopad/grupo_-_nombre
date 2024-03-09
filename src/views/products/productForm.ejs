@@ -20,11 +20,17 @@
                 <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
                 <div class="input-information">
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" id="name" required class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.name : '' %>">
+                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.name : '' %>">
+                    <% if(locals.errors && errors.name){ %>
+                        <span class="msg-error">* <%= errors.name.msg %></span>
+                    <% } %>
                 </div>                
                 <div class="input-information">
                     <label for="price">Precio</label>
                     <input type="number" name="price" id="price" class="style-input" placeholder="Ingrese el precio del producto" value="<%= product ? product.price : 0 %>">
+                    <% if(locals.errors && errors.price){ %>
+                        <span class="msg-error">* <%= errors.price.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="category">Categoría</label>
@@ -33,6 +39,9 @@
                         <option value="accesory">Accesorio</option>
                         <option value="footwear">Calzado</option>
                     </select>
+                    <% if(locals.errors && errors.category){ %>
+                        <span class="msg-error">* <%= errors.category.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="gender">Género</label>
@@ -40,18 +49,30 @@
                         <option value="male">Hombre</option>
                         <option value="female">Mujer</option>
                     </select>
+                    <% if(locals.errors && errors.gender){ %>
+                        <span class="msg-error">* <%= errors.gender.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="color">Colores</label>
                     <input type="text" name="colors" id="colors" class="style-input" placeholder="Rojo, Verde, Negro" value="<%= product ? product.colors.map(color => ' '+color) : '' %>">
+                    <% if(locals.errors && errors.colors){ %>
+                        <span class="msg-error">* <%= errors.colors.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="size">Talles</label>
                     <input type="text" name="sizes" id="sizes" class="style-input" placeholder="35, 36, 36.5 - S, M, L" value="<%= product ? product.sizes.map(size => ' '+size) : '' %>">
+                    <% if(locals.errors && errors.sizes){ %>
+                        <span class="msg-error">* <%= errors.sizes.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="offer">Descuento del producto (opcional)</label>
                     <input type="number" name="offer" id="offer" class="style-input" value="<%= product ? ( product.offer !=0 ? +product.offer : 0) : 0 %>" placeholder="50">
+                    <% if(locals.errors && errors.offer){ %>
+                        <span class="msg-error">* <%= errors.offer.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="installmentsCount">Cantidad de cuotas (opcional)</label>
@@ -63,19 +84,31 @@
                 </div>
                 <div class="input-information">
                     <label for="imgs">Imágenes del producto</label>
-                    <input type="file" name="img" id="imgs" accept=".jpg" multiple class="style-input">
+                    <input type="file" name="img" id="imgs" multiple class="style-input">
+                    <% if(locals.errors && errors.img){ %>
+                        <span class="msg-error">* <%= errors.img.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="description">Descripción general</label>
-                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" required><%= product ? product.description.overview : '' %></textarea>
+                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" ><%= product ? product.description.overview : '' %></textarea>
+                    <% if(locals.errors && errors.overview){ %>
+                        <span class="msg-error">* <%= errors.overview.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="careInstructions">Instrucciones de cuidado</label>
                     <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.description.careInstructions : '' %></textarea>
+                    <% if(locals.errors && errors.careInstructions){ %>
+                        <span class="msg-error">* <%= errors.careInstructions.msg %></span>
+                    <% } %>
                 </div>
                 <div class="input-information">
                     <label for="composition">Composición</label>
                     <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.description.composition : '' %></textarea>
+                    <% if(locals.errors && errors.composition){ %>
+                        <span class="msg-error">* <%= errors.composition.msg %></span>
+                    <% } %>
                 </div>
                 <div class="container-button">
                     <button type="submit" class="button-style"> <%= product ? 'ACTUALIZAR' : 'REGISTRAR' %> </button>
