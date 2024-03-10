@@ -11,5 +11,7 @@ userRouter.post('/login', loginValidation , userController.processLogin);
 userRouter.post('/register', uploadFile.single('photo'), registerValidation ,userController.register);
 userRouter.get('/profile', userController.profile);
 userRouter.get('/logout', userController.logout);
+userRouter.put('/user-update/:id', uploadFile.single('photo') ,userController.update );
+userRouter.patch('/change-password/:id', userController.changePassword);
 
 module.exports = userRouter;

@@ -81,7 +81,7 @@
                 <article class="account-main-row">
                     <div class="edit-account-form-container">
                         <p class="account-subtitle">Modificá tus datos personales</p>
-                        <form method="POST" action="">
+                        <form method="POST" action="<%= '/users/user-update/'+user.id+'?_method=PUT'%>" enctype="multipart/form-data">
                             <div class="input-information">
                                 <label class="label-account" for="firstName">Nombre</label>
                                 <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= user.firstName %>" >
@@ -104,14 +104,14 @@
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="img">Imagen de perfil</label>
-                                <input class="input-style"  type="file" name="img" id="img" value="" >
+                                <input class="input-style"  type="file" name="photo" id="img" value="" >
                             </div>
                             <div class="container-button">
                                 <button class="edit-btn-style" type="submit">Guardar datos</button>
                             </div>
                         </form>
                         <p class="account-subtitle">Modificá tu contraseña</p>
-                        <form method="POST" action="">
+                        <form method="POST" action="<%= '/users/change-password/'+user.id+'?_method=PATCH'%>">
                             <div class="input-information">
                                 <label class="label-account" for="currentPassword">Contraseña actual</label>
                                 <input class="input-style"  type="password" name="currentPassword" id="currentPassword" placeholder="Ingresá tu contraseña actual" value="" >

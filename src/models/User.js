@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('crypto');
 const usersFilePath = path.join(__dirname, '../data/users.json');
+const bcrypt = require('bcryptjs');
 
 const User = {
     fileName: usersFilePath,
@@ -34,6 +35,36 @@ const User = {
         let finalUsers = allUsers.result.filter(oneUser => oneUser.id !== id);
         fs.writeFileSync(this.fileName, JSON.stringify(finalUsers, null, ' '));
         return true;
+    },
+    update: function(id, user){
+        let allUser = this.findAll();
+        let userFound;
+        allUser.result.forEach( u => {
+            if(u.id == id){
+                u.firstName = user.firstName;
+                u.lastName= user.lastName;
+                u.birthdate = user.birthDate;
+                u.phone = user.phone;
+                u.password = user.password || u.password;
+                u.photo= user.photo || u.photo;
+                u.email = user.email;
+                userFound = u;
+            }
+        });
+        fs.writeFileSync(this.fileName, JSON.stringify(allUser, null, ' '));
+        return userFound;
+    },
+    updatePassword : function(id, password){
+        let allUser =  this.findAll();
+        let userFound=null;
+        allUser.result.forEach( u => {
+            if(u.id == id){
+                u.password = bcrypt.hashSync(password, 12);
+                userFound = u;
+            }
+        });
+        fs.writeFileSync(this.fileName, JSON.stringify(allUser, null, ' '));
+        return userFound;
     }
 
 };

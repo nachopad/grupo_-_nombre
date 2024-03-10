@@ -35,15 +35,10 @@ const validations = [
             return true;
         }),
     body('photo').custom((value, { req }) => {
-        let file = req.file;
         const allowedFileTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        
-        if(file) {
-            if(!allowedFileTypes.includes(file.mimetype)) {
-                throw new Error(`Las extensiones válidas de imagen son ${allowedFileTypes.join(', ')}`);
-            };
+        if(req.body.error) {
+            throw new Error(`Las extensiones válidas de imagen son ${allowedFileTypes.join(', ')}`);
         };
-        
         return true;
     })
 ];

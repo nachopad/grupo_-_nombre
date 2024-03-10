@@ -45,6 +45,17 @@ const userCtrl = {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
+    },
+    update: (req, res)=>{
+        let userUpdated = User.update(req.params.id, req.body);
+        delete userUpdated.password;
+        console.log(userUpdated);
+        req.session.userLogged = userUpdated;
+        return res.render('userProfile', {user: req.session.userLogged});
+    },
+    changePassword : (req, res)=>{
+        User.updatePassword(req.params.id, req.body.newPassword);
+        return res.render('userProfile', {user: req.session.userLogged});
     }
 }
 
