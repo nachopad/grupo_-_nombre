@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session( { secret: 'lumina', resave: false, saveUninitialized: false } ));
-app.use(userLoggedMiddleware);
+app.use(userLoggedMiddleware.userLogged);
 
 
 // ************ Template Engine - (don't touch) ************ //

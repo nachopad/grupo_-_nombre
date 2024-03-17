@@ -2,6 +2,7 @@
  "result": [
   {
    "id": "345091ce-5544-42c7-917b-02a3a66c327f",
+   "role":"admin",
    "firstName": "Ignacio Agustín",
    "lastName": "Padilla",
    "birthdate": "2000-08-22",
@@ -12,6 +13,7 @@
   },
   {
    "id": "a9c2969c-e104-4fdc-84c1-e09cc2739b79",
+   "role":"customer",
    "firstName": "Carlos Rodolfo",
    "lastName": "Sanchez",
    "birthdate": "2002-10-04",

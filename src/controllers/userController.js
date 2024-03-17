@@ -15,7 +15,7 @@ const userCtrl = {
     processLogin: (req, res) => {
         const errors = validationResult(req);
         let userToLogin = User.findByField('email', req.body.email);
-
+        console.log(userToLogin);
         return userToLogin && bcrypt.compareSync(req.body.password, userToLogin.password)
         ? (delete userToLogin.password, req.session.userLogged = userToLogin, req.body.remember && res.cookie('userEmail', req.body.email, { maxAge: 60000 }), res.redirect('/'))
         : res.render('login', { errors: errors.mapped(), oldData: req.body } );
