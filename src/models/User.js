@@ -37,9 +37,9 @@ const User = {
         return true;
     },
     update: function(id, user){
-        let allUser = this.findAll();
+        let allUsers = this.findAll();
         let userFound;
-        allUser.result.forEach( u => {
+        allUsers.result.forEach( u => {
             if(u.id == id){
                 u.firstName = user.firstName;
                 u.lastName= user.lastName;
@@ -51,19 +51,19 @@ const User = {
                 userFound = u;
             }
         });
-        fs.writeFileSync(this.fileName, JSON.stringify(allUser, null, ' '));
+        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return userFound;
     },
     updatePassword : function(id, password){
-        let allUser =  this.findAll();
-        let userFound=null;
-        allUser.result.forEach( u => {
+        let allUsers =  this.findAll();
+        let userFound = null;
+        allUsers.result.forEach( u => {
             if(u.id == id){
                 u.password = bcrypt.hashSync(password, 12);
                 userFound = u;
             }
         });
-        fs.writeFileSync(this.fileName, JSON.stringify(allUser, null, ' '));
+        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return userFound;
     }
 

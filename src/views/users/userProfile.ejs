@@ -84,27 +84,45 @@
                         <form method="POST" action="<%= '/users/user-update/'+user.id+'?_method=PUT'%>" enctype="multipart/form-data">
                             <div class="input-information">
                                 <label class="label-account" for="firstName">Nombre</label>
-                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= user.firstName %>" >
+                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= locals.errors ? user.firstName : user.firstName %>" >
+                                <% if (locals.errors && errors.firstName) { %>
+                                    <span class="msg-error">* <%= errors.firstName.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="lastName">Apellido</label>
-                                <input class="input-style"  type="text" name="lastName" id="lastName" placeholder="Ingresá tu apellido" value="<%= user.lastName %>" >
+                                <input class="input-style"  type="text" name="lastName" id="lastName" placeholder="Ingresá tu apellido" value="<%= locals.errors ? user.lastName : user.lastName %>" >
+                                <% if (locals.errors && errors.lastName) { %>
+                                    <span class="msg-error">* <%= errors.lastName.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="email">Email</label>
                                 <input class="input-style"  type="email" name="email" id="email" placeholder="Ingresá tu e-mail" value="<%= user.email %>" >
+                                <% if (locals.errors && errors.email) { %>
+                                    <span class="msg-error">* <%= errors.email.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="birthDate">Fecha de nacimiento</label>
                                 <input class="input-style" type="date" name="birthDate" id="birthDate" value="<%= user.birthdate %>" >
+                                <% if (locals.errors && errors.birthDate) { %>
+                                    <span class="msg-error">* <%= errors.birthDate.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="phone">Teléfono</label>
                                 <input class="input-style"  type="text" name="phone" id="phone" placeholder="Ingresá tu número de teléfono" value="<%= user.phone %>" >
+                                <% if (locals.errors && errors.phone) { %>
+                                    <span class="msg-error">* <%= errors.phone.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="img">Imagen de perfil</label>
                                 <input class="input-style"  type="file" name="photo" id="img" value="" >
+                                <% if (locals.errors && errors.photo) { %>
+                                    <span class="msg-error">* <%= errors.photo.msg %></span>
+                                <% } %>
                             </div>
                             <div class="container-button">
                                 <button class="edit-btn-style" type="submit">Guardar datos</button>
@@ -115,14 +133,23 @@
                             <div class="input-information">
                                 <label class="label-account" for="currentPassword">Contraseña actual</label>
                                 <input class="input-style"  type="password" name="currentPassword" id="currentPassword" placeholder="Ingresá tu contraseña actual" value="" >
+                                <% if (locals.errors && errors.currentPassword) { %>
+                                    <span class="msg-error">* <%= errors.currentPassword.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="newPassword">Nueva contraseña</label>
                                 <input class="input-style"  type="password" name="newPassword" id="newPassword" placeholder="Ingresá tu nueva contraseña" value="" >
+                                <% if (locals.errors && errors.newPassword) { %>
+                                    <span class="msg-error">* <%= errors.newPassword.msg %></span>
+                                <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="confirmNewPassword">Repetir nueva contraseña</label>
                                 <input class="input-style"  type="password" name="confirmNewPassword" id="confirmNewPassword" placeholder="Repetí tu nueva contraseña" value="" >
+                                <% if (locals.errors && errors.confirmNewPassword) { %>
+                                    <span class="msg-error">* <%= errors.confirmNewPassword.msg %></span>
+                                <% } %>
                             </div>
                             <div class="container-button">
                                 <button class="edit-btn-style" type="submit">Guardar contraseña</button>

@@ -22,10 +22,16 @@
                     <h2>Iniciar sesión en Lumina</h2>
                 </div>
                 <div class="login-google">
-                    <button type="button"><i class="fab fa-google"></i> GOOGLE</button>
+                    <button type="button">
+                        <img src="/images/assets/google-icon.svg" alt="Google" />
+                        <p>Continuar con Google</p>
+                    </button>
                 </div>
-                <div class="login-google">
-                    <button type="button"><i class="fab fa-facebook"></i> FACEBOOK</button>
+                <div class="login-facebook">
+                    <button type="button">
+                        <img src="/images/assets/facebook-icon.svg" alt="Facebook" />
+                        <p>Continuar con Facebook</p>
+                    </button>
                 </div>
                 <div class="division"></div>
                 <% if(locals.errors) { %>
@@ -37,14 +43,14 @@
                 <% } %>
                 <div class="input-information <%= locals.errors && errors.email ? 'error-input' : null %>">
                     <label for="email">Dirección de correo electrónico</label>
-                    <input type="text" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="Ingrese su dirección de e-mail">
+                    <input type="text" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="Ingresá tu dirección de e-mail">
                 </div>
                 <div class="input-information <%= locals.errors && errors.password ? 'error-input' : null %>">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" value="<%= locals.oldData ? oldData.password : null %>" placeholder="Ingrese su contraseña">
+                    <input type="password" name="password" id="password" value="<%= locals.oldData ? oldData.password : null %>" placeholder="Ingresá tu contraseña">
                 </div>
                 <div class="help-me">
-                    <div>
+                    <div class="checkbox-container">
                         <input type="checkbox" name="remember" id="remember">
                         <label for="remember">Recordar</label>
                     </div>

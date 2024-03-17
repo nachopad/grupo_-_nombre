@@ -163,6 +163,12 @@ main {
     box-shadow: none;
     color: #222222;
     margin-bottom: 15px;
+    transition: border-color 1s;
+}
+
+.input-style:focus {
+    border: 1px solid #222;
+    outline: none;
 }
 
 .container-button {
@@ -173,10 +179,9 @@ main {
 .edit-btn-style {
     width: 90%;
     background-color: #000;
-    color: #fff !important;
+    color: #fff;
     display: block;
     padding: 13px 5px;
-    font-family: "Poppins", sans-serif;
     font-weight: 600;
     text-align: center;
     border: 1px solid #000;
@@ -186,6 +191,13 @@ main {
     text-transform: uppercase;
     cursor: pointer;
     margin: auto;
+    transition: all 0.5s ease;
+}
+
+.edit-btn-style:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid black;
 }
 
 .privacy-policy-container {
@@ -201,6 +213,14 @@ main {
     color: grey;
     font-weight: 700;
     text-decoration: none;
+}
+
+.msg-error{
+    display: flex;
+    margin-bottom: 15px;
+    padding: 0;
+    color: #cd2222;
+    text-align: left;
 }
 
 /**

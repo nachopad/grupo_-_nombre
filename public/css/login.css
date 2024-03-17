@@ -3,12 +3,17 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
 body{
     background-image: url('/images/login/fondo-login.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0px;
+    outline: 0;
+    font-size: 12px;
     color: #222222;
 }
 
@@ -26,6 +31,7 @@ body{
     gap: 12px;
     margin: 10px 0px;
 }
+
 .login-header img{
     border-radius: 50%;
     width: 20%;
@@ -44,35 +50,58 @@ body{
     text-align: center;
 }
 
-.login-google{
+.login-google, .login-facebook{
     text-align: center;
     width: 80%;
     margin: auto;
-    border: 1px solid black;
-    border-radius: 10px;
     transition: all 1000ms;
     margin-bottom: 10px;
 }
-.login-google:hover{
-    box-shadow: 0px 5px 15px black;
+
+.login-google:hover, .login-facebook:hover{
+    box-shadow: 0px 3px 8px black;
 }
 
-.login-google button{
+.login-google button, .login-facebook button{
     width: 100%;
     outline: 0;
     border: 0;
-    border-radius: 10px;
+    height: 35px;
     padding: 5px 0px;
     cursor: pointer;
+}
+
+.login-google button {
+    border: 1px solid #D7D7D8;
+}
+
+.login-google button p {
+    display: inline;
+    margin-right: 15px;
+}
+
+.login-facebook button {
+    background-color: #3b5998;
+    color: white;
+}
+
+.login-facebook button p {
+    display: inline;
+}
+
+.login-google img, .login-facebook img {
+    width: 17px;
+    vertical-align: middle;
 }
 
 .division{
     text-align: center;
     margin: 20px auto;
-    width: 70%;
+    width: 80%;
     border-bottom: 1px solid rgb(161, 157, 157);
     position: relative;
 }
+
 .division p{
     position: relative;
     top: 11px;
@@ -86,30 +115,28 @@ body{
     justify-content: center;
     margin-bottom: 15px;
 }
+
 .input-information label{
     width: 100%;
-    text-align: center;
-    font-weight: 900;
+    margin-left: 34px;
     color: black;
     padding-bottom: 10px;
 }
+
 .input-information input{
-    border-radius: 5px;
-    outline: 0;
-    border: 2px solid white;
-    padding: 5px 0px;
+    border: 1px solid #D7D7D8;
+    padding: 5px 15px;
     width: 80%;
+    height: 35px;
+    border-radius: 0px;
+    box-shadow: none;
+    color: #222222;
     transition: border-color 1s;
 }
 
 .input-information input:focus {
-    border: 2px solid black;
+    border: 1px solid #222;
     outline: none;
-    text-indent: 10px;
-}
-
-.input-information input::placeholder {
-    text-indent: 10px;
 }
 
 .error-container {
@@ -135,14 +162,14 @@ body{
 .error-input input {
     border-radius: 5px;
     outline: 0;
-    border: 2px solid rgb(255, 127, 127);
+    border: 1px solid rgb(255, 127, 127);
     padding: 5px 0px;
     width: 80%;
     transition: border-color 1s;
 }
 
 .error-input input:focus {
-    border: 2px solid red;
+    border: 1px solid red;
     outline: none;
 }
 
@@ -150,16 +177,32 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 12px 0px;
+    margin: 20px 0px 15px 0px;
     color: black;
 }
+
 .help-me a{
     color: black;
     transition: all 100ms;
     text-decoration: none;
 }
+
 .help-me a:hover{
     text-decoration: underline;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.checkbox-container label {
+    margin-left: 5px;
+    vertical-align: middle;
 }
 
 .container-button{
@@ -181,6 +224,7 @@ body{
     transition: all 0.5s ease;
     cursor: pointer;
 }
+
 .button-style:hover {
     background-color: #F6F6F6;
     color: black;
@@ -209,10 +253,15 @@ body{
     border: 1px solid white;
 }
 
+@media(min-width:768px) {
+    .input-information label{
+        margin-left: 46px;
+    }
+}
+
 @media (min-width:1200px){
     .login-form{
         border: 1px  solid black;
-        padding: 12px;
-        border-radius: 5px;
+        padding: 12px 50px;
     }
 }

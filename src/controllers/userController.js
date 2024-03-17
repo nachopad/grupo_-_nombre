@@ -47,15 +47,24 @@ const userCtrl = {
         return res.redirect('/');
     },
     update: (req, res)=>{
-        let userUpdated = User.update(req.params.id, req.body);
-        delete userUpdated.password;
-        console.log(userUpdated);
-        req.session.userLogged = userUpdated;
-        return res.render('userProfile', {user: req.session.userLogged});
+        const errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            let userUpdated = User.update(req.params.id, req.body);
+            delete userUpdated.password;
+            req.session.userLogged = userUpdated;
+        }
+
+        return res.render('userProfile', {errors: errors.mapped(), user: req.session.userLogged});
     },
     changePassword : (req, res)=>{
-        User.updatePassword(req.params.id, req.body.newPassword);
-        return res.render('userProfile', {user: req.session.userLogged});
+        const errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            User.updatePassword(req.params.id, req.body.newPassword);
+        };
+
+        return res.render('userProfile', {errors: errors.mapped(), user: req.session.userLogged});
     }
 }
 
