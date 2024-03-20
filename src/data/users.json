@@ -1,94 +1,26 @@
 {
-  "result": [
-    {
-      "id": 1,
-      "first_name": "Roxanne",
-      "last_name": "Kennifick",
-      "email": "rkennifick0@comcast.net",
-      "password": "$2a$04$S8t/kBneZgMf0Hks/arvE..UenaZBhK17lgvOMFuDi2HwIkKo.8j.",
-      "category": "Marlite Panels (FED)",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJfSURBVDjLpZNrSFNhGMelD34op67Lp4I+RKBREkUNIR2po7LOztlxbY1amstyXWw2m06b6Ra1llpqBJrlJdNFVyqxixZmIQ5npVE20DCkYqaDDBVy77+zDQbCmEUffvC8L/x/z/Pw8oYACPkfAl5mKmWl+cJFMMTzoNsUBnXsQqhk4qt/JVCrUosMVBQs2yJg5igWhUMbH4a0uKVQ7VWUzSnQswJc4II6LqT1Eg6NkI99GyPArF1M5hRoBZGkpTIPI60WdFYexO4NfKTGLoEidhl2rotEmXbXgqCCqj3LXa6P7Rjrvo7vr2thr8/B4P1ijPa3ojFjxURf3aHQoIJqxWrbuK0Jzp5bmHzbzGH11uP2ZlSnx/QEXcGaxM5/tnlrx5NMAaZ7ajD1/p6XyTc38FwjgFWY/KJRKOUFFJQnpfE7RFSNk6Ux5fiEvmPJaMnd7sVT/7J14ytDozMx+WJ9nCJylsCcIp03oNHWfpMwgOMD0PUSaKoFrlSAVJwDMRfCfe0ySPcrfGEY8iCBKq1LpEL9grYtjJGky4BHd3xwQVRagBIjcDofKMgGjh8AuVQCd4kJP9Nk5K6IPusX9J6MmnE+zANOnQAsRT7OFPjO+iwgOwNQK+FWSoAsFcYeF6IrJ3raL3hniCbjT40gSm6FqnIQLkg8XXWHQTT7QXRH4OYm8HT/IWfhajPBlruK+AX9DUf1dv3K3zOcYDSFBs4XB2SEZuCgGPQWxkxzGdOsV/hsVfPa5dI1TSLl8AArJ0M0iyGxBIOUBI4dLPrFMnI7QTHRyqasH76p5gX9jf/CH9NZtVjmGMuRAAAAAElFTkSuQmCC"
-    },
-    {
-      "id": 2,
-      "first_name": "Zara",
-      "last_name": "Blacklidge",
-      "email": "zblacklidge1@imageshack.us",
-      "password": "$2a$04$jh5xi9PSxr2ByZ9foWmBP.pPMX51YQtxvCl/JfYnw086ROgtabh3u",
-      "category": "Landscaping & Irrigation",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMFSURBVDjLXZNbaFxVFIa/c84kPZM4M0lNE2svw1g1KG1NEKt9kAYLZbRKlBrQvhYbURG0L1V8MQYUES/QIhrQJwXvtAbxJQVHYiC9DYWCTpVOgkwzzSSTuZ199jln7+1DQDr5YL2t9a/FWuu3jDG0kZsaBI6j1AEcPUQYggrz6OA3hPycZ97+69Z0q00gN/U6Sk3S3RvHjQM2GAWtBoR1qBQFOnyLsY8+bBfITXVizBnc7iydLtSXwauBpUD6oANwNkGiB2oVqCz8ShSM8uK3gQ2AUu8T784CsHxdIVYP4ntdZN+0GJ2wEM0uajcOUswrlAI3mUW23l2f4NzpPVjqMvE+h+qCQspdmHAFFZxEh48RSNDyHJ54Dyu8nUD+w8A9DsWLCh3ujaH8Y8R7HbybIL1DmCAiCq/Q1ZuhsQK2BbHUfrzVo0j5KFIeonxths07HJauHrOJ/Cx2J9RuQiTm8Jof46YylK99R31phNXSSD1anCulk5lIy08xYo5qCdwEeF7WxvcyYCD0wG8FKHGYtRsQeqcvDJ9Ind/7vFjp67jTvfsp1lIdj+O1AmQLrBgQbrOJxPqWZQtEvROvFae1tExqm5JS/mCL4h+J9JPp5NZhqgk39vfg9v2YaP1CtnFsRGOR8p8gGgLZUviNA4z/1D+7fWz8oU3/xpLyspPo60HVz9I3fBypzUnj6BKL8wCLMbzmKURVEMhveOVsAORmZ2c3+754Ol+eZ9fuZ8G/xPxXZ3jkhTcIZfBEfmd6bHihWAH6Y4x//Qkb8H1/kkahq78nTqLXQ9Wvg9Go5nkyIyeswi+T78xvGXh436tzDXtj8czMzJAvmuO31X63e3YOob0rGC148MggOijhugUG9jx3XySD11h/9naEEB90rF1QW+/aR1eigolWwHK4+GMB0Gi/wJZ70ygZvpyb2H1/m5mmp6cPCyE+27F0KvHA0S+Tjl3ERFXgVsfaOPFBylfzFH6e+D62ofuo7/svab/5xaWpI8Jog9H6/9Aax2gNWiu0xhhzx3/je6YQnMUxcAAAAABJRU5ErkJggg=="
-    },
-    {
-      "id": 3,
-      "first_name": "Allx",
-      "last_name": "Bitchener",
-      "email": "abitchener2@cyberchimps.com",
-      "password": "$2a$04$DgScmecrGoLAMGroCgmngOGmqkb1RmMJyl0.zFniVqErRlyPQvhVm",
-      "category": "Prefabricated Aluminum Metal Canopies",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHYSURBVDjLlVLPS1RxHJynpVu7KEn0Vt+2l6IO5qGCIsIwCPwD6hTUaSk6REoUHeoQ0qVAMrp0COpY0SUIPVRgSl7ScCUTst6zIoqg0y7lvpnPt8MWKuuu29w+hxnmx8dzzmE5+l7mxk1u/a3Dd/ejDjSsII/m3vjJ9MF0yt93ZuTkdD0CnnMO/WOnmsxsJp3yd2zfvA3mHOa+zuHTjy/zojrvHX1YqunAZE9MlpUcZAaZQBNIZUg9XdPBP5wePuEO7eyGQXg29QL3jz3y1oqwbvkhCuYEOQMp/HeJohCbICMUVwr0DvZcOnK9u7GmQNmBQLJCgORxkneqRmAs0BFmDi0bW9E72PPda/BikwWi0OEHkNR14MrewsTAZF+lAAWZEH6LUCwUkUlntrS1tiG5IYlEc6LcjYjSYuncngtdhakbM5dXlhgTNEMYLqB9q49MKgsPjTBXntVgkDNIgmI1VY2Q7QzgJ9rx++ci3ofziBYiiELQEUAyhB/D29M3Zy+uIkDIhGYvgeKvIkbHxz6Tevzq6ut+ANh9fldetMn80OzZVVdgLFjBQ0tpEz68jcB4ifx3pQeictVXIEETnBPCKMLEwBIZAPJD767V/ETGwsjzYYiC6vzEP9asLo3SGuQvAAAAAElFTkSuQmCC"
-    },
-    {
-      "id": 4,
-      "first_name": "Orv",
-      "last_name": "Gatlin",
-      "email": "ogatlin3@digg.com",
-      "password": "$2a$04$uffpAlxfVIxIzt9OnppXeuDjVXQSsnSSdJwy59wkLbPUokpUbgGMK",
-      "category": "Landscaping & Irrigation",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIvSURBVDjLjZLbi1JRFMb9N3ro8mYgPqSBCIEPoQSGYYVREkxxTLQsREkjlRG18doxZbyGF7y8HAONQUgnENEHQyFmJqEnoQf/gBDKl/na+1RDEz6cDYvF3uz1W9/+9hIBEP0f1Wr1XKlUWuRyOaTTaUSj0W8+n0+86a5o02GhUHjX7XYxGAzQ7/dRLBZhMpn2BAMSicR4e3sbyWQSFFSr1WAwGA4EA4jcMc0ulwudTodXoNPphAOCwSAPcLvdaLVayGQy0Gg0wgFer3fsdDoRDofRbDb5p6hUKuEAu90+LpfLqNfroCpisRgUCoVwgMViGdEvJErQfGrD4rkTP23WYzx70iPBbAQ0Go0LJNbUcbPZjHw+D/KdWHpe4PiQNJ9+wrrF4cvN2zAajb5TAFpM5K6n0ykCgQD0ej1kMhkkEgm4uwZ8jcfQzLjhTN/Do9c3YAxehZq5/PEEQLryxavVCsvlEovFAvP5HLPZDKPRCG/qIfi5B9g72sXnZQ9s34o7rBSKx2fifycPk8mENy2bzYJlWYRCIXg8HjgcDtx/pUbnMInOPAW64vsmsPtmCvjBA1KpFIbDIWgmcw+/38+7b7PZwDAMrr+8hO7RW/y73h/sUsBvIyKRCD/zdGzb7TY4jgPxBZVKhTfyiu08Yr2H2Olt8cU7H7ZOK7BardBqtVCr1XRgoFQqIZfLIZVKIRaLIb12FrfiF5HoMXxnmun+xAMhQS6HSXynsv/kMD3/Bc9MubHqnCOyAAAAAElFTkSuQmCC"
-    },
-    {
-      "id": 5,
-      "first_name": "Garnette",
-      "last_name": "Crocombe",
-      "email": "gcrocombe4@infoseek.co.jp",
-      "password": "$2a$04$UfR.BqmgU0jk56Rcbcccn.B/o6PTzmhEmbPg6ymo.Z7L2RYReFiDK",
-      "category": "Structural and Misc Steel (Fabrication)",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAH0SURBVDjLxdPPS9tgGAfwgH/ATmPD0w5jMFa3IXOMFImsOKnbmCUTacW1WZM2Mf1ho6OBrohkIdJfWm9aLKhM6GF4Lz3No/+AMC/PYQXBXL1+95oxh1jGhsgOX/LywvN5n/fN+3IAuKuEuzagVFoO27b1/Z+BcrnUx4otx7FPLWsJvYpIM2SS9H4PqNWqfK1W8VKplHlW/G1zs4G9vS9YXPx4CaDkXOFES4Om4gceUK2WsbZWR72+gtXVFezsbKHVamF7ewtm/sMFgBJZhd6pvm4kDndaAo2KOmt5Gfv7X9HpdNBut9FsNmFZFgPrMHKZc4DkjHyi6KC3MZNehTOuGAH5Xx5ybK/Y3f0Mx3Fg2zaKxSIMw2DjT0inNQ84nogcUUQJHIfZquNT3hzx46DBALizg2o01qEoCqLRKERRRDAYhKYlWRK/AJdCMwH2BY28+Qk8fg667wdXKJjY2FiHaeaRzWYQCk1AEASGzSCZjP/ewtik5r6eBD0dM+nRSMb1j4LuPDnkFhZymJ/PsmLdazmV0jxEkqKsK+niIQ69mKUBwdd9OAx3SADdHtC53FyK12dVXlVlPpF4zytK7OgMyucNyHLs8m+8+2zJHRwG3fId9LxIbNU+OR6zWU57AR5y84FKN+71//EqM2iapfv/HtPf5gcdtKR8VW88PgAAAABJRU5ErkJggg=="
-    },
-    {
-      "id": 6,
-      "first_name": "Karim",
-      "last_name": "Byllam",
-      "email": "kbyllam5@wsj.com",
-      "password": "$2a$04$PMRgbhz2jDuwaA5.2dESmOYZl1CV7SzJPqWHiZPWR9NjNXFPrR9Fa",
-      "category": "Termite Control",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALWSURBVDjLlZNbSFRRFIb/c8bLjM7NcUadvDZig1kgUVmBEpRplIj1ki/1XFAQXUAq6EL1UvSQFQk9FD4ERRGNZBcJ8UaQGgWpqSOOk46XyctxPHPOPmfvtoJCkUX7ZT+s9X2svdZeAmMM/3P6fV4fUVmZFNJ9RccGq2L+Cbz0uijgEgWMUsZOGUXLviSjA4Efg/sX438V+Bu99yFgL9NgI5SZLSa7GOybYqCqsKCwxlUFHMyjDJ+t7jKjLb0SAtMhjzRCHfsEq4kI/rGZiweuDF36o4DDBw3G5KfW1CrYnBsgB+ugR6ZApsbBBDOcOckITMxU89RfBRx08+uRyblpt8VVhViDAnm4FlSRecUKRJMRTJM54UCKOSZ3mYsZaPDmiQY06xrSknIOCfbMCqjh15BGW0BlGVqUi2YXEB/HEBfDwHQGSaZ0RaAp7J4zr9BtTSmHrvSDhO5CJLNgRMVcWAKJqCBRglqzHRGN4HysjtkIHV8REInlxyc6oUS+o7fDh7g4ilhmRjwPWm2xCIxJMPC/EjWqyHCux9mRLlRorHNZIMrztCHU8wWapiIhIRfBHitC4wm4rcXj6qSAB3Ybai28efY85KcVITPZi4fuaGXJDYd5USAs/sSWW552iztpe+7WcjTV+VB29DDOtDxBacER6IxCpzooGEKzQSQlpqDD/w6dgWYa1VTH0hSKT/p3vL3u6VOUV+vc3nyEBsfAg0vwcJj3hWrQKAHRCeYUCYWZxZgnC+KHodawuPyW0hq/d2Jo+nlkphcD3W1cEIXGR5NqzUKaNRtum4eP1gSXJR1dI21oG2ydXFCxWfh9mZ6dW1sGxhrrs0QoqgqVqkvVeJwF2ObZg4+BdjR9exNSNewavca+Cqtt4+PTOZdB2YWUNRZkpJlQPdyNjZk70dH7XpJAt3C4b6WJq536E9kGVWE1hOD4zfSgS2GiUDidUPLizlzLcs5P3E1ndhQ2sD8AAAAASUVORK5CYII="
-    },
-    {
-      "id": 7,
-      "first_name": "Nicholle",
-      "last_name": "Wasmuth",
-      "email": "nwasmuth6@archive.org",
-      "password": "$2a$04$eR83E/tlAqap8nIuSxEiTuVFDYz6uw.quUdHT1iGZVv/gHphNQpZq",
-      "category": "EIFS",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEzSURBVDjLxdOxasJAHAZwwbfKkjlbJVMpJaYmxtSoNVoSsCLlekQSjcZNRUFFIUNxD5nqY7Rr+wiuX89M3a62lA4f3PL97n/HXQ5A7jfJ/Rng+/1LSsn72UAQ+HlWJp5Hj4Q8gguE4VAIw0GWwSAQWPl1sZhjv39Gr/fAB4bDAJNJhCgaYTweYbNZIY5jrNcruM49HwiCPg6HF6RpiiRJsFwuQQhhYAS7WecD7KzY7bbwPA+UUnS7Xdi2zdZPqNVMPnC6qPl8Cl3XoSgKZFmGJEkwTYOlzAc6HRez2RSu66DRqKNQuIAoigy7hmGU+EC73USr1WDlajayZZkZoqoKm0rlA807S6jeVoRKRRPK5RtB14tvJ8hxbGhaEWc/JLZrXisVKcvxR8AX6Irl4/8+03fzCbreyRfHFw9qAAAAAElFTkSuQmCC"
-    },
-    {
-      "id": 8,
-      "first_name": "Nancee",
-      "last_name": "Sawart",
-      "email": "nsawart7@bigcartel.com",
-      "password": "$2a$04$jm6.m.00XrLkTgRIG2FD..YBbc0uXVlZ7PrSYFcE.1IPMnKo7QbAa",
-      "category": "Sitework & Site Utilities",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAITSURBVDjLdZI/aNNBFMc/vySSpLZFg5QguvgHcXHTImQu6OQq6CDoIDjoIpk6dLHgKA7iIOjgotjNLqJCKXQpooMOFSlWGpRGU/NLLnf33nNIQtKmPvjyOO7e57537yVmRj9uvblmF09fYLW+jJgiKj0pUSNnD1V4svCUxTvvkn5NjqGIIaLWPSwqRNVeHsj7OFyyC+AjZhBEhiBdqWp3rxN2ADLDi+AjecbIZwoEiXgJeAkEieSzRYo2TvDh/w6Cj3P19fezV/OfKYV1CuZQNZqa5Zce5u0nJfg491/As2MfNlrxY7M4dXucsVMYGRJtMxkajG9/4WD9QfPyebcxXJP0uxCXj0xjLHDiYdmyk2isQ/yLSYqJgyQBCTRXqzXxXCpfsZUdf2ASqhy9W7bcASz+AWlj4npK0c5PTFMKJ2+WwzbVkSdo9JXs/jNY3MbU9dTpyWHaQsNvMmNThJTKSBdUpWSZHKZt0E5PbiBxIE2wQPSURgGiYBHUD6z3b5eBI6xD9HvMgUapW2hgFnZZdwMIivgWoU19FBDckmytkCTZnfally2QyRRpb36n1WBpBCCO+ebqvZq6LcgWMIuY9JygJLkJokv4+vJ1rZ0yPzIHAJuPkhsSmJs4d728r3QcEsNiivgG6Y811p4v1topszMv7PGeAIBv95Np36AaHRWJlEIHXIu6S1kSYX7mVXeA+vEP7PyqQia3ZfwAAAAASUVORK5CYII="
-    },
-    {
-      "id": 9,
-      "first_name": "Petronille",
-      "last_name": "Hakewell",
-      "email": "phakewell8@house.gov",
-      "password": "$2a$04$7eEFKwsFL9P8GBnp8keX/OVR.YaNqnePZntzEtUfUDZ/Flyyrh926",
-      "category": "HVAC",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKlSURBVDjLjZLdS5pxFMe9aAy2cLvbvzF2PYocddELUTd5464MISEIGRRGF4H0sBKpMMnZC9kqe/UlF+UL6upiDJ6BUSEisqHOXKY8s4Wy/O78flDQaC8XBw7nOd/P75zvc2QAZH8Kr9crd7vde06nU9jY2Ki5q+dfYt/W1lZpfX1dcjgcwtLSUs1/Aba3t+Uul4uJL7LZLEqlEkhcttvtwvz8/P2/Aq7Fm5ubF5lMBpSDVoAkSZibm7uy2Wye6enpe3cCPB6PnJr912ImXF5eBq2DQqHAJyGxNDU1JUxOTtbcAlyLyayLdDoNGp+NDZoIYjwNk/cIzo+fYTabqxMTEyGTyfT4BkBmyUngJ7O4mCbA4uIiCIp8Pg/z7gnUbz5AZxfxJZUBiaWxsbHnHPC7mCYAmcV3z+VyCIVCOMufQ+/4BEfkBG7/e4yOjlYEQVBwAL3mX1tbq5yenoIgWFhY4LszMcERDAaRTCZxFEvgrcvPxGUSP7sxkcR7Kysr1VQqhXg8zg1j+1MTZmdnMTIywiFOlxtDQ0NVVjMYDOc9PT2v6urqHsrIZSkajaJYLOL4+BhGoxHj4+Ng/z+RSCAcDnMYia9isViZ1fb393lPa2vraxmZ9fXg4AA7Ozvc8YGBAYiHhxgcHERbWxu6u7tBrvM6y1taWn4qlcp3DKLT6YoyuqwnMzMzFZ/PB61Wy8bjAFEU0djYiEAgwPNIJMINrq+v/97e3v6AAYaHhy+5EVartdZiseRoTA5hgN7eXigUCjQ1NaGjo4MHyxsaGiqdnZ27DKDRaAo3h0SXVUuAbyqViv1nMGPZPRAYfX196O/v5zmrra6u5smrAq14cuuUqemRXq8/o9eu1Gr1D5rmkqLc1dX1kuIF5RKr0bdSc3NzktZ5+gtxf8ZLfEnITAAAAABJRU5ErkJggg=="
-    },
-    {
-      "id": 10,
-      "first_name": "Bren",
-      "last_name": "Ensten",
-      "email": "bensten9@bing.com",
-      "password": "$2a$04$DKj0ozfd1fmH9CPqkP1j3.31tccSBml5E44vIFj0ixEvAFXldOi5S",
-      "category": "Rebar & Wire Mesh Install",
-      "Imagen": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKTSURBVDjLjZNLSJRRFMd/95uHOmrjo0zM0RTR7EFvg4oeEtQiKoRcRBRFaKs2QatW0cIeFCRUWERBgYsWFYQUUfawh20GW+SDHIcSdaRSq5n5vu/e77aYnD6JosO9nHvh3t85/3vuEVpr+vr6tOM4OI6DUgqlFFLKtHdP27bTvrGxUXgBlFKUlJQyMTUFWkNqgNZoQGudXqM1+fl5dHTcByANmJic5MiFLv7HzjSvxrKs3wAp5a+QUBoqIyfgJzQnm8wML0lbY0sHW4HS8Lo7jHY0pmkCYADYtp1KExBCEE9KRieSxE2F1iCVxpIOpkyd0ZqZGdi2jTOdnxAIIfgWlzjaJC/bh9frwXA05XSzZ2UHnoFBNuU+pefilX1pgHZSCOGCJCyFZTtkB/xUZz1jS2GUrNl7CVYsZyJSQ+/Dq6fTAFwShBApCKCFYJ7xnG21MWYF1/Hlw3v8wiJ3VjE5hWVBL6T0GB4DgOhQZMaLLyocYPdai7zKbZgj7fgDgmi4l+8/JNqaWpoG+H1eWg4tQymNz+cjNjZGnmeAUDBBsGoHyeHLGH6JL6ecDBnldmQex1uu908DznV2Ptno+mUFufEXkepNZfXBql0khy9h+CTWVAUjnW/UvU/l/bG49xaAmC6f226eari2Ymnl/gUbdxrW2A2ExyI5Wcr4s+6ESvxYWHP01VC6aG5Aa2vrHPE5HKtfU4wURRQWdJFf5Cc5GWK0q4f2wVD8xNnL2e5ghntjmuaquYEoC9c3kfHxBf13uwg/+EL/4zDlDecpmr840NzcvNV95w8JJ5uWOMcOHhYYivCjOwwORXiXtZmvdiZSyrdtbW11/wQ0bihIrKic662rrUD7zJeJ2PiB7S09g39rrJ+Ib2CJHdkBMQAAAABJRU5ErkJggg=="
-    }
-  ]
+ "result": [
+  {
+   "id": "345091ce-5544-42c7-917b-02a3a66c327f",
+   "role":"admin",
+   "firstName": "Ignacio Agustín",
+   "lastName": "Padilla",
+   "birthdate": "2000-08-22",
+   "email": "nacho20002008@hotmail.com",
+   "phone": "+54 1130673225",
+   "password": "$2a$12$n4C9cbFtaTuFMHRSgbKoK.RccAK/a2DzL8.i7PNHMVaRGhQmEfE72",
+   "photo": "1710027734943_img_.png"
+  },
+  {
+   "id": "a9c2969c-e104-4fdc-84c1-e09cc2739b79",
+   "role":"customer",
+   "firstName": "Carlos Rodolfo",
+   "lastName": "Sanchez",
+   "birthdate": "2002-10-04",
+   "email": "argcarlos688@gmail.com",
+   "phone": "3886546704",
+   "password": "$2a$12$6geTV5YJ97d2cOfieFrCnOkLw5lbgVS8Z1ljLri21SzqM152LAORu",
+   "photo": "1710029650878_img_.jpeg"
+  }
+ ]
 }

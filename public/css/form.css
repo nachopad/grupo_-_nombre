@@ -84,11 +84,18 @@ h2{
     border: 1px solid black;
 }
 
+.msg-error{
+    color: #cd2222;
+    margin: 8px 0px 0px 0px;
+    text-align: center;
+}
+
 
 @media (min-width:1200px){
     .form{
         border: 1px  solid black;
         padding: 12px;
         border-radius: 5px;
+        width: 35%;
     }
 }

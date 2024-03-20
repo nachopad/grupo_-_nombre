@@ -16,28 +16,41 @@
 <body>
     <main>
         <section class="container-form">
-            <form action="#" method="post" class="login-form">
+            <form action="/users/login" method="POST" class="login-form">
                 <div class="login-header">
                     <img src="/images/logo-lumina.png" alt="logo de lumina">
-                    <h2>LOGIN</h2>
+                    <h2>Iniciar sesión en Lumina</h2>
                 </div>
                 <div class="login-google">
-                    <button type="button"><i class="fab fa-google"></i> LOGIN WITH GOOGLE</button>
+                    <button type="button">
+                        <img src="/images/assets/google-icon.svg" alt="Google" />
+                        <p>Continuar con Google</p>
+                    </button>
                 </div>
-
-                <div class="division">
-                    <p>O</p>
+                <div class="login-facebook">
+                    <button type="button">
+                        <img src="/images/assets/facebook-icon.svg" alt="Facebook" />
+                        <p>Continuar con Facebook</p>
+                    </button>
                 </div>
-                <div class="input-information">
-                    <label for="username">Nombre de usuario</label>
-                    <input type="text" name="username" id="username" placeholder="Ingrese su usuario">
+                <div class="division"></div>
+                <% if(locals.errors) { %>
+                    <div class="error-container">
+                        <% for(let oneError in errors) { %>
+                            <p>* <%= errors[oneError].msg %></p>
+                        <% } %>
+                    </div>
+                <% } %>
+                <div class="input-information <%= locals.errors && errors.email ? 'error-input' : null %>">
+                    <label for="email">Dirección de correo electrónico</label>
+                    <input type="text" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="Ingresá tu dirección de e-mail">
                 </div>
-                <div class="input-information">
+                <div class="input-information <%= locals.errors && errors.password ? 'error-input' : null %>">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" placeholder="Ingrese su contraseña">
+                    <input type="password" name="password" id="password" value="<%= locals.oldData ? oldData.password : null %>" placeholder="Ingresá tu contraseña">
                 </div>
                 <div class="help-me">
-                    <div>
+                    <div class="checkbox-container">
                         <input type="checkbox" name="remember" id="remember">
                         <label for="remember">Recordar</label>
                     </div>
@@ -45,10 +58,9 @@
                         <a href="#">Olvidé mi contraseña</a>
                     </div>
                 </div>
-
                 <div class="container-button">
-                    <button type="submit" class="button-style">LOGIN</button>
-                    <button type="submit" class="button-continue">REGISTRARME</button>
+                    <button type="submit" class="button-style">INICIAR SESIÓN</button>
+                    <a href="/users/register" class="button-continue">REGISTRARME</a>
                 </div>
             </form>
         </section>
