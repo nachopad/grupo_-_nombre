@@ -78,3 +78,24 @@ El Sprint N°3 fue otro éxito en términos de comunicación, ejecución de tare
 
 ## Conclusiones Generales
 El Sprint N°4 mantuvo la tendencia positiva en términos de comunicación, ejecución de tareas y estabilidad en el proceso de trabajo. Reconocemos la importancia de seguir evolucionando y buscando maneras de mejorar constantemente. Mantener sesiones de feedback, revisar nuestros procesos de trabajo y explorar la planificación estratégica serán aspectos clave para nuestro crecimiento continuo en futuros sprints.
+
+
+# Sprint N°5 - Retrospectiva
+
+## Logros y Aspectos Positivos
+1. **Continuidad en la Comunicación Efectiva:** Se mantuvo la comunicación efectiva entre los miembros del equipo, lo que facilitó un ambiente de trabajo colaborativo y productivo.
+2. **Cumplimiento de Tareas y Objetivos:** Todas las tareas asignadas se completaron dentro de los plazos establecidos, logrando los objetivos establecidos para este sprint.
+3. **Estabilidad en el Proceso de Trabajo:** No se registraron problemas significativos que afectaran el flujo de trabajo, lo que permitió una ejecución sin contratiempos de las actividades planificadas.
+
+## Áreas de Mejora
+1. **Refinamiento de Procesos:** A pesar de la estabilidad general, siempre hay espacio para mejorar los procesos existentes. Se debe realizar una evaluación continua para identificar áreas de optimización.
+2. **Feedback y Retroalimentación:** Asegurarse de mantener un flujo constante de feedback entre los miembros del equipo para identificar oportunidades de mejora y reconocer los logros alcanzados.
+3. **Planificación a Largo Plazo:** Considerar la implementación de una planificación estratégica a largo plazo para tener una visión más clara de los próximos pasos y objetivos del proyecto.
+
+## Acciones a Tomar
+1. **Evaluación y Refinamiento de Procesos:** Programar sesiones específicas para revisar y mejorar los procesos de trabajo actuales, identificando posibles áreas de optimización.
+2. **Promoción del Feedback Continuo:** Establecer un canal abierto y regular para la retroalimentación entre los miembros del equipo, fomentando la comunicación constructiva y el intercambio de ideas.
+3. **Planificación Estratégica a Largo Plazo:** Designar tiempo específico para discutir y establecer una planificación estratégica a largo plazo, delineando objetivos claros y el camino para alcanzarlos en futuros sprints.
+
+## Conclusiones Generales
+El Sprint N°5 mantuvo la tendencia positiva en términos de comunicación, ejecución de tareas y estabilidad en el proceso de trabajo. Sin embargo, reconocemos la importancia de continuar mejorando y refinando nuestros procesos para garantizar un crecimiento continuo y el éxito del proyecto en el futuro. El enfoque en la evaluación de procesos, la promoción del feedback continuo y la planificación estratégica serán fundamentales para nuestro progreso en los próximos sprints.
