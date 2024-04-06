@@ -1,10 +1,10 @@
 const User = require('../../models/User');
 
 const middlewareAuth = {
-    userLogged: (req, res, next) => {
+    userLogged: async (req, res, next) => {
         res.locals.isLogged = false;
-        let userFromCookie = User.findByField('email', req.cookies.userEmail);
-        if (userFromCookie) {
+        if (req.cookies.userEmail) {
+            let userFromCookie = await User.findByField('email', req.cookies.userEmail);
             req.session.userLogged = userFromCookie;
         }
         if (req.session.userLogged) {

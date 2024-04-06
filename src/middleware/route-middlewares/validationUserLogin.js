@@ -9,10 +9,9 @@ const validations = [
     body('password')
         .notEmpty().withMessage('Debes ingresar una contraseña.').bail()
         .isLength({ min: 8}).withMessage('La contraseña debe tener un mínimo de 8 caracteres.'),
-    body().custom((value, { req }) => {
-
+    body().custom(async (value, { req }) => {
         const { email, password } = req.body;
-        const userToLogin = User.findByField('email', email);
+        const userToLogin = await User.findByField('email', email);
 
         if (!email && !password) {
             return true;
@@ -22,7 +21,7 @@ const validations = [
             throw new Error('La cuenta vinculada al e-mail ingresado no existe.');
         }
 
-        if (password && !bcrypt.compareSync(password, userToLogin.password)) {
+        if (password && !bcrypt.compareSync(password, userToLogin.dataValues.user_password)) {
             throw new Error('La contraseña ingresada es incorrecta.');
         }
 

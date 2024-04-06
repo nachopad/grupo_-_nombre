@@ -24,9 +24,9 @@ const validations = [
     body('email')
         .notEmpty().withMessage('Debes ingresar un e-mail.').bail()
         .isEmail().withMessage('Debes ingresar un formato de e-mail válido.').bail()
-        .custom((value, { req }) => {
+        .custom(async (value, { req }) => {
             const { email } = req.body;
-            let userRegistered = User.findByField('email', email);
+            let userRegistered = await User.findByField('email', email);
 
             if(userRegistered){
                 throw new Error('Ya existe una cuenta vinculada al e-mail ingresado.');

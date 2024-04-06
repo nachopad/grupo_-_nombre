@@ -1,72 +1,81 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const crypto = require('crypto');
-const usersFilePath = path.join(__dirname, '../data/users.json');
 const bcrypt = require('bcryptjs');
+let db = require('../database/models');
 
 const User = {
-    fileName: usersFilePath,
-    getData: function() {
-        return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));
+    findAll: async function() {
+        try {
+            return await db.Users.findAll();
+        } catch (error) {
+            console.error('Error al obtener usuarios:', error);
+          }
     },
-    findAll: function() {
-        return this.getData();
+    findByPk: async function(id) {
+        try {
+            return await db.Users.findByPk(id);
+        } catch (error) {
+            console.error('Error al obtener el usuario:', error);
+        }
     },
-    findByPk: function(id) {
-        let allUsers = this.findAll().result;
-        return allUsers.find(oneUser => oneUser.id === id);
+    findByField: async function(field, text) {
+        try {
+            return await db.Users.findOne({
+                where: { [field]: text }
+            });
+        } catch (error) {
+            console.error('Error al obtener el usuario:', error);
+        }
     },
-    findByField: function(field, text) {
-        let allUsers = this.findAll().result;
-        return allUsers.find(oneUser => oneUser[field] === text);
-    },
-    create: function(userData) {
-        let allUsers = this.findAll();
+    createNewUser: function(body, file) {
         let newUser = {
-            id: crypto.randomUUID(),
-            ...userData
+            full_name: body.firstName,
+            last_name: body.lastName,
+            birthdate: body.birthdate,
+            email: body.email,
+            phone: body.phone,
+            url_image: file ? file.filename : '',
+            user_password: bcrypt.hashSync(body.password, 12)
         };
-        allUsers.result.push(newUser);
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
+
         return newUser;
     },
-    delete: function(id) {
-        let allUsers = this.findAll();
-        let finalUsers = allUsers.result.filter(oneUser => oneUser.id !== id);
-        fs.writeFileSync(this.fileName, JSON.stringify(finalUsers, null, ' '));
-        return true;
+    create: async function(userData) {
+        try {
+            let newUser = this.createNewUser(userData.body, userData.file);
+            return await db.Users.create(newUser);
+        } catch (error) {
+            console.error('Error al obtener el usuario:', error);
+        }
     },
-    update: function(id, user){
-        let allUsers = this.findAll();
-        let userFound;
-        allUsers.result.forEach( u => {
-            if(u.id == id){
-                u.firstName = user.firstName;
-                u.lastName= user.lastName;
-                u.birthdate = user.birthDate;
-                u.phone = user.phone;
-                u.password = user.password || u.password;
-                u.photo= user.photo || u.photo;
-                u.email = user.email;
-                userFound = u;
-            }
-        });
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
-        return userFound;
-    },
-    updatePassword : function(id, password){
-        let allUsers =  this.findAll();
-        let userFound = null;
-        allUsers.result.forEach( u => {
-            if(u.id == id){
-                u.password = bcrypt.hashSync(password, 12);
-                userFound = u;
-            }
-        });
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
-        return userFound;
-    }
+    update: async function(id, user, file) {
+       try {
+            let updateData = {
+                full_name: user.firstName,
+                last_name: user.lastName,
+                birthdate: user.birthDate,
+                email: user.email,
+                phone: user.phone,
+                user_password: user.password
+            };
+            if(file) {
+                updateData.url_image = file.filename
+            };
 
+            return await db.Users.update(updateData, { where: { user_id: id } });
+
+       } catch (error) {
+            console.log('Error al modificar el usuario:', error);
+       }
+    },
+    updatePassword: async function(id, password) {
+        try {
+            return await db.Users.update({
+                user_password: bcrypt.hashSync(password, 12)
+            },
+            { where: { user_id: id } });
+        } catch (error) {
+            console.log('Error al modificar la contraseña: ', error);
+        }
+    }
 };
 
 module.exports = User;

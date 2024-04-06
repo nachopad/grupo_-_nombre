@@ -14,7 +14,7 @@ CREATE TABLE lumina_db.Users(
     phone VARCHAR(20),
     url_image VARCHAR(200),
     user_password VARCHAR(200) NOT NULL,
-    role_id INT UNSIGNED,
+    role_id INT UNSIGNED DEFAULT(1),
     FOREIGN KEY(role_id) REFERENCES Roles(role_id)
 );
 
