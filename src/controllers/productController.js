@@ -1,56 +1,73 @@
-const path = require('node:path');
 const { validationResult } = require('express-validator');
 
-const productModel = require('../models/Product');
+const productModel = require('../services/Product');
+const categoryModel = require('../services/Category');
+const discountModel = require('../services/Discount');
 
 const productController = {
-    productDetail: (req, res) => {
-        let product = productModel.findAll().result.find((prod) => prod.id == req.params.id);
+    productDetail: async (req, res) => {
+        let product = await productModel.findByPk(req.params.id, {
+            include: [{association: 'categories'}, {association: 'discounts'}, {association: 'images'}]
+        });
 
         return product
             ? res.render('productDetail', { product: product })
             : res.status(404).send('Producto no encontrado');
     },
-    productForm: (req, res) => {
+    productForm: async (req, res) => {
         const { id } = req.params;
-        let product = id ? productModel.findAll().result.find(prod => prod.id == id) : null;
 
-        res.render('productForm', { product: product });
+        let product = id ? await productModel.findByPk(id, {
+            include: [{association: 'categories'}]
+        }) : null;
+
+        let categories = await categoryModel.findAll();
+        let discounts = await discountModel.findAll();
+ 
+        res.render('productForm', { product: product, categories: categories, discounts: discounts });
     },
-    store: (req, res) => {
+    store: async (req, res) => {
         const errors = validationResult(req);
 
         const { id } = req.params;
-        let product = id ? productModel.findAll().result.find(prod => prod.id == id) : null;
+
+        let product = id ? await productModel.findByPk(id) : null;
 
         if(errors.isEmpty()) {
-            let newProduct = productModel.create(req.files, req.body);
-            return res.redirect('/products/detail/' + newProduct.id);
+            let newProduct = await productModel.create(req.files, req.body);
+            return res.redirect('/products/detail/' + newProduct.product_id);
         };
-        
-        return res.render('productForm', {product: product, errors: errors.mapped(), oldData: req.body});
+
+        return res.render('productForm', { product: product, errors: errors.mapped(), oldData: req.body });
     },
-    update: (req, res) => {
+    update: async (req, res) => {
+
         const errors = validationResult(req);
 
         const { id } = req.params;
-        let product = id ? productModel.findAll().result.find(prod => prod.id == id) : null;
 
+        let product = id ? await productModel.findByPk(id) : null;
+
+        let categories = await categoryModel.findAll();
+        let discounts = await discountModel.findAll();
+        
         if(errors.isEmpty()) {
             productModel.edit(req.params.id, req.body);
             return res.redirect('/products/detail/' + req.params.id);
         };
 
-        return res.render('productForm', {product: product, errors: errors.mapped(), oldData: req.body});
+        return res.render('productForm', { product: product, categories:categories, discounts: discounts, errors: errors.mapped(), oldData: req.body });
     },
-    getProducts: (req, res) => {
-        res.render('productsList', { featuredProducts: productModel.findAll().result });
+    getProducts: async (req, res) => {
+        let featuredProducts = await productModel.findAll();
+        res.render('productsList', { featuredProducts: featuredProducts });
     },
-    productManagement: (req, res) => {
-        res.render('productManagement', { productList: productModel.findAll().result });
+    productManagement: async (req, res) => {
+        let productList = await productModel.findAll();
+        res.render('productManagement', { productList: productList });
     },
-    deleteProduct: (req, res) => {
-        let productremoved = productModel.delete(req.params.id);
+    deleteProduct: async (req, res) => {
+        await productModel.delete(req.params.id);
         res.redirect('/products/product-management');
     }
 

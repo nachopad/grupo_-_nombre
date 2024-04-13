@@ -1,10 +1,8 @@
-/**
- * 
- * @param {import('sequelize').sequelize } sequelize 
- * @param {import('sequelize/types').DataTypes} dataType 
- */
-module.exports = (sequelize, dataType)=>{
-    const Category = sequelize.define("Categories",{
+module.exports = (sequelize, dataType) => {
+
+    let alias = 'Categories';
+
+    let cols = {
         category_id: {
             type: dataType.INTEGER,
             primaryKey: true,
@@ -14,14 +12,22 @@ module.exports = (sequelize, dataType)=>{
             type: dataType.STRING,
             allowNull: false
         }
-    }, {tableName: "categories",
-    timestamps: false});
+    };
+
+    let config = {
+        tableName: 'categories',
+        timestamps: false
+    };
+
+    const Category = sequelize.define(alias, cols, config);
 
     Category.associate = function(models) {
-        Category.hasMany(models.Product, {
+        Category.hasMany(models.Products, {
             as: "products",
             foreignKey: "category_id"
         });
-    }
+    };
+    
     return Category;
-}
+
+};

@@ -1,10 +1,8 @@
-/**
- * 
- * @param {import('sequelize').sequelize } sequelize 
- * @param {import('sequelize/types').DataTypes} dataType 
- */
 module.exports = (sequelize, dataType) => {
-    const Discount = sequelize.define("Discount", {
+
+    let alias = 'Discounts';
+
+    let cols = {
         discount_id:{
             type: dataType.INTEGER,
             primaryKey: true,
@@ -13,10 +11,22 @@ module.exports = (sequelize, dataType) => {
         percent:{
             type: dataType.INTEGER
         }
-    },{tableName: "discounts",timestamps: false});
+    };
+
+    let config = {
+        tableName: 'discounts',
+        timestamps: false
+    };
+
+    const Discount = sequelize.define(alias, cols, config);
 
     Discount.associate = function(models) {
-        Discount.hasMany(models.Product, {as: 'products', foreignKey: 'discount_id'});
-    }
+        Discount.hasMany(models.Products, {
+            as: 'products', 
+            foreignKey: 'discount_id'
+        });
+    };
+
     return Discount;
-}
+    
+};

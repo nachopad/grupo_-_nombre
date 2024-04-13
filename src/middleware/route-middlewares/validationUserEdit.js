@@ -1,6 +1,6 @@
 const path = require('node:path');
 const { body } = require('express-validator');
-const User = require('../../models/User');
+const User = require('../../services/User');
 
 const validations = [
     body('firstName').notEmpty().withMessage('Debes ingresar un nombre.'),

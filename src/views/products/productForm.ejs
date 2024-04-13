@@ -16,11 +16,11 @@
     <%- include('./partials/header.ejs') %>
     <main>
         <section class="container-form">
-            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.id + '?_method=PUT' %>" class="form" enctype="multipart/form-data">
+            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.product_id + '?_method=PUT' %>" class="form" enctype="multipart/form-data">
                 <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
                 <div class="input-information">
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.name : '' %>">
+                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.product_name : '' %>">
                     <% if(locals.errors && errors.name){ %>
                         <span class="msg-error">* <%= errors.name.msg %></span>
                     <% } %>
@@ -35,9 +35,9 @@
                 <div class="input-information">
                     <label for="category">Categoría</label>
                     <select name="category" id="category" class="style-input">
-                        <option value="clothes">Ropa</option>
-                        <option value="accesory">Accesorio</option>
-                        <option value="footwear">Calzado</option>
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category.category_id %>" <%= product && product.category_id == category.category_id ? 'selected' : '' %>> <%= category.category_name %></option>
+                        <% }); %>
                     </select>
                     <% if(locals.errors && errors.category){ %>
                         <span class="msg-error">* <%= errors.category.msg %></span>
@@ -69,7 +69,14 @@
                 </div>
                 <div class="input-information">
                     <label for="offer">Descuento del producto (opcional)</label>
+                    <!--
                     <input type="number" name="offer" id="offer" class="style-input" value="<%= product ? ( product.offer !=0 ? +product.offer : 0) : 0 %>" placeholder="50">
+                    -->
+                    <select name="offer" id="offer" class="style-input">
+                        <% for(discount of discounts) { %>
+                                <option value="<%= discount.discount_id %>" <%= product && product.discount_id == discount.discount_id ? 'selected' : '' %>> <%= discount.percent %> %</option>
+                            <% } %>
+                    </select>
                     <% if(locals.errors && errors.offer){ %>
                         <span class="msg-error">* <%= errors.offer.msg %></span>
                     <% } %>
@@ -98,14 +105,14 @@
                 </div>
                 <div class="input-information">
                     <label for="careInstructions">Instrucciones de cuidado</label>
-                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.description.careInstructions : '' %></textarea>
+                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.care_instructions : '' %></textarea>
                     <% if(locals.errors && errors.careInstructions){ %>
                         <span class="msg-error">* <%= errors.careInstructions.msg %></span>
                     <% } %>
                 </div>
                 <div class="input-information">
                     <label for="composition">Composición</label>
-                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.description.composition : '' %></textarea>
+                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.composition : '' %></textarea>
                     <% if(locals.errors && errors.composition){ %>
                         <span class="msg-error">* <%= errors.composition.msg %></span>
                     <% } %>

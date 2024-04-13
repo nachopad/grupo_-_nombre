@@ -1,10 +1,7 @@
-const fs = require('node:fs');
-const path = require('node:path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
-const User = require('../models/User');
-const db = require('../database/models');
+const User = require('../services/User');
 
 const userCtrl = {
     login: (req, res) => {

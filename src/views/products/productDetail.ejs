@@ -27,35 +27,22 @@
                         <span class="divider"> | </span>
                     </span>
                     <span class="first-letter">
-                        <span class="active"><%= product.name.toUpperCase() %></span>
+                        <span class="active"><%= product.dataValues.product_name.toUpperCase() %></span>
                     </span>
                 </span>
             </div>
         </section>
         <section class="product-detail">
-                <article class="image-carousel-mobile">
-                    <% for(let image of product.img) { %>
-                        <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
-                    <% } %>
-                </article>
-                <article class="product-images-desktop">
-                    <div class="row">
-                        <% for(let image of product.img) { %>
-                            <div class="image-container">
-                                <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
-                            </div>
-                        <% } %>
-                    </div>
-                </article>
+                
                 <article class="details-section">
-                    <h2 class="item-show-details-title"><%= product.name.toUpperCase() %></h2>
+                    <h2 class="item-show-details-title"><%= product.product_name.toUpperCase() %></h2>
                     <div class="price-container">
-                        <% if(product.offer == 0) { %>
-                            <span class="price-active">$ <%= product.price.toFixed(3) %> </span>
+                        <% if(product.dataValues.offer == 0) { %>
+                            <span class="price-active">$ <%= product.dataValues.price %> </span>
                         <% }else { %>
-                            <span class="price-old">$ <%= product.price.toFixed(3) %> </span>
-                            <span class="offer"> -<%= product.offer %>% </span>
-                            <span class="price-active">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %> </span>
+                            <span class="price-old">$ <%= product.dataValues.price %> </span>
+                            <span class="offer"> -<%= product.dataValues.offer %>% </span>
+                            <span class="price-active">$ <%= (product.dataValues.price - (product.dataValues.price * (product.dataValues.offer / 100))) %> </span>
                         <% } %>
                     </div>
                     <div class="item-details-cuotas">
@@ -95,7 +82,7 @@
                         </div>
                     <% } %>
                     <div class="buy-button">
-                        <form action="/cart/add/<%= product.id %>" method="POST">
+                        <form action="/cart/add/<%= product.product_id %>" method="POST">
                             <button class="item-show-btn">añadir al carrito</button>
                         </form>
                     </div>
@@ -107,11 +94,11 @@
                                 </h5>
                             </div>
                             <div class="panel-body">
-                                <p> <%= product.description.overview %> </p>
+                                <p> <%= product.overview %> </p>
                                 <br />
-                                <p> Cuidados: <%= product.description.careInstructions %> </p>
+                                <p> Cuidados: <%= product.care_instructions %> </p>
                                 <br />
-                                <p> Composición: <%= product.description.composition %> </p>
+                                <p> Composición: <%= product.composition %> </p>
                             </div>
                         </div>
                     </div>

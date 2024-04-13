@@ -1,11 +1,8 @@
-/**
- * 
- * @param {import('sequelize').sequelize } sequelize 
- * @param {import('sequelize/types').DataTypes} dataType 
- */
-
 module.exports = (sequelize, dataType) => {
-    const ProductImages = sequelize.define('ProductImages', {
+
+    let alias = 'ProductImages';
+
+    let cols = {
         id:{
             type: dataType.INTEGER,
             primaryKey: true
@@ -17,13 +14,21 @@ module.exports = (sequelize, dataType) => {
         product_id:{
             type: dataType.INTEGER
         }
-    }, { tableName: "product_images", timestamps: false });
+    };
+
+    let config = {
+        tableName: "product_images", 
+        timestamps: false
+    };
+
+    const ProductImages = sequelize.define(alias, cols, config);
 
     ProductImages.associate = function(models) {
-        ProductImages.belongsTo(models.Product, {
+        ProductImages.belongsTo(models.Products, {
             as: 'images',
             foreignKey: 'product_id'
         });
     };
+    
     return ProductImages;
 };
