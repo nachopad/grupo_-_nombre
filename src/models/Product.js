@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('crypto');
 const productsFilePath = path.join(__dirname, '../data/productData.json');
+const db = require('../database/models');
 
 const Product = {
     filename: productsFilePath,
@@ -19,33 +20,55 @@ const Product = {
         let allProducts = this.getData().result;
         return allProducts.find((oneProduct => oneProduct[field] === text));
     },
-    create: function (files, product) {
-        let allProducts = this.getData();
-        let newProduct = {
-            id: crypto.randomUUID(),
-            img: files.map(file => file.filename) || null,
-            name: product.name,
-            category: product.category,
-            gender: product.gender,
+    create: async function (files, product) {
+        /** CREA pero no mostrara nada a la vista */
+        const producto = await db.Product.create({
+            product_name: product.name,
             price: +product.price,
-            offer: +product.offer,
-            colors: product.colors.split(',').map(color => color.trim()),
-            sizes: product.sizes.split(',').map(size => size.trim()),
-            installments: {
-                count: +product.installmentsCount || 0,
-                interestRate: +product.interestRate || 0
-            },
-            description: {
-                overview: product.overview,
-                careInstructions: product.careInstructions,
-                composition: product.composition
-            }
-        };
-        allProducts.result.push(newProduct);
-        fs.writeFileSync(this.filename, JSON.stringify(allProducts, null, 2));
-        return newProduct;
+            overview: product.overview,
+            care_instructions: product.careInstructions,
+            composition: product.composition,
+            stock: 2,
+            category_id: 1,
+            discount_id: 1
+        })
+        await db.ProductImages.bulkCreate(files.map(image => ({
+            product_id: producto.dataValues.product_id, 
+            url: image.filename
+        })));
+
+        console.log(producto); 
+        return false;
     },
-    delete: function (id) {
+    delete: async function (id) {
+
+        const removeProduct = await db.Product.findByPk(id,{
+            include: [{association: "images"}] 
+        });
+        //Asi es como se puede acceder a las imagenes asociadas
+        console.log(removeProduct.dataValues.images[0].dataValues.url);
+        //** Este elimina los archivos, no lo hace y no se ¿por qué? */
+        removeProduct.dataValues.images.forEach(p => {
+            let photoFilePath = path.join(__dirname, '../../public/images/productDetail/' + p.dataValues.url);
+            console.log(photoFilePath);
+            if (fs.existsSync(photoFilePath)) {
+                fs.unlinkSync(photoFilePath);
+            }
+        });
+        await db.ProductImages.destroy({
+            where: {product_id: id}
+        })
+        const row = await db.Product.destroy({
+            where: {product_id: id}
+        });
+        if(!row){
+            console.log("Ninguna eliminacion");
+            return true
+        };
+        console.log(row);
+        return false;
+
+        //Solo lo deje por referencia nomas
         let allProducts = this.getData();
         let removePoduct = allProducts.result.find(product => product.id === id);
 
