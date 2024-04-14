@@ -33,7 +33,20 @@
             </div>
         </section>
         <section class="product-detail">
-                
+            <article class="image-carousel-mobile">
+                <% for(let image of product.dataValues.images) { %>
+                    <img src="/images/productDetail/<%= image.url %>" alt="<%= product.name %>" />
+                <% } %>
+            </article>
+            <article class="product-images-desktop">
+                <div class="row">
+                    <% for(let image of product.dataValues.images) { %>
+                        <div class="image-container">
+                            <img src="/images/productDetail/<%= image.url %>" alt="<%= product.name %>" />
+                        </div>
+                    <% } %>
+                </div>
+            </article>
                 <article class="details-section">
                     <h2 class="item-show-details-title"><%= product.product_name.toUpperCase() %></h2>
                     <div class="price-container">
@@ -45,28 +58,24 @@
                             <span class="price-active">$ <%= (product.dataValues.price - (product.dataValues.price * (product.dataValues.offer / 100))) %> </span>
                         <% } %>
                     </div>
-                    <div class="item-details-cuotas">
-                        <%= product.installments.count %> cuotas sin interés de
-                        <b>$ <%= ((product.price - (product.price * (product.offer / 100))).toFixed(3) / product.installments.count).toFixed(3) %></b>
-                    </div>
-                    <% if(product.colors && product.colors.length > 0) { %>
+                    <% if(product.dataValues.colors && product.dataValues.colors.length > 0) { %>
                         <div class="item-colors-container">
                             <h2 class="item-colors-title">Colores</h2>
                             <div class="color-boxes">
-                                <% for (let color of product.colors) { %>
+                                <% for (let color of product.dataValues.colors) { %>
                                     <label class="item-show-color-option">
-                                        <span class="item-show-color-<%= color %>"></span>
+                                        <span class="item-show-color-<%= color.color_name %>"></span>
                                     </label>
                                 <% } %>
                             </div>
                         </div>
                     <% } %>
-                    <% if(product.sizes && product.sizes.length > 0) { %>
+                    <% if(product.dataValues.sizes && product.dataValues.sizes.length > 0) { %>
                         <div class="item-sizes-container">
                             <h2 class="item-size-title">Talles</h2>
                             <div class="sizes-boxes">
-                                <% for(let size of product.sizes) { %>
-                                    <button><%= size %></button>
+                                <% for(let size of product.dataValues.sizes) { %>
+                                    <button><%= size.measurement %></button>
                                 <% } %>
                             </div>
                         </div>

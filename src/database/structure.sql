@@ -54,6 +54,7 @@ CREATE TABLE lumina_db.Discounts(
 );
 
 CREATE TABLE lumina_db.Product_images(
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     url VARCHAR(100) NOT NULL,
     product_id INT UNSIGNED,
     FOREIGN KEY(product_id) REFERENCES Products(product_id)
@@ -69,6 +70,11 @@ CREATE TABLE lumina_db.Colors(
     color_name VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE lumina_db.Sizes(
+	size_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    measurement VARCHAR(20)
+);
+
 CREATE TABLE lumina_db.Product_Detail(
 	cart_id INT UNSIGNED,
     product_id INT UNSIGNED,
@@ -81,6 +87,13 @@ CREATE TABLE lumina_db.Product_Color(
     color_id INT UNSIGNED,
     product_id INT UNSIGNED,
     FOREIGN KEY(color_id) REFERENCES Colors(color_id),
+    FOREIGN KEY(product_id) REFERENCES Products(product_id)
+);
+
+CREATE TABLE lumina_db.Product_Size(
+    size_id INT UNSIGNED,
+    product_id INT UNSIGNED,
+    FOREIGN KEY(size_id) REFERENCES Sizes(size_id),
     FOREIGN KEY(product_id) REFERENCES Products(product_id)
 );
 

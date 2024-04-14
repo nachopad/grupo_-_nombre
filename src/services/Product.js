@@ -17,7 +17,9 @@ const Product = {
     },
     findByPk: async function (id) {
         try {
-            return await db.Products.findByPk(id);
+            return await db.Products.findByPk(id, {
+                include: ['categories', 'discounts', 'colors', 'sizes', 'images']
+            });
         } catch (error) {
             console.error('Error al obtener el producto:', error);
         }
@@ -32,98 +34,118 @@ const Product = {
         }
     },
     create: async function (files, product) {
-        /** CREA pero no mostrara nada a la vista */
-        const newProduct = await db.Products.create({
-            product_name: product.name,
-            price: +product.price,
-            overview: product.overview,
-            care_instructions: product.careInstructions,
-            composition: product.composition,
-            stock: 2,
-            category_id: product.category,
-            discount_id: product.offer
-        });
+        try {
+            const newProduct = await db.Products.create({
+                product_name: product.name,
+                price: +product.price,
+                overview: product.overview,
+                care_instructions: product.careInstructions,
+                composition: product.composition,
+                stock: 2,
+                category_id: product.category,
+                discount_id: product.offer
+            });
+    
+            await db.ProductColors.bulkCreate(product.colors.map(color => ({
+                product_id: newProduct.dataValues.product_id,
+                color_id: +color
+            })));
 
-        await db.ProductImages.bulkCreate(files.map(image => ({
-            product_id: newProduct.dataValues.product_id, 
-            url: image.filename
-        })));
+            await db.ProductSizes.bulkCreate(product.sizes.map(size => ({
+                product_id: newProduct.dataValues.product_id,
+                size_id: +size
+            })));
+    
+            await db.ProductImages.bulkCreate(files.map(image => ({
+                product_id: newProduct.dataValues.product_id, 
+                url: image.filename
+            })));
+    
+            return newProduct;
 
-        return false;
+        } catch (error) {
+            console.error('Error al crear el producto:', error);
+        }
     },
     delete: async function (id) {
+        try {
+            const removeProduct = await db.Products.findByPk(id,{
+                include: [{association: "images"}] 
+            });
+            //Asi es como se puede acceder a las imagenes asociadas
+            console.log(removeProduct.dataValues.images[0].dataValues.url);
+            //** Este elimina los archivos, no lo hace y no se ¿por qué? */
+            removeProduct.dataValues.images.forEach(p => {
+                let photoFilePath = path.join(__dirname, '../../public/images/productDetail/' + p.dataValues.url);
+                if (fs.existsSync(photoFilePath)) {
+                    fs.unlinkSync(photoFilePath);
+                }
+            });
+    
+            await db.ProductImages.destroy({
+                where: {product_id: id}
+            });
+    
+            await db.Products.destroy({
+                where: {product_id: id}
+            });
+            
+            return false;
 
-        const removeProduct = await db.Products.findByPk(id,{
-            include: [{association: "images"}] 
-        });
-        //Asi es como se puede acceder a las imagenes asociadas
-        console.log(removeProduct.dataValues.images[0].dataValues.url);
-        //** Este elimina los archivos, no lo hace y no se ¿por qué? */
-        removeProduct.dataValues.images.forEach(p => {
-            let photoFilePath = path.join(__dirname, '../../public/images/productDetail/' + p.dataValues.url);
-            if (fs.existsSync(photoFilePath)) {
-                fs.unlinkSync(photoFilePath);
-            }
-        });
+        } catch (error) {
+            console.error('Error al eliminar el producto:', error);
+        }
 
-        await db.ProductImages.destroy({
-            where: {product_id: id}
-        });
-
-        const row = await db.Products.destroy({
-            where: {product_id: id}
-        });
-
-        if(!row){
-            console.log("Ninguna eliminacion");
-            return true
-        };
-        console.log(row);
-        
-        return false;
     },
-    edit: async function (id, productUpdate) {
-        /*
-        let allProducts = this.findAll();
-        allProducts.result.forEach(e => {
-            if (e.id == id) {
-                e.name = productUpdate.name;
-                e.price = +productUpdate.price;
-                e.category = productUpdate.category;
-                e.gender = productUpdate.gender;
-                e.colors = productUpdate.colors.split(',').map(color => color.trim());
-                e.sizes = productUpdate.sizes.split(',').map(size => size.trim());
-                e.offer = +productUpdate.offer;
-                e.installments.count = +productUpdate.installmentsCount || 0;
-                e.installments.interestRate = +productUpdate.interestRate || 0;
-                e.description.overview = productUpdate.overview;
-                e.description.careInstructions = productUpdate.careInstructions;
-                e.description.composition = productUpdate.composition;
-            }
-        });
-        fs.writeFileSync(this.filename, JSON.stringify(allProducts, null, 2));
-        */
-       return await db.Products.update({
-            product_name: productUpdate.name,
-            price: +productUpdate.price,
-            overview: productUpdate.overview,
-            care_instructions: productUpdate.careInstructions,
-            composition: productUpdate.composition,
-            stock: 2,
-            category_id: productUpdate.category,
-            discount_id: productUpdate.offer
-       }, 
-       { where: { product_id: id} });
+    edit: async function (id, productUpdate, files) {
+        try {
+            await db.Products.update({
+                product_name: productUpdate.name,
+                price: +productUpdate.price,
+                overview: productUpdate.overview,
+                care_instructions: productUpdate.careInstructions,
+                composition: productUpdate.composition,
+                stock: 2,
+                category_id: productUpdate.category,
+                discount_id: productUpdate.offer
+           }, 
+           { where: { product_id: id} });
+
+           await db.ProductColors.destroy({
+                where: {
+                    product_id: id
+                }
+           });
+
+           await db.ProductColors.bulkCreate(productUpdate.colors.map(color => ({
+                product_id: id,
+                color_id: +color
+            })));
+
+            await db.ProductSizes.destroy({
+                where: {
+                    product_id: id
+                }
+           });
+
+           await db.ProductSizes.bulkCreate(productUpdate.sizes.map(size => ({
+                product_id: id,
+                size_id: +size
+            })));
+
+            await db.ProductImages.update(files.map(image => ({
+                url: image.filename
+            })), {
+                where: {
+                    product_id: id
+                }
+            });
+           
+        } catch (error) {
+            console.error('Error al editar el producto:', error);
+        }
+
     }
 };
-
-/*
-(async () => {
-    const product = await db.Product.findByPk(1, {
-        include: [{association: 'categories'}]
-      });
-      console.log(product.dataValues.categories.category_name)
-})();
-*/
 
 module.exports = Product;
