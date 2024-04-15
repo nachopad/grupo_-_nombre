@@ -18,22 +18,18 @@ CREATE TABLE lumina_db.Users(
     FOREIGN KEY(role_id) REFERENCES Roles(role_id)
 );
 
-CREATE TABLE lumina_db.Carts(
-	cart_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    user_id INT UNSIGNED,
-	subtotal DECIMAL UNSIGNED NOT NULL,
-    state BOOLEAN DEFAULT(1) NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES Users(user_id)
-);
 
 CREATE TABLE lumina_db.Orders(
 	order_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    cart_id INT UNSIGNED,
+    user_id INT UNSIGNED,
     sending_cost DECIMAL UNSIGNED,
     sending_address VARCHAR(100) NOT NULL,
     locality VARCHAR(100) NOT NULL,
     postal_code VARCHAR(10) NOT NULL,
-    total DECIMAL UNSIGNED NOT NULL
+    subtotal DECIMAL UNSIGNED NOT NULL,
+    total DECIMAL UNSIGNED NOT NULL,
+    state BOOLEAN DEFAULT(1) NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES Users(user_id)
 );
 
 CREATE TABLE lumina_db.Products(
@@ -76,10 +72,10 @@ CREATE TABLE lumina_db.Sizes(
 );
 
 CREATE TABLE lumina_db.Product_Detail(
-	cart_id INT UNSIGNED,
+	order_id INT UNSIGNED,
     product_id INT UNSIGNED,
-    product_detail_count INT UNSIGNED NOT NULL,
-    FOREIGN KEY(cart_id) REFERENCES Carts(cart_id),
+    amount INT UNSIGNED NOT NULL,
+    FOREIGN KEY(order_id) REFERENCES Orders(order_id),
     FOREIGN KEY(product_id) REFERENCES Products(product_id)
 );
 
@@ -97,7 +93,6 @@ CREATE TABLE lumina_db.Product_Size(
     FOREIGN KEY(product_id) REFERENCES Products(product_id)
 );
 
-ALTER TABLE lumina_db.Orders ADD FOREIGN KEY(cart_id) REFERENCES Carts(cart_id);
 ALTER TABLE lumina_db.Products ADD(FOREIGN KEY(category_id) REFERENCES Categories(category_id), 
                                   FOREIGN KEY(discount_id) REFERENCES Discounts(discount_id)
  );
