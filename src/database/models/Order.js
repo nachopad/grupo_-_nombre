@@ -22,23 +22,16 @@ module.exports = (sequelize, dataType)=>{
             type: dataType.STRING,
             allowNull: false
         },
-        subtotal:{
-            type: dataType.DECIMAL,
-            allowNull: false
-        },
-        total:{
-            type: dataType.DECIMAL,
-            allowNull: false
-        },
-        state:{
-            type: dataType.BOOLEAN
-        },
         user_id: {
             type: dataType.INTEGER,
             allowNull: false
         },
         installment_id: {
             type: dataType.INTEGER,
+            allowNull: false
+        }, 
+        total:{
+            type: dataType.DECIMAL,
             allowNull: false
         }
     };

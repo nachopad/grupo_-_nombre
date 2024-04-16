@@ -1,26 +1,26 @@
 const db = require('../database/models');
+const installmentService = require('./Installment');
 
 const Order = {
     registerOrder: async function (shipInfo, shoppingCart, userId, total) {
         try{
+            console.log("Estoy por registrar, estoy en Order");
             const newOrder = await db.Orders.create({
                 sending_cost: 0,
                 sending_address: shipInfo.sendingAddress,
                 locality: shipInfo.locality,
                 postal_code: shipInfo.postalCode,
+                total: total,
                 user_id: userId,
-                subtotal: total,
-                total: total
+                installment_id: shipInfo.installement,
             });
     
             await db.ProductDetails.bulkCreate(shoppingCart.map(product =>({
-                order_id: newOrder.dataValues.order_id,
+                order_id: newOrder.dataValues.id,
                 product_id: product.id,
-                amount:1
+                count:1
             })));
-    
             return newOrder;
-
         }catch(err){
             console.log("Error al registrar la orden: "+ err);
         }

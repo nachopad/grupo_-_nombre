@@ -35,6 +35,19 @@
                         <label for="sending-address">Direccion</label>
                         <input type="text" name="sendingAddress" id="sending-address" placeholder="Ejemplo: La casa de Nacho">
                     </div>
+
+                    <div>
+                        <label for="installement">Ingrese en cuentas cuotas pagara</label>
+                        <select name="installement" id="installement" class="style-input">
+                            <% for(installement of installements) { %>
+                                    <option value="<%= installement.id %>"> <%= installement.count %> cuotas  <%= installement.interest? `con ${installement.interest} % de interes`: '' %> </option>
+                                <% } %>
+                        </select>
+                        <% if(locals.errors && errors.offer){ %>
+                            <span class="msg-error">* <%= errors.offer.msg %></span>
+                        <% } %>
+                    </div>
+
                     <div>
                         <div class="resumen-header">
                             <p>Subtotal</p>

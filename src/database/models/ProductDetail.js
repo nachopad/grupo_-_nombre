@@ -7,13 +7,13 @@ module.exports = (sequelize, dataType)=>{
         product_id:{
             type: dataType.INTEGER
         },
-        amount:{
+        count:{
             type: dataType.INTEGER,
             allowNull: false
         }
     };
     let config = {
-        tableName: "product_detail",
+        tableName: "product_details",
         timestamps: false
     }
 

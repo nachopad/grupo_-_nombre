@@ -83,3 +83,12 @@ INSERT INTO lumina_db.product_sizes VALUES(1,6),(2,6),(3,6),(4,6);
 INSERT INTO lumina_db.product_sizes VALUES(9,7),(10,7),(11,7),(12,7),(13,7),(14,7),(15,7),(16,7),(17,7),(18,7),(19,7),(20,7);
 INSERT INTO lumina_db.product_sizes VALUES(9,7),(10,7),(11,7),(12,7),(13,7),(14,7),(15,7),(16,7),(17,7),(18,7),(19,7),(20,7);
 INSERT INTO lumina_db.product_sizes VALUES(9,8),(10,8),(11,8),(12,8),(13,8),(14,8),(15,8),(16,8),(17,8),(18,8),(19,8),(20,8);
+
+
+INSERT INTO `lumina_db`.`installments` (`count`) VALUES ('1');
+INSERT INTO `lumina_db`.`installments` (`count`) VALUES ('2');
+INSERT INTO `lumina_db`.`installments` (`count`, `interest`) VALUES ('3', '10');
+INSERT INTO `lumina_db`.`installments` (`count`, `interest`) VALUES ('4', '12');
+INSERT INTO `lumina_db`.`installments` (`count`, `interest`) VALUES ('5', '15');
+INSERT INTO `lumina_db`.`installments` (`count`, `interest`) VALUES ('6', '30');
+INSERT INTO `lumina_db`.`installments` (`count`, `interest`) VALUES ('7', '50');

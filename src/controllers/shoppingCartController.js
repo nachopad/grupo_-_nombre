@@ -2,6 +2,8 @@ const productsData = require('../data/productData.json');
 const shoppingCart = [];
 const productService = require('../services/Product');
 const orderService = require('../services/Order')
+const installmentService = require('../services/Installment');
+
 const shoppingCartController = {
     showCart: (req, res) => {
         return res.render('shoppingCart', { shoppingCart: shoppingCart });
@@ -29,14 +31,19 @@ const shoppingCartController = {
             res.status(404).send('Producto no encontrado');
         }
     },
-    showFormCheckout: (req, res) => {
+    showFormCheckout: async (req, res) => {
         let subtotal = shoppingCart.reduce((state, product) => state + (+product.price), 0);
-        return res.render('checkoutShoppingCart', { subtotal });
+        const installements = await installmentService.findAll();
+        return res.render('checkoutShoppingCart', { subtotal, installements });
     },
     registerOrder: async (req, res) => {
         try {
+            const installement = await installmentService.findByPk(req.body.installement);
             let subtotal = shoppingCart.reduce((state, product) => state + (+product.price), 0);
-            await orderService.registerOrder(req.body, shoppingCart, req.session.userLogged.user_id, subtotal);
+            
+            installement.interest?subtotal+=subtotal*(installement.interest/100):'';
+            
+            await orderService.registerOrder(req.body, shoppingCart, req.session.userLogged.id, subtotal);
         }catch(err){
             res.status(400).send(err);
         }
