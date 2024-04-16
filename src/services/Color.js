@@ -34,10 +34,10 @@ const Color = {
     update: async function(id, color) {
        try {
             let updateData = {
-                color_name: color.name
+                name: color.name
             };
 
-            return await db.Colors.update(updateData, { where: { color_id: id } });
+            return await db.Colors.update(updateData, { where: { id: id } });
 
        } catch (error) {
             console.log('Error al modificar el color:', error);

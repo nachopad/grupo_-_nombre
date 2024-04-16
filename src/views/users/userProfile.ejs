@@ -23,9 +23,9 @@
                 <article class="account-main-row">
                     <div class="account-slidebar">
                         <div class="slidebar-information">
-                            <p class="account-subtitle">Hola <%= user.full_name %>!</p>
+                            <p class="account-subtitle">Hola <%= user.first_name %>!</p>
                             <div class="profile-image-container">
-                                <img src="/images/userProfile/<%= user.url_image ? user.url_image : 'default-profile.png' %>" alt="Profile Picture">
+                                <img src="/images/userProfile/<%= user.image ? user.image : 'default-profile.png' %>" alt="Profile Picture">
                             </div>
                             <p class="slider-explain-text">
                                 Desde mi cuenta podés ver un resumen de tus actividades recientes 
@@ -81,10 +81,10 @@
                 <article class="account-main-row">
                     <div class="edit-account-form-container">
                         <p class="account-subtitle">Modificá tus datos personales</p>
-                        <form method="POST" action="<%= '/users/user-update/'+user.user_id+'?_method=PUT'%>" enctype="multipart/form-data">
+                        <form method="POST" action="<%= '/users/user-update/'+user.id+'?_method=PUT'%>" enctype="multipart/form-data">
                             <div class="input-information">
                                 <label class="label-account" for="firstName">Nombre</label>
-                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= locals.errors ? user.full_name : user.full_name %>" >
+                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= locals.errors ? user.first_name : user.first_name %>" >
                                 <% if (locals.errors && errors.firstName) { %>
                                     <span class="msg-error">* <%= errors.firstName.msg %></span>
                                 <% } %>
@@ -129,7 +129,7 @@
                             </div>
                         </form>
                         <p class="account-subtitle">Modificá tu contraseña</p>
-                        <form method="POST" action="<%= '/users/change-password/'+user.user_id+'?_method=PATCH'%>">
+                        <form method="POST" action="<%= '/users/change-password/'+user.id+'?_method=PATCH'%>">
                             <div class="input-information">
                                 <label class="label-account" for="currentPassword">Contraseña actual</label>
                                 <input class="input-style"  type="password" name="currentPassword" id="currentPassword" placeholder="Ingresá tu contraseña actual" value="" >

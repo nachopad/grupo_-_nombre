@@ -16,11 +16,11 @@
     <%- include('./partials/header.ejs') %>
     <main>
         <section class="container-form">
-            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.product_id + '?_method=PUT' %>" class="form" enctype="multipart/form-data">
+            <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.id + '?_method=PUT' %>" class="form" enctype="multipart/form-data">
                 <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
                 <div class="input-information">
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.product_name : '' %>">
+                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.title : '' %>">
                     <% if(locals.errors && errors.name){ %>
                         <span class="msg-error">* <%= errors.name.msg %></span>
                     <% } %>
@@ -36,7 +36,7 @@
                     <label for="category">Categoría</label>
                     <select name="category" id="category" class="style-input">
                         <% categories.forEach(category => { %>
-                            <option value="<%= category.category_id %>" <%= product && product.category_id == category.category_id ? 'selected' : '' %>> <%= category.category_name %></option>
+                            <option value="<%= category.id %>" <%= product && product.category_id == category.id ? 'selected' : '' %>> <%= category.name %></option>
                         <% }); %>
                     </select>
                     <% if(locals.errors && errors.category){ %>
@@ -46,8 +46,9 @@
                 <div class="input-information">
                     <label for="gender">Género</label>
                     <select name="gender" id="gender" class="style-input">
-                        <option value="male">Hombre</option>
-                        <option value="female">Mujer</option>
+                        <% genders.forEach(gender => { %>
+                            <option value="<%= gender.id %>" <%= product && product.gender_id == gender.id ? 'selected' : '' %>> <%= gender.name %></option>
+                        <% }); %>
                     </select>
                     <% if(locals.errors && errors.gender){ %>
                         <span class="msg-error">* <%= errors.gender.msg %></span>
@@ -57,12 +58,12 @@
                     <label for="color">Colores</label>
                     <% colors.forEach(color => { %>
                         <div>
-                            <input type="checkbox" name="colors[]" id="color_<%= color.color_id %>" value="<%= color.color_id %>" 
-                                <% if (product && product.colors.find(productColor => productColor.color_id === color.color_id)) { %>
+                            <input type="checkbox" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
+                                <% if (product && product.colors.find(productColor => productColor.id === color.id)) { %>
                                     checked
                                 <% } %>
                             >
-                            <label for="color_<%= color.color_id %>"><%= color.color_name %></label>
+                            <label for="color_<%= color.id %>"><%= color.name %></label>
                         </div>
                     <% }); %>
                     <% if(locals.errors && errors.colors){ %>
@@ -73,12 +74,12 @@
                     <label for="size">Talles</label>
                     <% sizes.forEach(size => { %>
                         <div>
-                            <input type="checkbox" name="sizes[]" id="size_<%= size.size_id %>" value="<%= size.size_id %>" 
-                                <% if (product && product.sizes.find(productSize => productSize.size_id === size.size_id)) { %>
+                            <input type="checkbox" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
+                                <% if (product && product.sizes.find(productSize => productSize.size_id === size.id)) { %>
                                     checked
                                 <% } %>
                             >
-                            <label for="size_<%= size.size_id %>"><%= size.measurement %></label>
+                            <label for="size_<%= size.id %>"><%= size.measurement %></label>
                         </div>
                     <% }); %>
                     <% if(locals.errors && errors.sizes){ %>
@@ -89,7 +90,7 @@
                     <label for="offer">Descuento del producto (opcional)</label>
                     <select name="offer" id="offer" class="style-input">
                         <% for(discount of discounts) { %>
-                                <option value="<%= discount.discount_id %>" <%= product && product.discount_id == discount.discount_id ? 'selected' : '' %>> <%= discount.percent %> %</option>
+                                <option value="<%= discount.id %>" <%= product && product.discount_id == discount.id ? 'selected' : '' %>> <%= discount.percent %> %</option>
                             <% } %>
                     </select>
                     <% if(locals.errors && errors.offer){ %>

@@ -7,7 +7,7 @@ const validations = [
         .notEmpty().withMessage('Debes ingresar tu contraseña actual.')
         .custom( async (value, { req }) => {
             let userFinded = await User.findByField('email', req.session.userLogged.email);
-            if(!userFinded || !bcrypt.compareSync(value, userFinded.user_password)) {
+            if(!userFinded || !bcrypt.compareSync(value, userFinded.password)) {
                 throw new Error('Debes ingresar tu contraseña actual.')
             }
             return true;

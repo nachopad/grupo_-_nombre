@@ -7,7 +7,7 @@ module.exports = (sequelize, dataType) => {
             type: dataType.INTEGER,
             primaryKey: true
         },
-        url:{
+        url_image:{
             type: dataType.STRING,
             allowNull: false
         },

@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 
 const productModel = require('../services/Product');
 const categoryModel = require('../services/Category');
+const genderModel = require('../services/Gender')
 const discountModel = require('../services/Discount');
 const colorModel = require('../services/Color');
 const sizeModel = require('../services/Size');
@@ -21,11 +22,12 @@ const productController = {
         }) : null;
 
         let categories = await categoryModel.findAll();
+        let genders = await genderModel.findAll();
         let discounts = await discountModel.findAll();
         let colors = await colorModel.findAll();
         let sizes = await sizeModel.findAll();
  
-        res.render('productForm', { product: product, categories: categories, discounts: discounts, colors: colors, sizes: sizes });
+        res.render('productForm', { product: product, categories: categories, genders: genders, discounts: discounts, colors: colors, sizes: sizes });
     },
     store: async (req, res) => {
         const errors = validationResult(req);
@@ -36,7 +38,7 @@ const productController = {
 
         if(errors.isEmpty()) {
             let newProduct = await productModel.create(req.files, req.body);
-            return res.redirect('/products/detail/' + newProduct.dataValues.product_id);
+            return res.redirect('/products/detail/' + newProduct.dataValues.id);
         };
 
         return res.render('productForm', { product: product, errors: errors.mapped(), oldData: req.body });

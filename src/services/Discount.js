@@ -37,7 +37,7 @@ const Discount = {
                 percent: discount.percent
             };
 
-            return await db.Discounts.update(updateData, { where: { discount_id: id } });
+            return await db.Discounts.update(updateData, { where: { id: id } });
 
        } catch (error) {
             console.log('Error al modificar el descuento:', error);

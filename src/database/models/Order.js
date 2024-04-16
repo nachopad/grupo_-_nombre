@@ -2,14 +2,10 @@ module.exports = (sequelize, dataType)=>{
     let alias = "Orders";
 
     let cols = {
-        order_id : {
+        id : {
             type: dataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        user_id:{
-            type: dataType.INTEGER,
-            allowNull: false
         },
         sending_cost:{
             type: dataType.DECIMAL
@@ -36,6 +32,14 @@ module.exports = (sequelize, dataType)=>{
         },
         state:{
             type: dataType.BOOLEAN
+        },
+        user_id: {
+            type: dataType.INTEGER,
+            allowNull: false
+        },
+        installment_id: {
+            type: dataType.INTEGER,
+            allowNull: false
         }
     };
 
@@ -51,14 +55,17 @@ module.exports = (sequelize, dataType)=>{
             as: "users",
             foreignKey: "user_id"
         });
-
+        Order.belongsTo(models.Installments, {
+            as: 'installments',
+            foreignKey: 'installment_id'
+        });
         Order.belongsToMany(models.Products,{
             as: "products",
             through: models.ProductDetails,
             foreignKey: 'order_id',
             otherKey: 'product_id',
             timestamps: false
-        })
+        });
     }
     return Order;
 }

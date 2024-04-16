@@ -3,12 +3,12 @@ module.exports = (sequelize, dataType) => {
     let alias = "Products";
 
     let cols = {
-        product_id: {
+        id: {
             type: dataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        product_name: {
+        title: {
             type: dataType.STRING,
             allowNull: false
         },
@@ -38,6 +38,9 @@ module.exports = (sequelize, dataType) => {
         },
         discount_id: {
             type: dataType.INTEGER
+        },
+        gender_id: {
+            type: dataType.INTEGER
         }
     };
 
@@ -57,6 +60,10 @@ module.exports = (sequelize, dataType) => {
             as: 'categories', 
             foreignKey: 'category_id'
         });
+        Product.belongsTo(models.Genders, {
+            as: 'genders',
+            foreignKey: 'gender_id'
+        });
         Product.belongsTo(models.Discounts, {
             as: 'discounts', 
             foreignKey: 'discount_id'
@@ -75,7 +82,6 @@ module.exports = (sequelize, dataType) => {
             otherKey: 'size_id',
             timestamps: false
         });
-
         Product.belongsToMany(models.Orders,{
             as: 'orders',
             through: models.ProductDetails,

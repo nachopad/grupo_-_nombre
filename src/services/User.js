@@ -27,13 +27,13 @@ const User = {
     },
     createNewUser: function(body, file) {
         let newUser = {
-            full_name: body.firstName,
+            first_name: body.firstName,
             last_name: body.lastName,
             birthdate: body.birthdate,
             email: body.email,
             phone: body.phone,
-            url_image: file ? file.filename : '',
-            user_password: bcrypt.hashSync(body.password, 12)
+            image: file ? file.filename : '',
+            password: bcrypt.hashSync(body.password, 12)
         };
 
         return newUser;
@@ -49,18 +49,19 @@ const User = {
     update: async function(id, user, file) {
        try {
             let updateData = {
-                full_name: user.firstName,
+                first_name: user.firstName,
                 last_name: user.lastName,
                 birthdate: user.birthDate,
                 email: user.email,
                 phone: user.phone,
-                user_password: user.password
+                image: file ? file.filename : '',
+                password: user.password
             };
             if(file) {
-                updateData.url_image = file.filename
+                updateData.image = file.filename
             };
 
-            return await db.Users.update(updateData, { where: { user_id: id } });
+            return await db.Users.update(updateData, { where: { id: id } });
 
        } catch (error) {
             console.log('Error al modificar el usuario:', error);
@@ -69,9 +70,9 @@ const User = {
     updatePassword: async function(id, password) {
         try {
             return await db.Users.update({
-                user_password: bcrypt.hashSync(password, 12)
+                password: bcrypt.hashSync(password, 12)
             },
-            { where: { user_id: id } });
+            { where: { id: id } });
         } catch (error) {
             console.log('Error al modificar la contraseña: ', error);
         }

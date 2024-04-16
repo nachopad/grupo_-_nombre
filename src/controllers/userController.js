@@ -14,8 +14,8 @@ const userCtrl = {
         const errors = validationResult(req);
         
         let userToLogin = await User.findByField('email', req.body.email);
-        return userToLogin && bcrypt.compareSync(req.body.password, userToLogin.dataValues.user_password)
-        ? (delete userToLogin.dataValues.user_password, req.session.userLogged = userToLogin, req.body.remember && res.cookie('userEmail', req.body.email, { maxAge: 60000 }), res.redirect('/'))
+        return userToLogin && bcrypt.compareSync(req.body.password, userToLogin.dataValues.password)
+        ? (delete userToLogin.dataValues.password, req.session.userLogged = userToLogin, req.body.remember && res.cookie('userEmail', req.body.email, { maxAge: 60000 }), res.redirect('/'))
         : res.render('login', { errors: errors.mapped(), oldData: req.body } );
     },
     register: (req, res) => {
@@ -42,7 +42,7 @@ const userCtrl = {
         if(errors.isEmpty()){
             await User.update(req.params.id, req.body, req.file);
             let userUpdated = await User.findByPk(req.params.id);
-            delete userUpdated.dataValues.user_password;
+            delete userUpdated.dataValues.password;
             req.session.userLogged = userUpdated;  
         }
 

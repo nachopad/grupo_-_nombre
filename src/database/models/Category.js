@@ -3,13 +3,13 @@ module.exports = (sequelize, dataType) => {
     let alias = 'Categories';
 
     let cols = {
-        category_id: {
+        id: {
             type: dataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        category_name:{
-            type: dataType.STRING,
+        name:{
+            type: dataType.STRING(50),
             allowNull: false
         }
     };

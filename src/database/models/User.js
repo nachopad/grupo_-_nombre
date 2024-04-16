@@ -3,31 +3,34 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Users';
 
     let cols = {
-        user_id: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        full_name: {
-            type: dataTypes.STRING 
+        first_name: {
+            type: dataTypes.STRING(50) 
         },
         last_name: {
-            type: dataTypes.STRING 
+            type: dataTypes.STRING(50) 
         },
         birthdate: {
             type: dataTypes.DATE
         },
         email: {
-            type: dataTypes.STRING 
+            type: dataTypes.STRING(50) 
         },
         phone: {
-            type: dataTypes.STRING 
+            type: dataTypes.STRING(20)
         },
-        url_image: {
-            type: dataTypes.STRING 
+        image: {
+            type: dataTypes.STRING(200) 
         },
-        user_password: {
-            type: dataTypes.STRING 
+        password: {
+            type: dataTypes.STRING(50) 
+        },
+        role_id: {
+            type: dataTypes.INTEGER
         }
     };
 
@@ -43,6 +46,7 @@ module.exports = (sequelize, dataTypes) => {
             as: 'roles',
             foreignKey: 'role_id'
         });
+        
         User.hasMany(models.Orders,{
             as: "orders",
             foreignKey: "user_id"

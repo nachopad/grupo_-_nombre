@@ -37,7 +37,7 @@ const Size = {
                 measurement: size.name
             };
 
-            return await db.Sizes.update(updateData, { where: { size_id: id } });
+            return await db.Sizes.update(updateData, { where: { id: id } });
 
        } catch (error) {
             console.log('Error al modificar el color:', error);

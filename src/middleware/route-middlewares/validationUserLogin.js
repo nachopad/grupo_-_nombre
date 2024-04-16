@@ -21,7 +21,7 @@ const validations = [
             throw new Error('La cuenta vinculada al e-mail ingresado no existe.');
         }
 
-        if (password && !bcrypt.compareSync(password, userToLogin.dataValues.user_password)) {
+        if (password && !bcrypt.compareSync(password, userToLogin.dataValues.password)) {
             throw new Error('La contraseña ingresada es incorrecta.');
         }
 

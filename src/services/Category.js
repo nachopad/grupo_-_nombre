@@ -34,10 +34,10 @@ const Category = {
     update: async function(id, category) {
        try {
             let updateData = {
-                category_name: category.name
+                name: category.name
             };
 
-            return await db.Categories.update(updateData, { where: { category_id: id } });
+            return await db.Categories.update(updateData, { where: { id: id } });
 
        } catch (error) {
             console.log('Error al modificar la categoría:', error);

@@ -3,13 +3,13 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Sizes';
 
     let cols = {
-        size_id: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         measurement: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(20)
         }
     };
 

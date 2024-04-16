@@ -18,7 +18,7 @@ const Product = {
     findByPk: async function (id) {
         try {
             return await db.Products.findByPk(id, {
-                include: ['categories', 'discounts', 'colors', 'sizes', 'images']
+                include: ['categories', 'genders', 'discounts', 'colors', 'sizes', 'images']
             });
         } catch (error) {
             console.error('Error al obtener el producto:', error);
@@ -36,29 +36,30 @@ const Product = {
     create: async function (files, product) {
         try {
             const newProduct = await db.Products.create({
-                product_name: product.name,
+                title: product.name,
                 price: +product.price,
                 overview: product.overview,
                 care_instructions: product.careInstructions,
                 composition: product.composition,
                 stock: 2,
                 category_id: product.category,
-                discount_id: product.offer
+                discount_id: product.offer,
+                gender_id: product.gender
             });
     
             await db.ProductColors.bulkCreate(product.colors.map(color => ({
-                product_id: newProduct.dataValues.product_id,
+                product_id: newProduct.dataValues.id,
                 color_id: +color
             })));
 
             await db.ProductSizes.bulkCreate(product.sizes.map(size => ({
-                product_id: newProduct.dataValues.product_id,
+                product_id: newProduct.dataValues.id,
                 size_id: +size
             })));
     
             await db.ProductImages.bulkCreate(files.map(image => ({
-                product_id: newProduct.dataValues.product_id, 
-                url: image.filename
+                product_id: newProduct.dataValues.id, 
+                url_image: image.filename
             })));
     
             return newProduct;
@@ -72,9 +73,7 @@ const Product = {
             const removeProduct = await db.Products.findByPk(id,{
                 include: [{association: "images"}] 
             });
-            //Asi es como se puede acceder a las imagenes asociadas
-            console.log(removeProduct.dataValues.images[0].dataValues.url);
-            //** Este elimina los archivos, no lo hace y no se ¿por qué? */
+            
             removeProduct.dataValues.images.forEach(p => {
                 let photoFilePath = path.join(__dirname, '../../public/images/productDetail/' + p.dataValues.url);
                 if (fs.existsSync(photoFilePath)) {
@@ -107,9 +106,10 @@ const Product = {
                 composition: productUpdate.composition,
                 stock: 2,
                 category_id: productUpdate.category,
-                discount_id: productUpdate.offer
+                discount_id: productUpdate.offer,
+                gender_id: productUpdate.gender
            }, 
-           { where: { product_id: id} });
+           { where: { id: id} });
 
            await db.ProductColors.destroy({
                 where: {
