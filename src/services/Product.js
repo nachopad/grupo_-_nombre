@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const productsFilePath = path.join(__dirname, '../data/productData.json');
 const db = require('../database/models');
+const op = db.Sequelize.Op;
 
 const Product = {
     filename: productsFilePath,
@@ -10,7 +11,7 @@ const Product = {
     },
     findAll: async function () {
         try {
-            return await db.Products.findAll();
+            return await db.Products.findAll({include: ['categories', 'genders', 'discounts', 'colors', 'sizes', 'images']});
         } catch (error) {
             console.error('Error al obtener productos:', error);
           }
@@ -31,6 +32,21 @@ const Product = {
             });
         } catch (error) {
             console.error('Error al obtener el producto:', error);
+        }
+    },
+    seachProduct: async function(word){
+        try{
+            return await db.Products.findAll( {
+                where:{
+                    title: {[op.like]: `%${word}%`}
+                },
+                order: [
+                    ['title', 'ASC']
+                ],
+                include: ['images']
+            });
+        }catch(error){
+            return error;
         }
     },
     create: async function (files, product) {

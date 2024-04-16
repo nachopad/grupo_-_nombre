@@ -14,5 +14,5 @@ router.get('/product-management', middlewareAuth.possibleLogout, productControll
 router.post('/create', productMulter.array('img'), productRegisterValidation, productController.store);
 router.put('/edit/:id', productMulter.array('img'), productRegisterValidation, productController.update);
 router.delete('/:id/delete', productController.deleteProduct);
-
+router.get('/search', productController.getFormSearch);
 module.exports = router;
