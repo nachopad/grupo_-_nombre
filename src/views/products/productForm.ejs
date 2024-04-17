@@ -56,32 +56,40 @@
                 </div>
                 <div class="input-information">
                     <label for="color">Colores</label>
-                    <% colors.forEach(color => { %>
-                        <div>
-                            <input type="checkbox" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
-                                <% if (product && product.colors.find(productColor => productColor.id === color.id)) { %>
-                                    checked
-                                <% } %>
-                            >
-                            <label for="color_<%= color.id %>"><%= color.name %></label>
-                        </div>
-                    <% }); %>
+                    <% if (product && product.colors.length > 0) { %>
+                        <% colors.forEach(color => { %>
+                            <div>
+                                <input type="checkbox" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
+                                    <% if (product && product.colors.find(productColor => productColor.id === color.id)) { %>
+                                        checked
+                                    <% } %>
+                                >
+                                <label for="color_<%= color.id %>"><%= color.name %></label>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>Color no disponible</p>
+                    <% } %>
                     <% if(locals.errors && errors.colors){ %>
                         <span class="msg-error">* <%= errors.colors.msg %></span>
                     <% } %>
                 </div>
                 <div class="input-information">
                     <label for="size">Talles</label>
-                    <% sizes.forEach(size => { %>
-                        <div>
-                            <input type="checkbox" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
-                                <% if (product && product.sizes.find(productSize => productSize.size_id === size.id)) { %>
-                                    checked
-                                <% } %>
-                            >
-                            <label for="size_<%= size.id %>"><%= size.measurement %></label>
-                        </div>
-                    <% }); %>
+                    <% if (product && product.sizes.length > 0) { %>
+                        <% sizes.forEach(size => { %>
+                            <div>
+                                <input type="checkbox" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
+                                    <% if (product && product.sizes.find(productSize => productSize.id === size.id)) { %>
+                                        checked
+                                    <% } %>
+                                >
+                                <label for="size_<%= size.id %>"><%= size.measurement %></label>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>Talle no disponible</p>
+                    <% } %>
                     <% if(locals.errors && errors.sizes){ %>
                         <span class="msg-error">* <%= errors.sizes.msg %></span>
                     <% } %>

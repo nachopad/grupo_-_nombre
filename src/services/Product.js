@@ -1,8 +1,9 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const productsFilePath = path.join(__dirname, '../data/productData.json');
+
 const db = require('../database/models');
-const op = db.Sequelize.Op;
+const { Op } = require('sequelize');
 
 const Product = {
     filename: productsFilePath,
@@ -32,21 +33,6 @@ const Product = {
             });
         } catch (error) {
             console.error('Error al obtener el producto:', error);
-        }
-    },
-    seachProduct: async function(word){
-        try{
-            return await db.Products.findAll( {
-                where:{
-                    title: {[op.like]: `%${word}%`}
-                },
-                order: [
-                    ['title', 'ASC']
-                ],
-                include: ['images']
-            });
-        }catch(error){
-            return error;
         }
     },
     create: async function (files, product) {
@@ -160,7 +146,83 @@ const Product = {
         } catch (error) {
             console.error('Error al editar el producto:', error);
         }
-
+    },
+    seachProduct: async function(word){
+        try{
+            return await db.Products.findAll({
+                where:{
+                    title: {[Op.like]: `%${word}%`}
+                },
+                order: [
+                    ['title', 'ASC']
+                ],
+                include: ['categories', 'discounts', 'genders', 'colors', 'sizes', 'images']
+            });
+        }catch(error){
+            return error;
+        }
+    },
+    listProductsOnSale: async (req, res) => {
+        try {
+            return await db.Products.findAll({
+                include: ['categories', 'genders', 'colors', 'sizes', 'images', {
+                    model: db.Discounts,
+                    as: 'discounts',
+                    where: {
+                        percent: {
+                            [Op.gt]: 0
+                        }
+                    }
+                }],
+                order: [
+                    ['title', 'ASC']
+                ],
+                limit: 10,
+                offset: 0
+            });
+        } catch (error) {
+            console.error("Error al obtener productos en oferta:", error);
+        }
+    },
+    listProductsByGender: async (gender) => {
+        try {
+            return await db.Products.findAll({
+                include: ['categories', 'discounts', 'colors', 'sizes', 'images', {
+                    model: db.Genders,
+                    as: 'genders',
+                    where: {
+                        name: gender
+                    }
+                }],
+                order: [
+                    ['title', 'ASC']
+                ],
+                limit: 10,
+                offset: 0
+            });
+        } catch (error) {
+            console.error("Error al obtener productos en oferta:", error);
+        }
+    },
+    listProductsByCategory: async (category) => {
+        try {
+            return await db.Products.findAll({
+                include: ['discounts', 'colors', 'sizes', 'images', {
+                    model: db.Categories,
+                    as: 'categories',
+                    where: {
+                        name: category
+                    }
+                }],
+                order: [
+                    ['title', 'ASC']
+                ],
+                limit: 10,
+                offset: 0
+            });
+        } catch (error) {
+            console.error("Error al obtener productos en oferta:", error);
+        }
     }
 };
 

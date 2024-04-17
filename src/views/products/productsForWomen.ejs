@@ -9,22 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/productByGender.css">
     <link rel="stylesheet" href="/css/normalize.css">
 </head>
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
-        <section class="sale-section">
-            <article>
-                <video class="sale-video-mobile" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" src="/videos/index/lumina-off-mobile-video.mp4"></video>
-            </article>
-            <article>
-                <video class="sale-video-desktop" playsinline="true" autoplay="autoplay" loop="loop" muted="muted" src="/videos/index/lumina-off-desktop-video.mp4"></video>
-            </article>
-        </section>
         <section class="featured-products">
             <header class="carousel-title">
-                <h4>Productos Destacados</h4>
+                <h4>Descubre nuestros productos para mujeres</h4>
                 <div class="swipper-buttons">
                     <div>
                         <img src="/images/index/swipper-button-left.svg" alt="swp left" />
@@ -35,7 +28,7 @@
                 </div>
             </header>
             <div class="carousel-container">
-                <% for(product of productsOnSale) { %>
+                <% for(product of productsForWomen) { %>
                     <form action="/products/detail/<%= product.id %>" method="GET"  class="carousel-item">
                         <button type="submit">
                             <img src="/images/productDetail/<%= product.dataValues.images[0].url_image %>" alt="<%= product.title %>">
@@ -51,35 +44,6 @@
                     </form>
                 <% } %>
             </div>
-        </section>
-        <section class="catalog">
-            <article>
-                <div class="catalog-item">
-                    <img src="/images/index/sneakers.jpg" />
-                    <div class="text-overlay">
-                        <a href="/products/footwear"><p>CALZADO</p></a>
-                        <a>VER MÁS</a>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <div class="catalog-item">
-                    <img src="/images/index/sportswear.jpg" />
-                    <div class="text-overlay">
-                        <a href="/products/clothes"><p>ROPA</p></a>
-                        <a>VER MÁS</a>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <div class="catalog-item">
-                    <img src="/images/index/accesories.jpg" />
-                    <div class="text-overlay">
-                        <a href="/products/accesories"><p>ACCESORIOS</p></a>
-                        <a>VER MÁS</a>
-                    </div>
-                </div>
-            </article>
         </section>
         <a class="btn-whatsapp bt-wsp-right">
             <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />

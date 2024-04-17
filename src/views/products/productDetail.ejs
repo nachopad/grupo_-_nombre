@@ -53,9 +53,9 @@
                         <% if(product.discounts.dataValues.percent == 0) { %>
                             <span class="price-active">$ <%= product.dataValues.price %> </span>
                         <% }else { %>
-                            <span class="price-old">$ <%= product.dataValues.price %> </span>
+                            <span class="price-old">$ <%= parseFloat(product.dataValues.price).toFixed(3) %> </span>
                             <span class="offer"> -<%= product.discounts.dataValues.percent %>% </span>
-                            <span class="price-active">$ <%= (product.dataValues.price - (product.dataValues.price * (product.discounts.dataValues.percent / 100))) %> </span>
+                            <span class="price-active">$ <%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %> </span>
                         <% } %>
                     </div>
                     <% if(product.dataValues.colors && product.dataValues.colors.length > 0) { %>

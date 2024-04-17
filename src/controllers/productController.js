@@ -7,8 +7,6 @@ const discountModel = require('../services/Discount');
 const colorModel = require('../services/Color');
 const sizeModel = require('../services/Size');
 
-
-
 const productController = {
     productDetail: async (req, res) => {
         let product = await productModel.findByPk(req.params.id);
@@ -72,10 +70,29 @@ const productController = {
         await productModel.delete(req.params.id);
         res.redirect('/products/product-management');
     },
-    getFormSearch: async(req, res)=>{
+    getFormSearch: async(req, res) => {
         let products = await productModel.seachProduct(req.query.search);
-        console.log(products)
-        return res.render('searchProducts',{products});
+        return res.render('searchProducts',{ products });
+    },
+    getMensProducts: async (req, res) => {
+        let productsForMen = await productModel.listProductsByGender('man');
+        res.render('productsForMen', { productsForMen: productsForMen });
+    },
+    getWomensProducts: async (req, res) => {
+        let productsForWomen = await productModel.listProductsByGender('women');
+        res.render('productsForWomen', { productsForWomen: productsForWomen });
+    },
+    getAccesoriesProducts: async (req, res) => {
+        let accesories = await productModel.listProductsByCategory('accesory');
+        res.render('accesoriesProducts', { accesories: accesories });
+    },
+    getClothesProducts: async (req, res) => {
+        let clothes = await productModel.listProductsByCategory('clothes');
+        res.render('clothingProducts', { clothes: clothes });
+    },
+    getFootwearProducts: async (req, res) => {
+        let footwear = await productModel.listProductsByCategory('footwear');
+        res.render('footwearProducts', { footwear: footwear });
     }
 };
 

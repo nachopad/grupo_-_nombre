@@ -17,7 +17,7 @@
     <main class="main-container">
         <section class="container-seach">
             <form action="/products/search" method="get">
-                <input type="text" name="search" id="search">
+                <input type="text" name="search" id="search" placeholder="Buscar producto...">
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
         </section>
@@ -30,7 +30,9 @@
                             <div class="item-description">
                                 <p class="item-name"><%= product.title %></p>
                                 <div class="item-price-container">
-                                    <p class="item-price-old">$<%= product.price %></p>
+                                    <p class="item-price-old">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
+                                <p class="item-price">$<%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %></p>
+                                <p class="item-discount">%<%= product.discounts.dataValues.percent %></p>
                                 </div>
                             </div>
                         </button>

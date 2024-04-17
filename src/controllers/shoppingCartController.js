@@ -1,4 +1,3 @@
-const productsData = require('../data/productData.json');
 const shoppingCart = [];
 const productService = require('../services/Product');
 const orderService = require('../services/Order')
@@ -23,7 +22,7 @@ const shoppingCartController = {
         }
     },
     removeFromCart: (req, res) => {
-        let index = shoppingCart.findIndex((prod) => prod.product_id == req.params.id);
+        let index = shoppingCart.findIndex((prod) => prod.id == req.params.id);
         if (index !== -1) {
             shoppingCart.splice(index, 1);
             res.redirect('/cart/');
