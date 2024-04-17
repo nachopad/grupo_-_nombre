@@ -56,7 +56,7 @@
                 </div>
                 <div class="input-information">
                     <label for="color">Colores</label>
-                    <% if (product && product.colors.length > 0) { %>
+                    <% if (!product || (product && product.colors.length > 0)) { %>
                         <% colors.forEach(color => { %>
                             <div>
                                 <input type="checkbox" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
@@ -76,7 +76,7 @@
                 </div>
                 <div class="input-information">
                     <label for="size">Talles</label>
-                    <% if (product && product.sizes.length > 0) { %>
+                    <% if (!product || (product && product.sizes.length > 0)) { %>
                         <% sizes.forEach(size => { %>
                             <div>
                                 <input type="checkbox" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
