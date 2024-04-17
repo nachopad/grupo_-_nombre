@@ -3,12 +3,17 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
 body{
   background-image: url('/images/login/fondo-login.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  outline: 0;
+  font-size: 12px;
   color: #222222;
 }
 
@@ -136,6 +141,10 @@ legend {
 .help-me a:hover{
   color: #222222;
   font-weight: bold;
+}
+
+.help-me .login {
+  padding-left: 10px;
 }
 
 .container-button{

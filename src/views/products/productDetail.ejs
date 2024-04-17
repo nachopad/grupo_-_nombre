@@ -27,59 +27,55 @@
                         <span class="divider"> | </span>
                     </span>
                     <span class="first-letter">
-                        <span class="active"><%= product.name.toUpperCase() %></span>
+                        <span class="active"><%= product.dataValues.title.toUpperCase() %></span>
                     </span>
                 </span>
             </div>
         </section>
         <section class="product-detail">
-                <article class="image-carousel-mobile">
-                    <% for(let image of product.img) { %>
-                        <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
+            <article class="image-carousel-mobile">
+                <% for(let image of product.dataValues.images) { %>
+                    <img src="/images/productDetail/<%= image.url_image %>" alt="<%= product.name %>" />
+                <% } %>
+            </article>
+            <article class="product-images-desktop">
+                <div class="row">
+                    <% for(let image of product.dataValues.images) { %>
+                        <div class="image-container">
+                            <img src="/images/productDetail/<%= image.url_image %>" alt="<%= product.name %>" />
+                        </div>
                     <% } %>
-                </article>
-                <article class="product-images-desktop">
-                    <div class="row">
-                        <% for(let image of product.img) { %>
-                            <div class="image-container">
-                                <img src="/images/productDetail/<%= image %>" alt="<%= product.name %>" />
-                            </div>
-                        <% } %>
-                    </div>
-                </article>
+                </div>
+            </article>
                 <article class="details-section">
-                    <h2 class="item-show-details-title"><%= product.name.toUpperCase() %></h2>
+                    <h2 class="item-show-details-title"><%= product.title.toUpperCase() %></h2>
                     <div class="price-container">
-                        <% if(product.offer == 0) { %>
-                            <span class="price-active">$ <%= product.price.toFixed(3) %> </span>
+                        <% if(product.discounts.dataValues.percent == 0) { %>
+                            <span class="price-active">$ <%= product.dataValues.price %> </span>
                         <% }else { %>
-                            <span class="price-old">$ <%= product.price.toFixed(3) %> </span>
-                            <span class="offer"> -<%= product.offer %>% </span>
-                            <span class="price-active">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %> </span>
+                            <span class="price-old">$ <%= parseFloat(product.dataValues.price).toFixed(3) %> </span>
+                            <span class="offer"> -<%= product.discounts.dataValues.percent %>% </span>
+                            <span class="price-active">$ <%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %> </span>
                         <% } %>
                     </div>
-                    <div class="item-details-cuotas">
-                        <%= product.installments.count %> cuotas sin interés de
-                        <b>$ <%= ((product.price - (product.price * (product.offer / 100))).toFixed(3) / product.installments.count).toFixed(3) %></b>
-                    </div>
-                    <% if(product.colors && product.colors.length > 0) { %>
+                    <% if(product.dataValues.colors && product.dataValues.colors.length > 0) { %>
                         <div class="item-colors-container">
                             <h2 class="item-colors-title">Colores</h2>
                             <div class="color-boxes">
-                                <% for (let color of product.colors) { %>
+                                <% for (let color of product.dataValues.colors) { %>
                                     <label class="item-show-color-option">
-                                        <span class="item-show-color-<%= color %>"></span>
+                                        <span class="item-show-color-<%= color.name %>"></span>
                                     </label>
                                 <% } %>
                             </div>
                         </div>
                     <% } %>
-                    <% if(product.sizes && product.sizes.length > 0) { %>
+                    <% if(product.dataValues.sizes && product.dataValues.sizes.length > 0) { %>
                         <div class="item-sizes-container">
                             <h2 class="item-size-title">Talles</h2>
                             <div class="sizes-boxes">
-                                <% for(let size of product.sizes) { %>
-                                    <button><%= size %></button>
+                                <% for(let size of product.dataValues.sizes) { %>
+                                    <button><%= size.measurement %></button>
                                 <% } %>
                             </div>
                         </div>
@@ -107,11 +103,11 @@
                                 </h5>
                             </div>
                             <div class="panel-body">
-                                <p> <%= product.description.overview %> </p>
+                                <p> <%= product.overview %> </p>
                                 <br />
-                                <p> Cuidados: <%= product.description.careInstructions %> </p>
+                                <p> Cuidados: <%= product.care_instructions %> </p>
                                 <br />
-                                <p> Composición: <%= product.description.composition %> </p>
+                                <p> Composición: <%= product.composition %> </p>
                             </div>
                         </div>
                     </div>

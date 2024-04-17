@@ -1,12 +1,13 @@
 const express = require('express');
 const userRouter = express.Router();
-const uploadFile = require('../middleware/route-middlewares/userRegisterMulter');
-const registerValidation = require('../middleware/route-middlewares/validationUserRegister');
-const loginValidation = require('../middleware/route-middlewares/validationUserLogin');
-const userEditValidation = require('../middleware/route-middlewares/validationUserEdit');
-const userEditPasswordValidation = require('../middleware/route-middlewares/validationUserEditPassword');
 const userController = require('../controllers/userController');
-const middlewareAuth = require('../middleware/app-middlewares/userLoggedMiddleware');
+
+const uploadFile = require('../middlewares/route-middlewares/userRegisterMulter');
+const registerValidation = require('../middlewares/route-middlewares/validationUserRegister');
+const loginValidation = require('../middlewares/route-middlewares/validationUserLogin');
+const userEditValidation = require('../middlewares/route-middlewares/validationUserEdit');
+const userEditPasswordValidation = require('../middlewares/route-middlewares/validationUserEditPassword');
+const middlewareAuth = require('../middlewares/app-middlewares/userLoggedMiddleware');
 
 userRouter.get('/login', middlewareAuth.isLogged, userController.login);
 userRouter.post('/login', loginValidation, userController.processLogin);

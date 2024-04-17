@@ -1,9 +1,7 @@
-const fs = require('node:fs');
-const path = require('node:path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
-const User = require('../models/User');
+const User = require('../services/User');
 
 const userCtrl = {
     login: (req, res) => {
@@ -12,27 +10,19 @@ const userCtrl = {
     getFormRegister: (req, res) => {
         res.render('register');
     },
-    processLogin: (req, res) => {
+    processLogin: async (req, res) => {
         const errors = validationResult(req);
-        let userToLogin = User.findByField('email', req.body.email);
-        console.log(userToLogin);
-        return userToLogin && bcrypt.compareSync(req.body.password, userToLogin.password)
-        ? (delete userToLogin.password, req.session.userLogged = userToLogin, req.body.remember && res.cookie('userEmail', req.body.email, { maxAge: 60000 }), res.redirect('/'))
+        
+        let userToLogin = await User.findByField('email', req.body.email);
+        return userToLogin && bcrypt.compareSync(req.body.password, userToLogin.dataValues.password)
+        ? (delete userToLogin.dataValues.password, req.session.userLogged = userToLogin, req.body.remember && res.cookie('userEmail', req.body.email, { maxAge: 60000 }), res.redirect('/'))
         : res.render('login', { errors: errors.mapped(), oldData: req.body } );
     },
     register: (req, res) => {
         const errors = validationResult(req);
 
         if(errors.isEmpty()){
-            let newUser = {
-               ...req.body,
-               password: bcrypt.hashSync(req.body.password, 12),
-               photo: req.file ? req.file.filename : '',
-            }; 
-
-            delete newUser.confirmPassword;
-            User.create(newUser);
-
+            User.create(req);
             return res.redirect('/users/login');
         };
 
@@ -46,13 +36,14 @@ const userCtrl = {
         req.session.destroy();
         return res.redirect('/');
     },
-    update: (req, res)=>{
+    update: async (req, res) => {
         const errors = validationResult(req);
 
         if(errors.isEmpty()){
-            let userUpdated = User.update(req.params.id, req.body);
-            delete userUpdated.password;
-            req.session.userLogged = userUpdated;
+            await User.update(req.params.id, req.body, req.file);
+            let userUpdated = await User.findByPk(req.params.id);
+            delete userUpdated.dataValues.password;
+            req.session.userLogged = userUpdated;  
         }
 
         return res.render('userProfile', {errors: errors.mapped(), user: req.session.userLogged});

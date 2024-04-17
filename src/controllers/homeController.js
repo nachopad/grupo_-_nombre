@@ -1,8 +1,9 @@
-const productsData = require('../data/productData.json');
+const productModel = require('../services/Product');
+
 const homeController = {
-    getHome: (req, res)=>{
-        let featuredProducts = productsData.result.filter(product => product.offer>0);
-        res.render('index', {featuredProducts : featuredProducts});
+    getHome: async (req, res)=>{
+        let productsOnSale = await productModel.listProductsOnSale();
+        res.render('index', { productsOnSale: productsOnSale });
     }
 }
 module.exports = homeController;

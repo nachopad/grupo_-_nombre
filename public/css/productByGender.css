@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0px;
+    outline: 0;
+    font-size: 12px;
+    color: #222222;
+}
+
+.featured-products {
+    padding-top: 70px;
+}

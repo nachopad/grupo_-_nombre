@@ -23,9 +23,9 @@
                 <article class="account-main-row">
                     <div class="account-slidebar">
                         <div class="slidebar-information">
-                            <p class="account-subtitle">Hola <%= user.firstName %>!</p>
+                            <p class="account-subtitle">Hola <%= user.first_name %>!</p>
                             <div class="profile-image-container">
-                                <img src="/images/userProfile/<%= user.photo ? user.photo : 'default-profile.png' %>" alt="Profile Picture">
+                                <img src="/images/userProfile/<%= user.image ? user.image : 'default-profile.png' %>" alt="Profile Picture">
                             </div>
                             <p class="slider-explain-text">
                                 Desde mi cuenta podés ver un resumen de tus actividades recientes 
@@ -84,14 +84,14 @@
                         <form method="POST" action="<%= '/users/user-update/'+user.id+'?_method=PUT'%>" enctype="multipart/form-data">
                             <div class="input-information">
                                 <label class="label-account" for="firstName">Nombre</label>
-                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= locals.errors ? user.firstName : user.firstName %>" >
+                                <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= locals.errors ? user.first_name : user.first_name %>" >
                                 <% if (locals.errors && errors.firstName) { %>
                                     <span class="msg-error">* <%= errors.firstName.msg %></span>
                                 <% } %>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="lastName">Apellido</label>
-                                <input class="input-style"  type="text" name="lastName" id="lastName" placeholder="Ingresá tu apellido" value="<%= locals.errors ? user.lastName : user.lastName %>" >
+                                <input class="input-style"  type="text" name="lastName" id="lastName" placeholder="Ingresá tu apellido" value="<%= locals.errors ? user.last_name : user.last_name %>" >
                                 <% if (locals.errors && errors.lastName) { %>
                                     <span class="msg-error">* <%= errors.lastName.msg %></span>
                                 <% } %>

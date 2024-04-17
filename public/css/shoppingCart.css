@@ -321,6 +321,10 @@ main{
 
 .container-button>.button-style {
     width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-style:hover {

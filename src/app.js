@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser')
 const session = require('express-session');
 
-const userLoggedMiddleware = require('./middleware/app-middlewares/userLoggedMiddleware')
+const userLoggedMiddleware = require('./middlewares/app-middlewares/userLoggedMiddleware')
 
 
 // ************ express() - (don't touch) ************ //

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina</title>
+
+    <link rel="shortcut icon" href="/images/logo-lumina.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shoppingCart.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <section class="container-shopping-cart">
+            <section class="container-form">
+                <article class="help-me">
+                    <p><span>¿Necesitas ayuda?</span> Consulta nuestras <a href="#">preguntas frecuentes</a></p>
+                </article>
+                <form action="/cart/register-order" method="POST" class="style-form">
+                    <div>
+                        <label for="add-discount">Ingrese su codigo postal</label>
+                        <input type="text" name="postalCode" id="postal-code" placeholder="Ejemplo: Y4512">
+                    </div>
+                    <div>
+                        <label for="locality">Localidad </label>
+                        <input type="text" name="locality" id="locality" placeholder="Ejemplo: San Salvador de Jujuy">
+                    </div>
+                    <div>
+                        <label for="sending-address">Direccion</label>
+                        <input type="text" name="sendingAddress" id="sending-address" placeholder="Ejemplo: La casa de Nacho">
+                    </div>
+
+                    <div>
+                        <label for="installement">Ingrese en cuentas cuotas pagara</label>
+                        <select name="installement" id="installement" class="style-input">
+                            <% for(installement of installements) { %>
+                                    <option value="<%= installement.id %>"> <%= installement.count %> cuotas  <%= installement.interest? `con ${installement.interest} % de interes`: '' %> </option>
+                                <% } %>
+                        </select>
+                        <% if(locals.errors && errors.offer){ %>
+                            <span class="msg-error">* <%= errors.offer.msg %></span>
+                        <% } %>
+                    </div>
+
+                    <div>
+                        <div class="resumen-header">
+                            <p>Subtotal</p>
+                            <p>Envío</p>
+                            <h4 class="total">Total</h4>
+                        </div>
+                        <div class="resumen-content">
+                            <p>$ <%= subtotal %></p>
+                            <p>No seleccionado</p>
+                            <h4 class="total">$ <%= subtotal %></h4>
+                        </div>
+                    </div>
+                    <div class="container-button">
+                        <button type="submit" class="button-style">COMPRAR</button>
+                        <button type="button" class="button-continue">SEGUIR COMPRANDO</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+        <a class="btn-whatsapp bt-wsp-right">
+            <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />
+        </a>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

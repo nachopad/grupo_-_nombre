@@ -1,12 +1,12 @@
 const { body } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
+const User = require('../../services/User');
 
 const validations = [
     body('currentPassword')
         .notEmpty().withMessage('Debes ingresar tu contraseña actual.')
-        .custom((value, { req }) => {
-            let userFinded = User.findByField('email', req.session.userLogged.email);
+        .custom( async (value, { req }) => {
+            let userFinded = await User.findByField('email', req.session.userLogged.email);
             if(!userFinded || !bcrypt.compareSync(value, userFinded.password)) {
                 throw new Error('Debes ingresar tu contraseña actual.')
             }

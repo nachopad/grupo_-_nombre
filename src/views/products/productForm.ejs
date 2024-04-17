@@ -20,7 +20,7 @@
                 <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
                 <div class="input-information">
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.name : '' %>">
+                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.title : '' %>">
                     <% if(locals.errors && errors.name){ %>
                         <span class="msg-error">* <%= errors.name.msg %></span>
                     <% } %>
@@ -35,9 +35,9 @@
                 <div class="input-information">
                     <label for="category">Categoría</label>
                     <select name="category" id="category" class="style-input">
-                        <option value="clothes">Ropa</option>
-                        <option value="accesory">Accesorio</option>
-                        <option value="footwear">Calzado</option>
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>" <%= product && product.category_id == category.id ? 'selected' : '' %>> <%= category.name %></option>
+                        <% }); %>
                     </select>
                     <% if(locals.errors && errors.category){ %>
                         <span class="msg-error">* <%= errors.category.msg %></span>
@@ -46,8 +46,9 @@
                 <div class="input-information">
                     <label for="gender">Género</label>
                     <select name="gender" id="gender" class="style-input">
-                        <option value="male">Hombre</option>
-                        <option value="female">Mujer</option>
+                        <% genders.forEach(gender => { %>
+                            <option value="<%= gender.id %>" <%= product && product.gender_id == gender.id ? 'selected' : '' %>> <%= gender.name %></option>
+                        <% }); %>
                     </select>
                     <% if(locals.errors && errors.gender){ %>
                         <span class="msg-error">* <%= errors.gender.msg %></span>
@@ -55,34 +56,56 @@
                 </div>
                 <div class="input-information">
                     <label for="color">Colores</label>
-                    <input type="text" name="colors" id="colors" class="style-input" placeholder="Rojo, Verde, Negro" value="<%= product ? product.colors.map(color => ' '+color) : '' %>">
+                    <% if (product && product.colors.length > 0) { %>
+                        <% colors.forEach(color => { %>
+                            <div>
+                                <input type="checkbox" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
+                                    <% if (product && product.colors.find(productColor => productColor.id === color.id)) { %>
+                                        checked
+                                    <% } %>
+                                >
+                                <label for="color_<%= color.id %>"><%= color.name %></label>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>Color no disponible</p>
+                    <% } %>
                     <% if(locals.errors && errors.colors){ %>
                         <span class="msg-error">* <%= errors.colors.msg %></span>
                     <% } %>
                 </div>
                 <div class="input-information">
                     <label for="size">Talles</label>
-                    <input type="text" name="sizes" id="sizes" class="style-input" placeholder="35, 36, 36.5 - S, M, L" value="<%= product ? product.sizes.map(size => ' '+size) : '' %>">
+                    <% if (product && product.sizes.length > 0) { %>
+                        <% sizes.forEach(size => { %>
+                            <div>
+                                <input type="checkbox" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
+                                    <% if (product && product.sizes.find(productSize => productSize.id === size.id)) { %>
+                                        checked
+                                    <% } %>
+                                >
+                                <label for="size_<%= size.id %>"><%= size.measurement %></label>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>Talle no disponible</p>
+                    <% } %>
                     <% if(locals.errors && errors.sizes){ %>
                         <span class="msg-error">* <%= errors.sizes.msg %></span>
                     <% } %>
                 </div>
                 <div class="input-information">
                     <label for="offer">Descuento del producto (opcional)</label>
-                    <input type="number" name="offer" id="offer" class="style-input" value="<%= product ? ( product.offer !=0 ? +product.offer : 0) : 0 %>" placeholder="50">
+                    <select name="offer" id="offer" class="style-input">
+                        <% for(discount of discounts) { %>
+                                <option value="<%= discount.id %>" <%= product && product.discount_id == discount.id ? 'selected' : '' %>> <%= discount.percent %> %</option>
+                            <% } %>
+                    </select>
                     <% if(locals.errors && errors.offer){ %>
                         <span class="msg-error">* <%= errors.offer.msg %></span>
                     <% } %>
                 </div>
-                <div class="input-information">
-                    <label for="installmentsCount">Cantidad de cuotas (opcional)</label>
-                    <input type="number" name="installmentsCount" id="installmentsCount" class="style-input" value="<%= product ? ( product.installments.count !=0 ? product.installments.count : 0) : 0 %>" placeholder="50">
-                </div>
-                <div class="input-information">
-                    <label for="interestRate">Interés de cuotas (opcional)</label>
-                    <input type="number" name="interestRate" id="interestRate" class="style-input" value="<%= product ? ( product.installments.interestRate !=0 ? product.installments.interestRate : 0) : 0 %>" placeholder="50">
-                </div>
-                <div class="input-information">
+                
                     <label for="imgs">Imágenes del producto</label>
                     <input type="file" name="img" id="imgs" multiple class="style-input">
                     <% if(locals.errors && errors.img){ %>
@@ -91,21 +114,21 @@
                 </div>
                 <div class="input-information">
                     <label for="description">Descripción general</label>
-                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" ><%= product ? product.description.overview : '' %></textarea>
+                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" ><%= product ? product.dataValues.overview : '' %></textarea>
                     <% if(locals.errors && errors.overview){ %>
                         <span class="msg-error">* <%= errors.overview.msg %></span>
                     <% } %>
                 </div>
                 <div class="input-information">
                     <label for="careInstructions">Instrucciones de cuidado</label>
-                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.description.careInstructions : '' %></textarea>
+                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.dataValues.care_instructions : '' %></textarea>
                     <% if(locals.errors && errors.careInstructions){ %>
                         <span class="msg-error">* <%= errors.careInstructions.msg %></span>
                     <% } %>
                 </div>
                 <div class="input-information">
                     <label for="composition">Composición</label>
-                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.description.composition : '' %></textarea>
+                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.dataValues.composition : '' %></textarea>
                     <% if(locals.errors && errors.composition){ %>
                         <span class="msg-error">* <%= errors.composition.msg %></span>
                     <% } %>
