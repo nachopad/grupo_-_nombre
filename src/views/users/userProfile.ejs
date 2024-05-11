@@ -81,13 +81,14 @@
                 <article class="account-main-row">
                     <div class="edit-account-form-container">
                         <p class="account-subtitle">Modificá tus datos personales</p>
-                        <form method="POST" action="<%= '/users/user-update/'+user.id+'?_method=PUT'%>" enctype="multipart/form-data">
+                        <form method="POST" action="<%= '/users/user-update/'+user.id+'?_method=PUT'%>" enctype="multipart/form-data" id="user-profile-form">
                             <div class="input-information">
                                 <label class="label-account" for="firstName">Nombre</label>
                                 <input class="input-style"  type="text" name="firstName" id="firstName" placeholder="Ingresá tu nombre" value="<%= locals.errors ? user.first_name : user.first_name %>" >
                                 <% if (locals.errors && errors.firstName) { %>
                                     <span class="msg-error">* <%= errors.firstName.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="firstNameError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="lastName">Apellido</label>
@@ -95,6 +96,7 @@
                                 <% if (locals.errors && errors.lastName) { %>
                                     <span class="msg-error">* <%= errors.lastName.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="lastNameError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="email">Email</label>
@@ -102,6 +104,7 @@
                                 <% if (locals.errors && errors.email) { %>
                                     <span class="msg-error">* <%= errors.email.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="emailError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="birthDate">Fecha de nacimiento</label>
@@ -109,6 +112,7 @@
                                 <% if (locals.errors && errors.birthDate) { %>
                                     <span class="msg-error">* <%= errors.birthDate.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="birthDateError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="phone">Teléfono</label>
@@ -116,6 +120,7 @@
                                 <% if (locals.errors && errors.phone) { %>
                                     <span class="msg-error">* <%= errors.phone.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="phoneError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="img">Imagen de perfil</label>
@@ -129,13 +134,14 @@
                             </div>
                         </form>
                         <p class="account-subtitle">Modificá tu contraseña</p>
-                        <form method="POST" action="<%= '/users/change-password/'+user.id+'?_method=PATCH'%>">
+                        <form method="POST" action="<%= '/users/change-password/'+user.id+'?_method=PATCH'%>" id="password-profile-form">
                             <div class="input-information">
                                 <label class="label-account" for="currentPassword">Contraseña actual</label>
                                 <input class="input-style"  type="password" name="currentPassword" id="currentPassword" placeholder="Ingresá tu contraseña actual" value="" >
                                 <% if (locals.errors && errors.currentPassword) { %>
                                     <span class="msg-error">* <%= errors.currentPassword.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="currentPasswordError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="newPassword">Nueva contraseña</label>
@@ -143,6 +149,7 @@
                                 <% if (locals.errors && errors.newPassword) { %>
                                     <span class="msg-error">* <%= errors.newPassword.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="newPasswordError"></span>
                             </div>
                             <div class="input-information">
                                 <label class="label-account" for="confirmNewPassword">Repetir nueva contraseña</label>
@@ -150,6 +157,7 @@
                                 <% if (locals.errors && errors.confirmNewPassword) { %>
                                     <span class="msg-error">* <%= errors.confirmNewPassword.msg %></span>
                                 <% } %>
+                                <span class="msg-error" id="confirmNewPasswordError"></span>
                             </div>
                             <div class="container-button">
                                 <button class="edit-btn-style" type="submit">Guardar contraseña</button>
@@ -168,5 +176,8 @@
         </section>
     </main>
     <%- include('./partials/footer.ejs') %>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validationUserProfile.js"></script>
 </body>
 </html>
