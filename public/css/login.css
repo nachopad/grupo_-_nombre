@@ -173,6 +173,14 @@ body{
     outline: none;
 }
 
+.msg-error {
+    display: block;
+    margin: 8px 0px 0px 0px;
+    width: 80%;
+    color: #cd2222;
+    text-align: left;
+}
+
 .help-me{
     display: flex;
     justify-content: space-around;

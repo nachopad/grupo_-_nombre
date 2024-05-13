@@ -89,6 +89,12 @@ h2{
     margin: 8px 0px 0px 0px;
     text-align: center;
 }
+p#colorsError{
+    width: 100%;
+}
+p#sizesError {
+    width: 100%;
+}
 
 
 @media (min-width:1200px){

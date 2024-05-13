@@ -99,3 +99,21 @@ El Sprint N°4 mantuvo la tendencia positiva en términos de comunicación, ejec
 
 ## Conclusiones Generales
 El Sprint N°5 mantuvo la tendencia positiva en términos de comunicación, ejecución de tareas y estabilidad en el proceso de trabajo. Sin embargo, reconocemos la importancia de continuar mejorando y refinando nuestros procesos para garantizar un crecimiento continuo y el éxito del proyecto en el futuro. El enfoque en la evaluación de procesos, la promoción del feedback continuo y la planificación estratégica serán fundamentales para nuestro progreso en los próximos sprints.
+
+
+# Sprint N°6 - Retrospectiva
+
+## Logros y Aspectos Positivos
+1. **Flexibilidad y Adaptabilidad:** A pesar de los desafíos de tiempo causados por problemas externos y cambios sobre la marcha, el equipo demostró una notable flexibilidad y capacidad de adaptación para cumplir con los objetivos del sprint.
+2. **Colaboración Continuada:** Se mantuvo una colaboración efectiva entre los miembros del equipo, lo que permitió abordar los desafíos de manera conjunta y encontrar soluciones viables.
+3. **Finalización de Tareas Críticas:** A pesar de las dificultades, se logró completar las tareas críticas dentro del plazo establecido, lo que garantizó el avance del proyecto.
+
+## Áreas de Mejora
+1. **Gestión de Tiempo:** Los problemas externos y los cambios sobre la marcha impactaron negativamente en la gestión del tiempo, lo que generó presión adicional para cumplir con los plazos.
+
+## Acciones a Tomar
+1. **Mejora en la Gestión del Tiempo:** Implementar estrategias para mejorar la gestión del tiempo, incluyendo la identificación proactiva de posibles obstáculos y la asignación de recursos adicionales cuando sea necesario.
+2. **Planificación con el tiempo:** Desarrollar un plan detallado que incluya acciones específicas a tomar en caso de problemas externos o cambios inesperados en el proyecto.
+
+## Conclusiones Generales
+El Sprint N°6 representó un desafío en términos de gestión del tiempo debido a problemas externos y cambios sobre la marcha. A pesar de estos obstáculos, el equipo demostró su capacidad para adaptarse y cumplir con los objetivos del sprint. Sin embargo, se identificaron áreas de mejora en la gestión del tiempo y la planificación, las cuales serán abordadas en futuros sprints para garantizar un proceso de desarrollo más fluido y eficiente.

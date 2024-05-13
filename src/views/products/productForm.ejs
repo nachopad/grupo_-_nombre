@@ -24,6 +24,7 @@
                     <% if(locals.errors && errors.name){ %>
                         <span class="msg-error">* <%= errors.name.msg %></span>
                     <% } %>
+                    <p id="nameError"></p>
                 </div>                
                 <div class="input-information">
                     <label for="price">Precio</label>
@@ -31,6 +32,7 @@
                     <% if(locals.errors && errors.price){ %>
                         <span class="msg-error">* <%= errors.price.msg %></span>
                     <% } %>
+                    <p id="priceError"></p>
                 </div>
                 <div class="input-information">
                     <label for="category">Categoría</label>
@@ -42,6 +44,7 @@
                     <% if(locals.errors && errors.category){ %>
                         <span class="msg-error">* <%= errors.category.msg %></span>
                     <% } %>
+                    <p id="categoryError"></p>
                 </div>
                 <div class="input-information">
                     <label for="gender">Género</label>
@@ -53,46 +56,41 @@
                     <% if(locals.errors && errors.gender){ %>
                         <span class="msg-error">* <%= errors.gender.msg %></span>
                     <% } %>
+                    <p id="genderError"></p>
                 </div>
                 <div class="input-information">
                     <label for="color">Colores</label>
-                    <% if (!product || (product && product.colors.length > 0)) { %>
-                        <% colors.forEach(color => { %>
-                            <div>
-                                <input type="checkbox" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
-                                    <% if (product && product.colors.find(productColor => productColor.id === color.id)) { %>
-                                        checked
-                                    <% } %>
-                                >
-                                <label for="color_<%= color.id %>"><%= color.name %></label>
-                            </div>
-                        <% }); %>
-                    <% } else { %>
-                        <p>Color no disponible</p>
-                    <% } %>
+                    <% colors.forEach(color => { %>
+                        <div>
+                            <input type="checkbox" class="colors" name="colors[]" id="color_<%= color.id %>" value="<%= color.id %>" 
+                                <% if (product && product.colors.find(productColor => productColor.id === color.id)) { %>
+                                    checked
+                                <% } %>
+                            >
+                            <label for="color_<%= color.id %>"><%= color.name %></label>
+                        </div>
+                    <% }); %>
                     <% if(locals.errors && errors.colors){ %>
                         <span class="msg-error">* <%= errors.colors.msg %></span>
                     <% } %>
+                    <p id="colorsError"></p>
                 </div>
                 <div class="input-information">
                     <label for="size">Talles</label>
-                    <% if (!product || (product && product.sizes.length > 0)) { %>
-                        <% sizes.forEach(size => { %>
-                            <div>
-                                <input type="checkbox" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
-                                    <% if (product && product.sizes.find(productSize => productSize.id === size.id)) { %>
-                                        checked
-                                    <% } %>
-                                >
-                                <label for="size_<%= size.id %>"><%= size.measurement %></label>
-                            </div>
-                        <% }); %>
-                    <% } else { %>
-                        <p>Talle no disponible</p>
-                    <% } %>
+                    <% sizes.forEach(size => { %>
+                        <div>
+                            <input type="checkbox" class="sizes" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
+                                <% if (product && product.sizes.find(productSize => productSize.size_id === size.id)) { %>
+                                    checked
+                                <% } %>
+                            >
+                            <label for="size_<%= size.id %>"><%= size.measurement %></label>
+                        </div>
+                    <% }); %>
                     <% if(locals.errors && errors.sizes){ %>
                         <span class="msg-error">* <%= errors.sizes.msg %></span>
                     <% } %>
+                    <p id="sizesError"></p>
                 </div>
                 <div class="input-information">
                     <label for="offer">Descuento del producto (opcional)</label>
@@ -105,12 +103,13 @@
                         <span class="msg-error">* <%= errors.offer.msg %></span>
                     <% } %>
                 </div>
-                
+                <div class="input-information">
                     <label for="imgs">Imágenes del producto</label>
                     <input type="file" name="img" id="imgs" multiple class="style-input">
                     <% if(locals.errors && errors.img){ %>
                         <span class="msg-error">* <%= errors.img.msg %></span>
                     <% } %>
+                    <p id="imgsError"></p>
                 </div>
                 <div class="input-information">
                     <label for="description">Descripción general</label>
@@ -118,6 +117,7 @@
                     <% if(locals.errors && errors.overview){ %>
                         <span class="msg-error">* <%= errors.overview.msg %></span>
                     <% } %>
+                    <p id="descriptionError"></p>
                 </div>
                 <div class="input-information">
                     <label for="careInstructions">Instrucciones de cuidado</label>
@@ -125,6 +125,7 @@
                     <% if(locals.errors && errors.careInstructions){ %>
                         <span class="msg-error">* <%= errors.careInstructions.msg %></span>
                     <% } %>
+                    <p id="careInstructionsError"></p>
                 </div>
                 <div class="input-information">
                     <label for="composition">Composición</label>
@@ -132,6 +133,7 @@
                     <% if(locals.errors && errors.composition){ %>
                         <span class="msg-error">* <%= errors.composition.msg %></span>
                     <% } %>
+                    <p id="compositionError"></p>
                 </div>
                 <div class="container-button">
                     <button type="submit" class="button-style"> <%= product ? 'ACTUALIZAR' : 'REGISTRAR' %> </button>
@@ -139,5 +141,7 @@
             </form>
         </section>
     </main>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validationProductForm.js"></script>
 </body>
 </html>

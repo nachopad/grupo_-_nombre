@@ -16,7 +16,7 @@ const validations = [
         .notEmpty().withMessage('Debes ingresar la nueva contraseña.').bail()
         .isLength({ min: 8}).withMessage('La contraseña debe tener un mínimo de 8 caracteres.'),
     body('confirmNewPassword')
-        .notEmpty().withMessage('Debes repetir la contraseña para confirmar.').bail()
+        .notEmpty().withMessage('Las contraseñas deben coincidir para confirmar.').bail()
         .custom((value, { req }) => {
             if(value != req.body.newPassword) {
                 throw new Error('Las contraseñas deben coincidir.')
