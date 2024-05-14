@@ -4,6 +4,7 @@ const path = require('node:path');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser')
 const session = require('express-session');
+const cors = require('cors');
 
 const userLoggedMiddleware = require('./middlewares/app-middlewares/userLoggedMiddleware')
 
@@ -20,6 +21,7 @@ app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session( { secret: 'lumina', resave: false, saveUninitialized: false } ));
 app.use(userLoggedMiddleware.userLogged);
+app.use(cors());
 
 
 // ************ Template Engine - (don't touch) ************ //
@@ -47,3 +49,8 @@ app.use('/', homeRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', shoppingCartRoutes);
 app.use('/users', userRouter);
+
+// ************ API's Route System require and use() ************ //
+const apiUsersRouter = require('./routes/api/users');
+
+app.use('/api/users', apiUsersRouter);
