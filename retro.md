@@ -117,3 +117,18 @@ El Sprint N°5 mantuvo la tendencia positiva en términos de comunicación, ejec
 
 ## Conclusiones Generales
 El Sprint N°6 representó un desafío en términos de gestión del tiempo debido a problemas externos y cambios sobre la marcha. A pesar de estos obstáculos, el equipo demostró su capacidad para adaptarse y cumplir con los objetivos del sprint. Sin embargo, se identificaron áreas de mejora en la gestión del tiempo y la planificación, las cuales serán abordadas en futuros sprints para garantizar un proceso de desarrollo más fluido y eficiente.
+
+
+# Sprint N°7 - Retrospectiva
+
+## Logros y Aspectos Positivos
+1. **Gestión Eficiente del Tiempo:** Logramos cumplir con los plazos establecidos sin enfrentar complicaciones significativas en cuanto a la gestión del tiempo.
+
+## Áreas de Mejora
+1. **Optimización de Validaciones en Formularios:** Aunque las validaciones del lado del cliente fueron funcionales, reconocemos que pueden mejorarse para garantizar una experiencia de usuario más fluida y una mayor robustez en la seguridad de los datos ingresados.
+
+## Acciones a Tomar
+1. **Refactorización y Mejora de Validaciones:** Designaremos tiempo específico en futuros sprints para revisar y mejorar las validaciones de formularios del lado del cliente. Esto puede incluir la refactorización del código existente, la implementación de validaciones adicionales para cubrir casos de borde y la optimización de la experiencia de usuario al proporcionar mensajes de error claros y contextualizados.
+
+## Conclusiones Generales
+El Sprint N°7 fue exitoso en términos de gestión del tiempo, pero identificamos oportunidades de mejora en la optimización de las validaciones de formularios del lado del cliente. Nos comprometemos a dedicar recursos y tiempo en futuros sprints para refactorizar y mejorar estas validaciones, con el objetivo de ofrecer una experiencia de usuario más sólida y segura.
