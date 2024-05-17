@@ -52,5 +52,6 @@ app.use('/users', userRouter);
 
 // ************ API's Route System require and use() ************ //
 const apiUsersRouter = require('./routes/api/users');
-
+const apiProductsRouter = require('./routes/api/products');
 app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter);
