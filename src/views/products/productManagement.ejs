@@ -20,7 +20,7 @@
         <section class="container-product-management">
             <section class="product-list">
                 <header>
-                    <h4>GESTION DE PRODUCTOS</h4>
+                    <h2>GESTION DE PRODUCTOS</h2>
                 </header>
                 <div class="table-header">
                     <h3 class="first-header-info">ART.</h3>
@@ -38,23 +38,23 @@
                 <% }else { %>
                     <% productList.forEach(product => { %>
                         <article class="container-product">
-                            <img src="/images/productDetail/<%= product.img[0] %>" alt="<%= product.name %>">
+                            <img src="/images/productDetail/<%= product.dataValues.images[0].url_image %>" alt="<%= product.title %>">
                             <div class="product-info">
                                 <h4 class="product-name">
-                                    <%= product.name %>
+                                    <%= product.title %>
                                 </h4>
                                 <div class="content-price">
-                                    <% if(product.offer === 0) { %>
-                                        <p>$<%= product.price.toFixed(3) %></p>
+                                    <% if(product.discounts.dataValues.percent === 0) { %>
+                                        <p>$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
                                     <% }else { %>
-                                        <p class="price">$<%= product.price.toFixed(3) %></p>
+                                        <p class="price">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
                                         <p class="offer"><%= product.offer %>%</p>
-                                        <p class="discount">$ <%= (product.price - (product.price * (product.offer / 100))).toFixed(3) %></p>
+                                        <p class="discount">$ <%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %></p>
                                     <% } %>
                                 </div>
                             </div>
                             <div class="show-more-icon">
-                                <form action="?" method="GET">
+                                <form action="/products/detail/<%= product.id %>" method="GET">
                                     <button type="submit">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -78,9 +78,12 @@
                     <% }) %>
                 <% } %>
             </section>
-           
         </section>
-    
+        <form action="/products/product-form" method="GET">
+            <div class="container-button">
+                <button type="submit" class="button-style"> AÑADIR PRODUCTO </button>
+            </div>
+        </form>
     </main>
     <%- include('./partials/footer.ejs') %>
 </body>

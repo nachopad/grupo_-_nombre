@@ -17,10 +17,10 @@
     <main>
         <section class="container-form">
             <form method="POST" action="<%= !product ? '/products/create' : '/products/edit/' + product.id + '?_method=PUT' %>" class="form" enctype="multipart/form-data">
-                <%- product ? '<h2>Actualización del Producto</h2>' : '<h2>Registro de Producto</h2>' %>
+                <%- product ? '<h2>ACTUALIZACIÓN DEL PRODUCTO </h2>' : '<h2>REGISTRO DE PRODUCTO</h2>' %>
                 <div class="input-information">
                     <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ingrese el nombre del producto" value="<%= product ? product.title : '' %>">
+                    <input type="text" name="name" id="name"  class="style-input" placeholder="Ej. Camiseta deportiva." value="<%= product ? product.title : '' %>">
                     <% if(locals.errors && errors.name){ %>
                         <span class="msg-error">* <%= errors.name.msg %></span>
                     <% } %>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="input-information">
                     <label for="description">Descripción general</label>
-                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" ><%= product ? product.dataValues.overview : '' %></textarea>
+                    <textarea name="overview" id="description" cols="30" rows="5" class="style-input" placeholder="Ej. Camiseta de manga corta, ideal para actividades deportivas." ><%= product ? product.dataValues.overview : '' %></textarea>
                     <% if(locals.errors && errors.overview){ %>
                         <span class="msg-error">* <%= errors.overview.msg %></span>
                     <% } %>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="input-information">
                     <label for="careInstructions">Instrucciones de cuidado</label>
-                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input"><%= product ? product.dataValues.care_instructions : '' %></textarea>
+                    <textarea name="careInstructions" id="careInstructions" cols="30" rows="5" class="style-input" placeholder="Ej. Lavar a máquina con agua fría, no usar lejía."><%= product ? product.dataValues.care_instructions : '' %></textarea>
                     <% if(locals.errors && errors.careInstructions){ %>
                         <span class="msg-error">* <%= errors.careInstructions.msg %></span>
                     <% } %>
@@ -129,14 +129,14 @@
                 </div>
                 <div class="input-information">
                     <label for="composition">Composición</label>
-                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input"><%= product ? product.dataValues.composition : '' %></textarea>
+                    <textarea name="composition" id="composition" cols="30" rows="5" class="style-input" placeholder="Ej. 100% algodón."><%= product ? product.dataValues.composition : '' %></textarea>
                     <% if(locals.errors && errors.composition){ %>
                         <span class="msg-error">* <%= errors.composition.msg %></span>
                     <% } %>
                     <p id="compositionError"></p>
                 </div>
                 <div class="container-button">
-                    <button type="submit" class="button-style"> <%= product ? 'ACTUALIZAR' : 'REGISTRAR' %> </button>
+                    <button type="submit" class="button-style"> <%= product ? 'ACTUALIZAR' : 'AGREGAR' %> </button>
                 </div>
             </form>
         </section>

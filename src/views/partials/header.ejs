@@ -28,16 +28,25 @@
         <ul class="nav-items nav-icons">
             <li><a href="/products/search"><i class="fas fa-search"></i></a></li>
             <% if(locals.isLogged) { %>
-                <li><a href="/products/product-form"><i class="fas fa-plus-circle"></i></a></li>
-                <li><a href="/users/profile"><i class="fas fa-user"></i></a></li>
-                <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a></li>
-            <% }else { %>
+                <% if(locals.userLogged.role_id === 2) { %>
+                    <li><a href="/products/product-management">Gestión</a></li>
+                    <li><a href="/users/profile"><i class="fas fa-user"></i></a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                <% } else { %>
+                    <li><a href="/users/profile"><i class="fas fa-user"></i></a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                    <li class="shopping-cart-pc">
+                        <p class="shopping-mount-pc">0</p>
+                        <a href="/cart"><i class="fas fa-shopping-bag"></i></a>
+                    </li>
+                <% } %>
+            <% } else { %>
                 <li><a href="/users/login"><i class="fas fa-sign-in-alt"></i></a></li>
+                <li class="shopping-cart-pc">
+                    <p class="shopping-mount-pc">0</p>
+                    <a href="/cart"><i class="fas fa-shopping-bag"></i></a>
+                </li>
             <% } %>
-            <li class="shopping-cart-pc">
-                <p class="shopping-mount-pc">0</p>
-                <a href="/cart"><i class="fas fa-shopping-bag"></i></a>
-            </li>
         </ul>
     </nav>
 </header>

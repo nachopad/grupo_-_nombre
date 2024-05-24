@@ -426,6 +426,10 @@ a.btn-whatsapp {
     color: black
 }
 
+.footer-terms-and-conditions {
+    color: inherit;
+}
+
 @media (min-width: 768px) {
 
     /**

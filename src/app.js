@@ -55,3 +55,8 @@ const apiUsersRouter = require('./routes/api/users');
 const apiProductsRouter = require('./routes/api/products');
 app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter);
+
+// ************ 404 Not Found Route System ************ //
+app.use((req, res, next) => {
+    res.status(404).render('status/notFound', { url: req.originalUrl });
+});
