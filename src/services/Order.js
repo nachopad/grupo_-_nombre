@@ -18,7 +18,7 @@ const Order = {
             await db.ProductDetails.bulkCreate(shoppingCart.map(product =>({
                 order_id: newOrder.dataValues.id,
                 product_id: product.id,
-                count:1
+                count: product.quantity
             })));
             return newOrder;
         }catch(err){

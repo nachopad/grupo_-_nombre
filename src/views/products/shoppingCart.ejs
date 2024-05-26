@@ -49,49 +49,7 @@
                     <h3 class="precio-header-info">Precio</h3>
                     <h3 class="borrar-header-info">Borrar</h3>
                 </div>
-                <% if(shoppingCart.length == 0 ) { %>
-                    <div class="empty-cart-container">
-                        <p class="empty-cart-title">TU CARRITO ESTÁ VACÍO</p>
-                        <p class="empty-cart-description">No hay articulos en su carrito.</p>
-                        <p class="empty-cart-description">Haga&nbsp; <a href="/">click acá</a> &nbsp;para continuar comprando.</p>
-                    </div>
-                <% }else { %>
-                    <% shoppingCart.forEach(product => { %>
-                        <article class="container-product">
-                            <img src="/images/productDetail/<%= product.images[0].dataValues.url_image %>" alt="<%= product.name %>">
-                            <div class="product-info">
-                                <h4 class="product-name">
-                                    <%= product.name %>
-                                    <div class="color-table">
-                                        Color: Black
-                                    </div>
-                                </h4>
-                                <h4 class="talle"><span>Talle:</span> 40</h4>
-                                <h4 class="color">Color:  Black</h4>
-                                <div class="content-price">
-                                    <% if(!product.discount_id) { %>
-                                        <p>$<%= parseFloat(product.price).toFixed(3) %></p>
-                                    <% }else { %>
-                                        <p class="price">$<%= parseFloat(product.price).toFixed(3) %></p>
-                                        <p class="discount">$ <%= (parseFloat(product.price) - (parseFloat(product.price) * (product.discounts.percent / 100))).toFixed(3) %></p>
-                                    <% } %>
-                                </div>
-                                <div class="container-button-add-subtract">
-                                    <button type="button" class="minus">-</button>
-                                    <p>N</p>
-                                    <button type="button" class="plus">+</button>
-                                </div>
-                            </div>
-                            <div class="delete-icon">
-                                <form action="/cart/remove-from-cart/<%= product.id %>" method="POST">
-                                    <button type="submit">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </article>
-                    <% }) %>
-                <% } %>
+                
             </section>
             <section class="container-form">
                 <article class="help-me">
@@ -138,5 +96,6 @@
         </a>
     </main>
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/showCarts.js"></script>
 </body>
 </html>

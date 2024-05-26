@@ -193,7 +193,7 @@ main {
 }
 
 .item-show-color-option {
-    padding: 1px;
+    padding: 2px;
     margin: 0px 13px 15px 0px
 }
 
@@ -552,6 +552,13 @@ a.btn-whatsapp {
     color: black
 }
 
+.selected{
+    background-color: #212121;
+    color: white;
+}
+.selected-color{
+    border-bottom: 2px black solid;
+}
 
 @media (min-width: 768px) {
 

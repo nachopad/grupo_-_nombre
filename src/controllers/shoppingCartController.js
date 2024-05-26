@@ -37,12 +37,10 @@ const shoppingCartController = {
     },
     registerOrder: async (req, res) => {
         try {
-            const installement = await installmentService.findByPk(req.body.installement);
-            let subtotal = shoppingCart.reduce((state, product) => state + (+product.price), 0);
-            
-            installement.interest?subtotal+=subtotal*(installement.interest/100):'';
-            
-            await orderService.registerOrder(req.body, shoppingCart, req.session.userLogged.id, subtotal);
+            await orderService.registerOrder(req.body, req.body.shoppingCart, req.session.userLogged.id, parseFloat(req.body.total).toFixed(2));
+            res.status(200).json({
+                message: "successfull"
+            })
         }catch(err){
             res.status(400).send(err);
         }

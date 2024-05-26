@@ -27,20 +27,20 @@
                         <label for="add-discount">Ingrese su codigo postal</label>
                         <input type="text" name="postalCode" id="postal-code" placeholder="Ejemplo: Y4512">
                     </div>
-                    <div>
+                    <div class="container-info-input">
                         <label for="locality">Localidad </label>
                         <input type="text" name="locality" id="locality" placeholder="Ejemplo: San Salvador de Jujuy">
                     </div>
-                    <div>
+                    <div class="container-info-input">
                         <label for="sending-address">Direccion</label>
                         <input type="text" name="sendingAddress" id="sending-address" placeholder="Ejemplo: La casa de Nacho">
                     </div>
 
-                    <div>
+                    <div class="container-info-input">
                         <label for="installement">Ingrese en cuentas cuotas pagara</label>
                         <select name="installement" id="installement" class="style-input">
                             <% for(installement of installements) { %>
-                                    <option value="<%= installement.id %>"> <%= installement.count %> cuotas  <%= installement.interest? `con ${installement.interest} % de interes`: '' %> </option>
+                                    <option value="<%= installement.id %>" count="<%= installement.count %>" interest="<%= installement.interest %>"> <%= installement.count %> cuotas  <%= installement.interest? `con ${installement.interest} % de interes`: '' %> </option>
                                 <% } %>
                         </select>
                         <% if(locals.errors && errors.offer){ %>
@@ -55,9 +55,9 @@
                             <h4 class="total">Total</h4>
                         </div>
                         <div class="resumen-content">
-                            <p>$ <%= subtotal %></p>
+                            <p class="subtotal"></p>
                             <p>No seleccionado</p>
-                            <h4 class="total">$ <%= subtotal %></h4>
+                            <h4 class="total show-total"></h4>
                         </div>
                     </div>
                     <div class="container-button">
@@ -72,5 +72,6 @@
         </a>
     </main>
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/checkoutShoppingCart.js"></script>
 </body>
 </html>
