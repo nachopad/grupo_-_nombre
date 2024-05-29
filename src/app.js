@@ -53,9 +53,10 @@ app.use('/users', userRouter);
 // ************ API's Route System require and use() ************ //
 const apiUsersRouter = require('./routes/api/users');
 const apiProductsRouter = require('./routes/api/products');
+const apiOrdersRouter = require('./routes/api/orders');
 app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter);
-
+app.use('/api/orders', apiOrdersRouter);
 // ************ 404 Not Found Route System ************ //
 app.use((req, res, next) => {
     res.status(404).render('status/notFound', { url: req.originalUrl });
