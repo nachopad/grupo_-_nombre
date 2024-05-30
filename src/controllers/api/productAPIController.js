@@ -10,6 +10,7 @@ const productApiController = {
             /**get convierte a un objeto plato cada objeto del array que contiene otras propiedades de Sequelize */
             const productsList = productsDB.map(product => ({
                 ...product.get(),
+                url_image: `${req.protocol}://${req.get('host')}/images/productDetail/${product.dataValues.images[0].url_image}`,
                 detail: `api/products/${product.id}`
             }));
             const countByCategory = categoryDB.map(category => ({
@@ -44,25 +45,30 @@ const productApiController = {
     },
     listOffset: async (req, res) => {
         try {
-            console.log("Esto es el maldito query "+req.query.page);
-            const productsDB = await productService.findWithOffset(req.query.page);
+            const { page, limit = 5 } = req.query;
+            const productsDB = await productService.findWithOffset(page, limit);
             const categoryDB = await categoryService.findAll();
+            const allProducts = await productService.findAll();
 
             /**get convierte a un objeto plato cada objeto del array que contiene otras propiedades de Sequelize */
             const productsList = productsDB.map(product => ({
                 ...product.get(),
                 detail: `api/products/${product.id}`
             }));
+
             const countByCategory = categoryDB.map(category => ({
                 id: category.id,
                 name: category.name,
-                count: productsDB.filter(p => p.category_id == category.id).length
-            }))
+                count: allProducts.filter(p => p.category_id == category.id).length
+            }));
 
             res.status(200).json({
                 countProducts: productsDB.length,
                 countByCategory,
                 products: productsList,
+                totalPages: Math.ceil(allProducts.length / limit),
+                page: parseInt(page),
+                limit: parseInt(limit)
             });
         } catch (err) {
             res.status(500).json({

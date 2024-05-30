@@ -224,12 +224,12 @@ const Product = {
             console.error("Error al obtener productos en oferta:", error);
         }
     },
-    findWithOffset: async(index)=>{
+    findWithOffset: async(page, limit)=>{
         try {
             return await db.Products.findAll({
                 include: ['categories', 'genders', 'discounts', 'colors', 'sizes', 'images'],
-                limit: 10,
-                offset: index*10
+                limit: limit,
+                offset: page * 5
             });
         } catch (error) {
             console.error('Error al obtener productos:', error);
