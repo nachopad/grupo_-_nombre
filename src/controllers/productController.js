@@ -20,7 +20,7 @@ const productController = {
         let product = id ? await productModel.findByPk(id, {
             include: [{association: 'categories'}]
         }) : null;
-
+    
         let categories = await categoryModel.findAll();
         let genders = await genderModel.findAll();
         let discounts = await discountModel.findAll();
@@ -68,7 +68,7 @@ const productController = {
     },
     deleteProduct: async (req, res) => {
         await productModel.delete(req.params.id);
-        res.redirect('/products/product-management');
+        return res.redirect('/products/product-management');
     },
     getFormSearch: async(req, res) => {
         let products = await productModel.seachProduct(req.query.search);

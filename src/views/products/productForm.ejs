@@ -103,7 +103,28 @@
                         <span class="msg-error">* <%= errors.offer.msg %></span>
                     <% } %>
                 </div>
-                <div class="input-information">
+                <%if (product) { %>
+                <div class="input-information images-db">
+                        <div class="image-wrapper">
+                            <label for="">Seleccione la imagen que desea eliminar: </label>
+                        <%product.images.map(img=>{%>
+                            
+                                <img src="/images/productDetail/<%= img.url_image%>" alt="<%= img.url_image%>">
+                                <input type="checkbox" name="images[]" id="image" value="<%= img.url_image%>" class="check-img">
+                            
+                        <%});%>
+                        <label for="imgs">Agregue Imagenes si lo desea: </label>
+                        <input type="file" name="img" id="imgs" multiple>
+                        <% if(locals.errors && errors.img){ %>
+                            <span class="msg-error">* <%= errors.img.msg %></span>
+                        <% } %>
+                        <p id="imgsError"></p>
+                    </div>
+                </div>
+                <%}%>
+
+                <%if (!product) { %>
+                <div class="input-information">    
                     <label for="imgs">Imágenes del producto</label>
                     <input type="file" name="img" id="imgs" multiple class="style-input">
                     <% if(locals.errors && errors.img){ %>
@@ -111,6 +132,7 @@
                     <% } %>
                     <p id="imgsError"></p>
                 </div>
+                <%}%>
                 <div class="input-information">
                     <label for="description">Descripción general</label>
                     <textarea name="overview" id="description" cols="30" rows="5" class="style-input" placeholder="Ej. Camiseta de manga corta, ideal para actividades deportivas." ><%= product ? product.dataValues.overview : '' %></textarea>
