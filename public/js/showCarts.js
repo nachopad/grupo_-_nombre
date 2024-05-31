@@ -117,10 +117,10 @@ window.addEventListener('load', async (e) => {
         let price = 0;
         if (product.discounts) {
             price = ((parseFloat(product.price) - (parseFloat(product.price) * (product.discounts.percent / 100))).toFixed(2)* quantity).toFixed(2);
-            article.getElementsByClassName('content-price').item(0).innerHTML += `<p class="price">$ ${product.price}</p><p class="discount">$ ${price}</p>`;
+            article.getElementsByClassName('content-price').item(0).innerHTML += `<p class="price">$ ${parseFloat(product.price).toFixed(3)}</p><p class="discount">$ ${parseFloat(price).toFixed(3)}</p>`;
         } else {
-            price = (parseFloat(product.price).toFixed(2)* quantity).toFixed(2);
-            article.getElementsByClassName('content-price').item(0).innerHTML += ` <p>$ ${product.price}</p>`;
+            price = (parseFloat(product.price).toFixed(3)* quantity).toFixed(2);
+            article.getElementsByClassName('content-price').item(0).innerHTML += ` <p>$ ${parseFloat(product.price).toFixed(3)}</p>`;
         }
         return article;
     }

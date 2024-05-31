@@ -192,7 +192,7 @@ main {
     font-weight: 700;
 }
 
-.item-show-color-option {
+/* .item-show-color-option {
     padding: 2px;
     margin: 0px 13px 15px 0px
 }
@@ -225,6 +225,41 @@ main {
     border-radius: inherit;
     display: inline-block;
     cursor: pointer;
+} */
+
+.item-show-color-option {
+    padding: 2px;
+    margin: 0px 13px 15px 0px;
+}
+
+.item-show-color {
+    border: 1px solid #000;
+    width: 16px;
+    height: 16px;
+    border-radius: inherit;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.color-brown {
+    background: #5e5649;
+}
+
+.color-black {
+    background: #222;
+}
+
+.color-white {
+    background: white;
+}
+
+.color-royal-blue {
+    background: #4169E1;
+
+}
+
+.color-navy-black {
+    background: #000080;
 }
 
 .sizes-boxes {

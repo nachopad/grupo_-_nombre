@@ -80,7 +80,7 @@
                     <% sizes.forEach(size => { %>
                         <div>
                             <input type="checkbox" class="sizes" name="sizes[]" id="size_<%= size.id %>" value="<%= size.id %>" 
-                                <% if (product && product.sizes.find(productSize => productSize.size_id === size.id)) { %>
+                                <% if (product && product.dataValues.sizes.find(productSize => productSize.id === size.id)) { %>
                                     checked
                                 <% } %>
                             >

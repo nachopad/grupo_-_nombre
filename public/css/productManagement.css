@@ -191,6 +191,7 @@ h2{
 }
 
 .content-price .price {
+    color: #888888;
     text-decoration: line-through;
 }
 
