@@ -48,7 +48,7 @@
                                         <p>$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
                                     <% }else { %>
                                         <p class="price">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
-                                        <p class="offer"><%= product.offer %>%</p>
+                                        <p class="offer"><%= product.discounts.dataValues.percent %>%</p>
                                         <p class="discount">$ <%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %></p>
                                     <% } %>
                                 </div>

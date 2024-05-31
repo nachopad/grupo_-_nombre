@@ -64,7 +64,7 @@
                             <div class="color-boxes">
                                 <% for (let color of product.dataValues.colors) { %>
                                     <label class="item-show-color-option" id="container-colors">
-                                        <button id="colors-button" class="item-show-color-<%= color.name %>" color-name="<%= color.name %>"></button>
+                                        <button class="item-show-color color-<%= color.name %>" color-name="<%= color.name %>"></button>
                                     </label>
                                 <% } %>
                             </div>
