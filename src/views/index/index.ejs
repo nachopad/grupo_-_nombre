@@ -26,15 +26,15 @@
             <header class="carousel-title">
                 <h4>PRODUCTOS DESTACADOS</h4>
                 <div class="swipper-buttons">
-                    <div>
+                    <div id="swipper-button-left">
                         <img src="/images/index/swipper-button-left.svg" alt="swp left" />
                     </div>
-                    <div>
+                    <div id="swipper-button-right">
                         <img src="/images/index/swipper-button-right.svg" alt="swp right"/>
                     </div>
                 </div>
             </header>
-            <div class="carousel-container">
+            <div class="carousel-container" id="carousel-container">
                 <% for(product of productsOnSale) { %>
                     <form action="/products/detail/<%= product.id %>" method="GET"  class="carousel-item">
                         <button type="submit">
@@ -86,5 +86,7 @@
         </a>
     </main>
     <%- include('./partials/footer.ejs') %>
+    
+    <script src="/js/carousel.js"></script>
 </body>
 </html>

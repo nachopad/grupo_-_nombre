@@ -47,7 +47,7 @@ window.addEventListener('load', function (e) {
             errors.push({field: "colors", message: "* Debes selecionar un color como mínimo."})
         }
 
-        if (!checkValues(sizes)) {
+        if (!checkValues(sizes) && document.getElementById('category').value != 2) {
             errors.push({field: "sizes", message: "* Debes selecionar un talle como mínimo."})
         }
 

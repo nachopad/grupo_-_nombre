@@ -78,13 +78,13 @@ window.addEventListener('load', async function (e) {
 
         switch (true) {
             case input.id == "postal-code" && input.value.length == 0:
-                message.innerText = "* Debe ingresar un codigo postal"
+                message.innerText = "* Debes ingresar un codigo postal."
                 break;
             case (input.id == "sending-address" || input.id == "locality") && input.value.length == 0:
-                message.innerText = "* Complete este campo para realizar la entrega"
+                message.innerText = "* Completá este campo para realizar la entrega."
                 break;
             case input.value.length < 4:
-                message.innerText = "* Debe ingresar un minimo de 4 caracteres"
+                message.innerText = "* Debe ingresar un minimo de 4 caracteres."
                 break;
         }
         if (message.textContent) {

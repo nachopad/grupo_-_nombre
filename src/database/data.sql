@@ -9,10 +9,10 @@ INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('black');
 INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('white');
 INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('red');
 INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('grey');
-INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('royal blue');
-INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('core black');
-INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('core white');
-INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('navy black');
+INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('royal-blue');
+INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('core-black');
+INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('core-white');
+INSERT INTO `lumina_db`.`colors` (`name`) VALUES ('navy-black');
 
 /*Adding discounts*/
 INSERT INTO `lumina_db`.`discounts` (`percent`) VALUES ('50');
@@ -47,7 +47,7 @@ insert INTO lumina_db.product_colors values(2, 1),(3, 1),(4, 2), (5, 2),(8, 3),(
 INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("grand-court-alpha-1.jpg", 1),("grand-court-alpha-2.jpg", 1),("grand-court-alpha-3.jpg", 1),("grand-court-alpha-4.jpg", 1);
 INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("cap-running-adizero-1.jpg", 2),("cap-running-adizero-2.jpg", 2),("cap-running-adizero-3.jpg", 2);
 INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("boot-bag-tiro-league-1.jpg", 3),("boot-bag-tiro-league-2.jpg", 3),("boot-bag-tiro-league-3.jpg", 3),("boot-bag-tiro-league-4.jpg", 3);
-INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("ball-argentum-22-league-1.jpg", 4),("boot-bag-tiro-league-2.jpg", 4),("boot-bag-tiro-league-3.jpg", 4),("boot-bag-tiro-league-4.jpg", 4);
+INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("ball-argentum-22-league-1.jpg", 4),("ball-argentum-22-league-2.jpg", 4),("ball-argentum-22-league-3.jpg", 4),("ball-argentum-22-league-4.jpg", 4);
 INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("branded-layer-1.jpg", 5),("branded-layer-2.jpg", 5);
 INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("yoga-trainning-tshirt-1.jpg", 6),("yoga-trainning-tshirt-2.jpg", 6), ("yoga-trainning-tshirt-3.jpg", 6), ("yoga-trainning-tshirt-4.jpg", 6);
 INSERT INTO lumina_db.product_images (`url_image`,`product_id`) VALUES("booties-crazyfast-1.jpg", 7),("booties-crazyfast-2.jpg", 7), ("booties-crazyfast-3.jpg", 7), ("booties-crazyfast-4.jpg", 7);

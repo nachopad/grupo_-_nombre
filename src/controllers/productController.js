@@ -50,13 +50,12 @@ const productController = {
         const { id } = req.params;
 
         let product = id ? await productModel.findByPk(id) : null;
-        
+        console.log(errors);
         if(errors.isEmpty()) {
             await productModel.edit(req.params.id, req.body, req.files);
             return res.redirect('/products/detail/' + req.params.id);
         };
-
-        return res.render('productForm', { product: product, errors: errors.mapped(), oldData: req.body });
+        return res.redirect('/products/product-form/' + id);
     },
     getProducts: async (req, res) => {
         let featuredProducts = await productModel.findAll();
