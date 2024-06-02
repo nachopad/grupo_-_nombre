@@ -17,8 +17,8 @@ window.addEventListener('load', async function (e) {
             let response = await fetch(`http://localhost:3000/api/products/${p.id}`);
             let data = await response.json()
             total += await (singlePrice(data.product, p.quantity));
-            subTotalHTML.innerHTML = `${total}`;
-            totalHTML.innerHTML = `${total}`;
+            subTotalHTML.innerHTML = `${total.toFixed(3)}`;
+            totalHTML.innerHTML = `${total.toFixed(3)}`;
         } catch (error) {
             console.log("Error: " + error);
         }
@@ -64,7 +64,7 @@ window.addEventListener('load', async function (e) {
             showMessage(input);
         })
         let errores = document.querySelectorAll('.alert-message');
-        if(errores.length==1){
+        if(errores.length==0){
             await confirmOrder();
         }
     })
