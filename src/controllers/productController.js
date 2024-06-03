@@ -75,11 +75,19 @@ const productController = {
     },
     getMensProducts: async (req, res) => {
         let productsForMen = await productModel.listProductsByGender('man');
-        res.render('productsForMen', { productsForMen: productsForMen });
+
+        let products = await productsForMen.map(product => product);
+        let clothesForMen = await products.filter(product => product.category_id === 1);
+        let footwearForMen = await products.filter(product => product.category_id === 3);
+        res.render('productsForMen', { clothesForMen: clothesForMen, footwearForMen: footwearForMen});
     },
     getWomensProducts: async (req, res) => {
         let productsForWomen = await productModel.listProductsByGender('women');
-        res.render('productsForWomen', { productsForWomen: productsForWomen });
+
+        let products = await productsForWomen.map(product => product);
+        let clothesForWomen = await products.filter(product => product.category_id === 1);
+        let footwearForWomen = await products.filter(product => product.category_id === 3);
+        res.render('productsForWomen', { clothesForWomen: clothesForWomen, footwearForWomen: footwearForWomen});
     },
     getAccesoriesProducts: async (req, res) => {
         let accesories = await productModel.listProductsByCategory('accesory');

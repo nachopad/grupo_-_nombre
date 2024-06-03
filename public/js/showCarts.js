@@ -115,12 +115,15 @@ window.addEventListener('load', async (e) => {
 
     function showPrice(product, article, quantity) {
         let price = 0;
-        if (product.discounts) {
-            price = ((parseFloat(product.price) - (parseFloat(product.price) * (product.discounts.percent / 100))).toFixed(2)* quantity).toFixed(2);
-            article.getElementsByClassName('content-price').item(0).innerHTML += `<p class="price">$ ${parseFloat(product.price).toFixed(3)}</p><p class="discount">$ ${parseFloat(price).toFixed(3)}</p>`;
+        if (product.discounts && product.discounts.percent > 0) {
+            price = ((parseFloat(product.price) - (parseFloat(product.price) * (product.discounts.percent / 100))) * quantity).toFixed(2);
+            article.getElementsByClassName('content-price').item(0).innerHTML += `
+                <p class="price">$ ${parseFloat(product.price).toFixed(3)}</p>
+                <p class="discount" style="color: red;">$ ${parseFloat(price).toFixed(3)}</p>`;
         } else {
-            price = (parseFloat(product.price).toFixed(3)* quantity).toFixed(2);
-            article.getElementsByClassName('content-price').item(0).innerHTML += ` <p>$ ${parseFloat(product.price).toFixed(3)}</p>`;
+            price = (parseFloat(product.price) * quantity).toFixed(2);
+            article.getElementsByClassName('content-price').item(0).innerHTML += `
+                <p>$ ${parseFloat(price).toFixed(3)}</p>`;
         }
         return article;
     }

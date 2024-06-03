@@ -248,7 +248,7 @@ const Product = {
             return await db.Products.findAll({
                 include: ['categories', 'genders', 'discounts', 'colors', 'sizes', 'images'],
                 limit: limit,
-                offset: page * 5
+                offset: page * 10
             });
         } catch (error) {
             console.error('Error al obtener productos:', error);

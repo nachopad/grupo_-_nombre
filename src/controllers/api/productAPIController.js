@@ -45,7 +45,7 @@ const productApiController = {
     },
     listOffset: async (req, res) => {
         try {
-            const { page, limit = 5 } = req.query;
+            const { page, limit = 10 } = req.query;
             const productsDB = await productService.findWithOffset(page, limit);
             const categoryDB = await categoryService.findAll();
             const allProducts = await productService.findAll();

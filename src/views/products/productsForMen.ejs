@@ -17,7 +17,7 @@
     <main>
         <section class="featured-products">
             <header class="carousel-title">
-                <h4>NUESTROS PRODUCTOS PARA HOMBRE</h4>
+                <h4>NUESTRA VESTIMENTA PARA HOMBRE</h4>
                 <div class="swipper-buttons">
                     <div id="swipper-button-left">
                         <img src="/images/index/swipper-button-left.svg" alt="swp left" />
@@ -28,16 +28,54 @@
                 </div>
             </header>
             <div class="carousel-container" id="carousel-container">
-                <% for(product of productsForMen) { %>
-                    <form action="/products/detail/<%= product.id %>" method="GET"  class="carousel-item">
+                <% for(product of clothesForMen) { %>
+                    <form action="/products/detail/<%= product.id %>" method="GET" class="carousel-item">
                         <button type="submit">
                             <img src="/images/productDetail/<%= product.dataValues.images[0].url_image %>" alt="<%= product.title %>">
                         <div class="item-description">
                             <p class="item-name"><%= product.title %></p>
                             <div class="item-price-container">
-                                <p class="item-price-old">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
-                                <p class="item-price">$<%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %></p>
-                                <p class="item-discount">%<%= product.discounts.dataValues.percent %></p>
+                                <% if (product.discounts && product.discounts.dataValues && product.discounts.dataValues.percent) { %>
+                                    <p class="item-price-old">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
+                                    <p class="item-price">$<%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %></p>
+                                    <p class="item-discount">%<%= product.discounts.dataValues.percent %></p>
+                                <% } else { %>
+                                    <p class="item-price">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </button>
+                    </form>
+                <% } %>
+            </div>
+        </section>
+        <section class="featured-products">
+            <header class="carousel-title">
+                <h4>CALZADO PARA HOMBRES</h4>
+                <div class="swipper-buttons">
+                    <div id="swipper-button-left">
+                        <img src="/images/index/swipper-button-left.svg" alt="swp left" />
+                    </div>
+                    <div id="swipper-button-right">
+                        <img src="/images/index/swipper-button-right.svg" alt="swp right"/>
+                    </div>
+                </div>
+            </header>
+            <div class="carousel-container" id="carousel-container">
+                <% for(product of footwearForMen) { %>
+                    <form action="/products/detail/<%= product.id %>" method="GET" class="carousel-item">
+                        <button type="submit">
+                            <img src="/images/productDetail/<%= product.dataValues.images[0].url_image %>" alt="<%= product.title %>">
+                        <div class="item-description">
+                            <p class="item-name"><%= product.title %></p>
+                            <div class="item-price-container">
+                                <% if (product.discounts && product.discounts.dataValues && product.discounts.dataValues.percent) { %>
+                                    <p class="item-price-old">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
+                                    <p class="item-price">$<%= (parseFloat(product.dataValues.price) - (parseFloat(product.dataValues.price) * (product.discounts.dataValues.percent / 100))).toFixed(3) %></p>
+                                    <p class="item-discount">%<%= product.discounts.dataValues.percent %></p>
+                                <% } else { %>
+                                    <p class="item-price">$<%= parseFloat(product.dataValues.price).toFixed(3) %></p>
+                                <% } %>
                             </div>
                         </div>
                     </button>

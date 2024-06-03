@@ -48,20 +48,20 @@ const User = {
     },
     update: async function(id, user, file) {
        try {
-            let updateData = {
+            let userToUpdate = await this.findByPk(id);
+            userToUpdate = {
                 first_name: user.firstName,
                 last_name: user.lastName,
                 birthdate: user.birthDate,
                 email: user.email,
                 phone: user.phone,
-                image: file ? file.filename : '',
                 password: user.password
             };
             if(file) {
-                updateData.image = file.filename
+                userToUpdate.image = file.filename
             };
 
-            return await db.Users.update(updateData, { where: { id: id } });
+            return await db.Users.update(userToUpdate, { where: { id: id } });
 
        } catch (error) {
             console.log('Error al modificar el usuario:', error);

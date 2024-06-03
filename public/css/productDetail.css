@@ -226,6 +226,10 @@ main {
     background: white;
 }
 
+.color-salmon {
+    background: #FFA07A;
+}
+
 .color-blue {
     background: #0000FF;
 }
