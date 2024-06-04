@@ -1,5 +1,13 @@
 window.addEventListener('load', function (e) {
 
+    let categorySelect = document.getElementById('category');
+    categorySelect.value == 2 ? document.getElementById('sizes-container').style.display = 'none' : document.getElementById('sizes-container').style.display = 'flex';
+    categorySelect.addEventListener('change', (event) => {
+        let category = event.target.value;
+        let sizesContainer = document.getElementById('sizes-container');
+        category == 2 ? sizesContainer.style.display = 'none' : sizesContainer.style.display = 'flex';
+    });
+
     function showError(elementId, message) {
         if (message) {
             const element = document.getElementById(elementId);

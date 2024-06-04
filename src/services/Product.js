@@ -54,10 +54,12 @@ const Product = {
                 color_id: +color
             })));
 
-            await db.ProductSizes.bulkCreate(product.sizes.map(size => ({
-                product_id: newProduct.dataValues.id,
-                size_id: +size
-            })));
+            if(product.sizes) {
+                await db.ProductSizes.bulkCreate(product.sizes.map(size => ({
+                    product_id: newProduct.dataValues.id,
+                    size_id: +size
+                })));
+            }
 
             await db.ProductImages.bulkCreate(files.map(image => ({
                 product_id: newProduct.dataValues.id,
@@ -137,10 +139,12 @@ const Product = {
                 }
             });
 
-            await db.ProductSizes.bulkCreate(productUpdate.sizes.map(size => ({
-                product_id: id,
-                size_id: +size
-            })));
+            if(productUpdate.sizes) {
+                await db.ProductSizes.bulkCreate(productUpdate.sizes.map(size => ({
+                    product_id: id,
+                    size_id: +size
+                })));
+            }
             
             if (productUpdate.images) {
                 productUpdate.images.forEach(async (imgName) => {

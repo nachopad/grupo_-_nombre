@@ -51,7 +51,7 @@
                     <h2 class="item-show-details-title"><%= product.title.toUpperCase() %></h2>
                     <div class="price-container">
                         <% if(product.discounts.dataValues.percent == 0) { %>
-                            <span class="price-active">$ <%= product.dataValues.price %> </span>
+                            <span class="price-active">$ <%= parseFloat(product.dataValues.price).toFixed(3) %> </span>
                         <% }else { %>
                             <span class="price-old">$ <%= parseFloat(product.dataValues.price).toFixed(3) %> </span>
                             <span class="offer"> -<%= product.discounts.dataValues.percent %>% </span>

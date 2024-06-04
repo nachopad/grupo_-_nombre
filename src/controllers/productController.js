@@ -49,8 +49,6 @@ const productController = {
 
         const { id } = req.params;
 
-        let product = id ? await productModel.findByPk(id) : null;
-        console.log(errors);
         if(errors.isEmpty()) {
             await productModel.edit(req.params.id, req.body, req.files);
             return res.redirect('/products/detail/' + req.params.id);
