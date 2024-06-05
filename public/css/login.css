@@ -32,7 +32,14 @@ body{
     margin: 10px 0px;
 }
 
-.login-header img{
+.login-header a {
+    display: flex;
+    justify-content: center; /* Centra el contenido dentro del enlace */
+    align-items: center;     /* Asegura que el contenido esté centrado verticalmente */
+    width: 100%;
+}
+
+.login-header img {
     border-radius: 50%;
     width: 20%;
     margin: auto;
@@ -41,6 +48,7 @@ body{
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
+    display: block;
 }
 
 .login-header h2{

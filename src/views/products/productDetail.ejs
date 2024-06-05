@@ -51,7 +51,7 @@
                     <h2 class="item-show-details-title"><%= product.title.toUpperCase() %></h2>
                     <div class="price-container">
                         <% if(product.discounts.dataValues.percent == 0) { %>
-                            <span class="price-active">$ <%= product.dataValues.price %> </span>
+                            <span class="price-active">$ <%= parseFloat(product.dataValues.price).toFixed(3) %> </span>
                         <% }else { %>
                             <span class="price-old">$ <%= parseFloat(product.dataValues.price).toFixed(3) %> </span>
                             <span class="offer"> -<%= product.discounts.dataValues.percent %>% </span>
@@ -63,8 +63,8 @@
                             <h2 class="item-colors-title">Colores</h2>
                             <div class="color-boxes">
                                 <% for (let color of product.dataValues.colors) { %>
-                                    <label class="item-show-color-option">
-                                        <span class="item-show-color-<%= color.name %>"></span>
+                                    <label class="item-show-color-option" id="container-colors">
+                                        <button class="item-show-color color-<%= color.name %>" color-name="<%= color.name %>"></button>
                                     </label>
                                 <% } %>
                             </div>
@@ -75,7 +75,7 @@
                             <h2 class="item-size-title">Talles</h2>
                             <div class="sizes-boxes">
                                 <% for(let size of product.dataValues.sizes) { %>
-                                    <button><%= size.measurement %></button>
+                                    <button id="sizes-button"><%= size.measurement %></button>
                                 <% } %>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                     <% } %>
                     <div class="buy-button">
                         <form action="/cart/add/<%= product.id %>" method="POST">
-                            <button class="item-show-btn">añadir al carrito</button>
+                            <button class="item-show-btn" id="add-to-cart-button" product-id="<%= product.id %>">añadir al carrito</button>
                         </form>
                     </div>
                     <div class="item-show-details-more-info">
@@ -118,5 +118,6 @@
         </a>
     </main>
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/shopingCart.js"></script>
 </body>
 </html>

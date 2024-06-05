@@ -58,3 +58,7 @@ Puedes encontrar nuestro código fuente y colaborar con nosotros en el siguiente
 
 Puedes seguir nuestro progreso en nuestro tablero de trabajo: 
 [Enlace al tablero](https://trello.com/b/bXtJvR91/proyecto-lumina)
+
+## 📊 Dashboard del Proyecto
+
+Hemos desarrollado un dashboard para el proyecto utilizando React. Puedes encontrar el código fuente en el siguiente enlace: [lumina-dashboard-react](https://github.com/nachopad/lumina-dashboard-react)

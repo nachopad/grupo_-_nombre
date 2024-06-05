@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/shoppingCart.css">
+    <link rel="stylesheet" href="/css/checkoutShoppingCart.css">
     <link rel="stylesheet" href="/css/normalize.css">
 </head>
 
@@ -24,30 +24,29 @@
                 </article>
                 <form action="/cart/register-order" method="POST" class="style-form">
                     <div>
-                        <label for="add-discount">Ingrese su codigo postal</label>
-                        <input type="text" name="postalCode" id="postal-code" placeholder="Ejemplo: Y4512">
+                        <label for="add-discount">Ingrese su código postal</label>
+                        <input type="text" name="postalCode" id="postal-code" placeholder="Y4512">
                     </div>
-                    <div>
+                    <div class="container-info-input">
                         <label for="locality">Localidad </label>
-                        <input type="text" name="locality" id="locality" placeholder="Ejemplo: San Salvador de Jujuy">
+                        <input type="text" name="locality" id="locality" placeholder="San Salvador de Jujuy">
                     </div>
-                    <div>
-                        <label for="sending-address">Direccion</label>
-                        <input type="text" name="sendingAddress" id="sending-address" placeholder="Ejemplo: La casa de Nacho">
+                    <div class="container-info-input">
+                        <label for="sending-address">Domicilio</label>
+                        <input type="text" name="sendingAddress" id="sending-address" placeholder="Avenida Siempre Viva 742">
                     </div>
 
-                    <div>
-                        <label for="installement">Ingrese en cuentas cuotas pagara</label>
+                    <div class="container-info-input">
+                        <label for="installement">Cantidad de cuotas</label>
                         <select name="installement" id="installement" class="style-input">
                             <% for(installement of installements) { %>
-                                    <option value="<%= installement.id %>"> <%= installement.count %> cuotas  <%= installement.interest? `con ${installement.interest} % de interes`: '' %> </option>
+                                    <option value="<%= installement.id %>" count="<%= installement.count %>" interest="<%= installement.interest %>"> <%= installement.count %> cuotas  <%= installement.interest? `con ${installement.interest} % de interés`: '' %> </option>
                                 <% } %>
                         </select>
                         <% if(locals.errors && errors.offer){ %>
                             <span class="msg-error">* <%= errors.offer.msg %></span>
                         <% } %>
                     </div>
-
                     <div>
                         <div class="resumen-header">
                             <p>Subtotal</p>
@@ -55,9 +54,9 @@
                             <h4 class="total">Total</h4>
                         </div>
                         <div class="resumen-content">
-                            <p>$ <%= subtotal %></p>
+                            <p class="subtotal"></p>
                             <p>No seleccionado</p>
-                            <h4 class="total">$ <%= subtotal %></h4>
+                            <h4 class="total show-total"></h4>
                         </div>
                     </div>
                     <div class="container-button">
@@ -68,9 +67,9 @@
             </section>
         </section>
         <a class="btn-whatsapp bt-wsp-right">
-            <img src="/images/index/whatsapp-pill.svg" alt="Whatssapp Pill" />
+            <img src="/images/index/whatsapp-pill.svg" alt="WhatsApp Pill" />
         </a>
     </main>
-    <%- include('./partials/footer.ejs') %>
+    <script src="/js/checkoutShoppingCart.js"></script>
 </body>
 </html>

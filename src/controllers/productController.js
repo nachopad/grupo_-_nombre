@@ -20,7 +20,7 @@ const productController = {
         let product = id ? await productModel.findByPk(id, {
             include: [{association: 'categories'}]
         }) : null;
-
+    
         let categories = await categoryModel.findAll();
         let genders = await genderModel.findAll();
         let discounts = await discountModel.findAll();
@@ -49,14 +49,11 @@ const productController = {
 
         const { id } = req.params;
 
-        let product = id ? await productModel.findByPk(id) : null;
-        
         if(errors.isEmpty()) {
             await productModel.edit(req.params.id, req.body, req.files);
             return res.redirect('/products/detail/' + req.params.id);
         };
-
-        return res.render('productForm', { product: product, errors: errors.mapped(), oldData: req.body });
+        return res.redirect('/products/product-form/' + id);
     },
     getProducts: async (req, res) => {
         let featuredProducts = await productModel.findAll();
@@ -68,7 +65,7 @@ const productController = {
     },
     deleteProduct: async (req, res) => {
         await productModel.delete(req.params.id);
-        res.redirect('/products/product-management');
+        return res.redirect('/products/product-management');
     },
     getFormSearch: async(req, res) => {
         let products = await productModel.seachProduct(req.query.search);
@@ -76,11 +73,19 @@ const productController = {
     },
     getMensProducts: async (req, res) => {
         let productsForMen = await productModel.listProductsByGender('man');
-        res.render('productsForMen', { productsForMen: productsForMen });
+
+        let products = await productsForMen.map(product => product);
+        let clothesForMen = await products.filter(product => product.category_id === 1);
+        let footwearForMen = await products.filter(product => product.category_id === 3);
+        res.render('productsForMen', { clothesForMen: clothesForMen, footwearForMen: footwearForMen});
     },
     getWomensProducts: async (req, res) => {
         let productsForWomen = await productModel.listProductsByGender('women');
-        res.render('productsForWomen', { productsForWomen: productsForWomen });
+
+        let products = await productsForWomen.map(product => product);
+        let clothesForWomen = await products.filter(product => product.category_id === 1);
+        let footwearForWomen = await products.filter(product => product.category_id === 3);
+        res.render('productsForWomen', { clothesForWomen: clothesForWomen, footwearForWomen: footwearForWomen});
     },
     getAccesoriesProducts: async (req, res) => {
         let accesories = await productModel.listProductsByCategory('accesory');

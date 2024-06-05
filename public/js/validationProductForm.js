@@ -1,5 +1,13 @@
 window.addEventListener('load', function (e) {
 
+    let categorySelect = document.getElementById('category');
+    categorySelect.value == 2 ? document.getElementById('sizes-container').style.display = 'none' : document.getElementById('sizes-container').style.display = 'flex';
+    categorySelect.addEventListener('change', (event) => {
+        let category = event.target.value;
+        let sizesContainer = document.getElementById('sizes-container');
+        category == 2 ? sizesContainer.style.display = 'none' : sizesContainer.style.display = 'flex';
+    });
+
     function showError(elementId, message) {
         if (message) {
             const element = document.getElementById(elementId);
@@ -44,11 +52,11 @@ window.addEventListener('load', function (e) {
         const colors = document.querySelectorAll('.colors');
         const sizes = document.querySelectorAll('.sizes');
         if (!checkValues(colors)) {
-            errors.push({field: "colors", message: "* Debe selecionar un color como minimo"})
+            errors.push({field: "colors", message: "* Debes selecionar un color como mínimo."})
         }
 
-        if (!checkValues(sizes)) {
-            errors.push({field: "sizes", message: "* Debe selecionar un talle como minimo"})
+        if (!checkValues(sizes) && document.getElementById('category').value != 2) {
+            errors.push({field: "sizes", message: "* Debes selecionar un talle como mínimo."})
         }
 
         inputs.forEach(i => {
@@ -72,13 +80,13 @@ window.addEventListener('load', function (e) {
         let error = '';
         switch (true) {
             case validator.isEmpty(input.value):
-                error = "* Este campo es obligatorio";
+                error = "* Este campo es obligatorio.";
                 break;
             case input.id == 'price' && !validator.isNumeric(input.value):
-                error = "* Este campo solicita un valor númerico"
+                error = "* Debes ingresar un valor numérico."
                 break;
             case input.id == 'price' && input.value <= 0:
-                error = "* El precio del producto debe ser mayor a 0"
+                error = "* El precio del producto debe ser mayor a 0."
                 break;
         }
         return error;

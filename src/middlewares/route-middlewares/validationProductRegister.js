@@ -6,7 +6,14 @@ const validations = [
     body('category').notEmpty().withMessage('Debes seleccionar una categoría para el producto.'),
     body('gender').notEmpty().withMessage('Debes seleccionar un género para el producto.'),
     body('colors').notEmpty().withMessage('Debes ingresar al menos un color para el producto.'),
-    body('sizes').notEmpty().withMessage('Debes ingresar al menos un talle para el producto.'),
+    body('sizes').custom((value, { req }) => {
+        if(req.body.category != 2) {
+            if(value === undefined) {
+                throw new Error('Debes ingresar al menos un talle para el producto.');
+            }
+        }
+        return true;
+    }),
     body('overview').notEmpty().withMessage('Debes ingresar la descripción del producto.'),
     body('careInstructions').notEmpty().withMessage('Debes ingresar las instrucciones de cuidado del producto.'),
     body('composition').notEmpty().withMessage('Debes ingresar los materiales de composición del producto.'),

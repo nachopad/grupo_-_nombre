@@ -91,6 +91,14 @@ main {
     padding: 15px 0;
 }
 
+h2{
+    width: 100%;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
 .container-product-management {
     display: flex;
     flex-wrap: wrap;
@@ -154,12 +162,8 @@ main {
     color: red;
 }
 
-.show-more-icon i:hover {
-    color: green;
-}
-
-.edit-icon i:hover {
-    color: yellow;
+.show-more-icon i:hover, .edit-icon i:hover {
+    color: rgb(0, 64, 255);
 }
 
 .product-name {
@@ -187,12 +191,39 @@ main {
 }
 
 .content-price .price {
+    color: #888888;
     text-decoration: line-through;
 }
 
 .content-price .discount {
     color: red;
     font-weight: bold;
+}
+
+.container-button{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.button-style {
+    width: 20%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    height: 45px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.button-style:hover {
+    background-color: #F6F6F6;
+    color: black;
+    border: 1px solid black;
 }
 
 

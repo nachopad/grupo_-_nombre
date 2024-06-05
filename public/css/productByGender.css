@@ -11,8 +11,5 @@ html, body {
     outline: 0;
     font-size: 12px;
     color: #222222;
-}
-
-.featured-products {
-    padding-top: 70px;
+    padding-top: 40px;
 }

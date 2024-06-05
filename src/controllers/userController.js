@@ -40,6 +40,7 @@ const userCtrl = {
         const errors = validationResult(req);
 
         if(errors.isEmpty()){
+            console.log(req.file);
             await User.update(req.params.id, req.body, req.file);
             let userUpdated = await User.findByPk(req.params.id);
             delete userUpdated.dataValues.password;

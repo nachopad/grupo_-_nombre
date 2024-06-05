@@ -28,7 +28,7 @@ const middlewareAuth = {
         next();
     },
     authAdmin: (req, res, next)=>{
-        if(req.session.userLogged.role!="admin"){
+        if(req.session.userLogged.role_id != 2){
             console.log("You have not administrator role");
             return res.send("You have not administrator role");
         }
